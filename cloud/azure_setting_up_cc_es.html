@@ -1,0 +1,477 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="task"/><meta name="description" content="Use an SSH session to set up Rubrik Cloud Cluster Elastic Storage on Microsoft Azure."/><meta name="DC.relation" content="azure_cc_es_workflow.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="azure_setting_up_cc_es"/>        
+      <title>Setting up Rubrik Cloud Cluster Elastic Storage on Microsoft Azure</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content=""/><meta name="wh-source-relpath" content="cloud/azure_setting_up_cc_es.dita"/><meta name="wh-out-relpath" content="cloud/azure_setting_up_cc_es.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="azure_setting_up_cc_es" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                    
+                    <div class="col-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic task/task topic task" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Setting up <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage on Microsoft Azure</span></h1>
+    
+    
+
+    <div class="- topic/body task/taskbody body taskbody"><p class="- topic/shortdesc shortdesc">Use an SSH session to set up <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage on Microsoft Azure</span>.</p>
+        <section class="- topic/section task/prereq section prereq" id="d2104770e32"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Have the following information available:<ul class="- topic/ul ul">
+                <li class="- topic/li li">IP addresses for the nodes in <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span><p class="- topic/p p">The IP addresses are
+                        available from the node overview page in the Azure portal</p></li>
+                <li class="- topic/li li">Storage account name, managed identity client ID, container name, and Key Vault
+                    key URI</li>
+                <li class="- topic/li li">Name of the file that contains the private SSH key</li>
+            </ul></section>
+        <section class="- topic/ol task/steps ol steps" id="d2104770e53"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="- topic/ol task/steps ol steps"><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Log in to a computer with access to <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> and the SSH key
+                    pair.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Connect to one of the <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> nodes using SSH.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">At a terminal prompt, enter:
+                        <pre class="+ topic/pre pr-d/codeblock pre codeblock"><code>ssh -i <var class="+ topic/keyword sw-d/varname keyword varname">path-to-private-key-file</var> admin@<var class="+ topic/keyword sw-d/varname keyword varname">node-private-ip-address</var></code></pre><p class="- topic/p p">where:</p><ul class="- topic/ul ul">
+                        <li class="- topic/li li"><code class="+ topic/ph pr-d/codeph ph codeph"><var class="+ topic/keyword sw-d/varname keyword varname">path-to-private-key-file</var></code> is the path
+                            to the file containing the private SSH key</li>
+                        <li class="- topic/li li"><code class="+ topic/ph pr-d/codeph ph codeph"><var class="+ topic/keyword sw-d/varname keyword varname">node-private-ip-address</var></code> is the
+                            private IP address of the node selected for management access to <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span></li>
+                    </ul></div>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> welcome message appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At the prompt, enter <kbd class="+ topic/ph sw-d/userinput ph userinput">network nslookup www.rubrik.com
+                            <var class="+ topic/keyword sw-d/varname keyword varname">dns</var></kbd>, where
+                        <code class="+ topic/ph pr-d/codeph ph codeph"><var class="+ topic/keyword sw-d/varname keyword varname">dns</var></code> is the IP address of a DNS server
+                    that is available to <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">
+                    <p class="- topic/p p">This command tests the connectivity between the <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> node
+                        and the DNS servers.</p>
+                    <p class="- topic/p p">The system setup script uses Google DNS at 8.8.8.8 as the default value.</p>
+                    <p class="- topic/p p">If the <span class="+ topic/keyword sw-d/cmdname keyword cmdname">network nslookup</span> request fails to access
+                        www.rubrik.com, replace <code class="+ topic/ph pr-d/codeph ph codeph"><var class="+ topic/keyword sw-d/varname keyword varname">dns</var></code> with the IP
+                        address of a DNS server that is available to <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>.</p>
+                </div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Repeat the connectivity test for each DNS server <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>
+                    uses.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At the prompt, enter <kbd class="+ topic/ph sw-d/userinput ph userinput">network ping
+                    <var class="+ topic/keyword sw-d/varname keyword varname">ntp</var></kbd>, where
+                        <code class="+ topic/ph pr-d/codeph ph codeph"><var class="+ topic/keyword sw-d/varname keyword varname">ntp</var></code> is the IP address of the NTP server
+                    that <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> uses.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">
+                    <p class="- topic/p p">The system setup script uses the NTP Project server pool at pool.ntp.org as
+                        the default value.</p>
+                    <p class="- topic/p p">If the <span class="+ topic/keyword sw-d/cmdname keyword cmdname">ping</span> command fails, replace
+                                <code class="+ topic/ph pr-d/codeph ph codeph"><var class="+ topic/keyword sw-d/varname keyword varname">ntp</var></code> with the IP address of an
+                        NTP server that is available to <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>.</p>
+                </div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Repeat the <span class="+ topic/keyword sw-d/cmdname keyword cmdname">network ping</span> test for each NTP server <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> uses.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At the prompt, enter <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">cluster bootstrap</samp>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The User configuration section appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Email</samp>, enter a valid email address.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult"><span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> sends notifications and alerts to
+                    this email address.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Password</samp>, enter a secure password for the
+                    administrator account.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">The password entered in this step replaces the temporary password for the
+                    administrator account. Keep the new password in a secure location. The password
+                    also provides web UI access for the administrator account.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Re-enter Password</samp>, re-enter the password.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Cluster configuration section appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Cluster name</samp>, enter a name for <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info"><span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> uses the name to identify itself in the Rubrik CDM
+                    web UI and with other Rubrik clusters.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">DNS Nameservers</samp>, enter a comma-separated list
+                    of IP addresses of DNS servers, or enter the Azure Platform IP,
+                    168.63.129.16.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">
+                    <p class="- topic/p p">You can also enter a comma-separated list of search domains.</p>
+                </div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">NTP Servers</samp>, enter a comma-separated list of
+                    NTP servers, or press Enter (Windows system) or return (Mac system) to accept
+                    the default value, pool.ntp.org.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">
+                    <p class="- topic/p p">NTP servers can be listed by FQDN or by IP address.</p>
+                    <p class="- topic/p p">The default value, pool.ntp.org, is the virtual cluster of NTP servers
+                        provided for public use by the NTP Pool Project.</p>
+                    <p class="- topic/p p">When the NTP server is invalid, the web UI displays a banner alert. An
+                        invalid NTP server configuration prevents the addition of vCenter servers
+                        and Windows and Linux hosts. Correct the NTP server configuration to
+                        proceed.</p>
+                </div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Use cloud storage (y/n)</samp>, press Enter (Windows
+                    system) or return (Mac system) to answer yes.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Storage account name</samp>, enter the name of the
+                    storage account.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Managed identity client ID</samp>, enter the client ID
+                    of the managed identity being used.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Endpoint suffix</samp>, enter the endpoint suffix or
+                    use the default value.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Container name</samp>, enter the name of the storage
+                    container.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Enable Immutable Storage? (y/n)</samp>, press Enter
+                    (Windows system) or return (Mac system) to answer yes.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">This turns on immutability for <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Key Vault Key URI</samp>, enter the URI of the
+                    customer-managed key in your Azure Key Vault for Rubrik to use to encrypt the
+                    cluster recovery package.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">For example,
+                        <code class="+ topic/ph pr-d/codeph ph codeph">https://<var class="+ topic/keyword sw-d/varname keyword varname">{vault-name}</var>.vault.azure.net/keys/my-cces-kms-key1/17d680cae2f142f39e50ec714bdeaebb</code>.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Management Gateway</samp>, enter the IP address of the
+                    management gateway to use, or press Enter (Windows system) or return (Mac
+                    system) to accept the default value.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">The cloud provider determines the default value and assigns it to the nodes on
+                    the network.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Management Subnet Mask</samp>, enter the subnet mask
+                    of the management network, or press Enter (Windows system) or return (Mac
+                    system) to accept the default subnet mask.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Number of nodes (1 or 3+)</samp>, enter the number of
+                    nodes in <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">This number is the same as the number of instances deployed from the Azure
+                    Marketplace.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Node 1 Management IP</samp>, enter the IP address for
+                    the first node in <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> and press Enter (Windows system)
+                    or return (Mac system).</span>
+                <div class="- topic/itemgroup task/info itemgroup info">Enter the IP address correctly because you cannot change the IP addresses
+                    assigned to <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> later.</div>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The script prompts for the IP address of the next node.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At the prompt for each remaining node, enter the IP address of that node and
+                    press Enter (Windows system) or return (Mac system).</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">After entering the last IP address, the JSON-formatted body of the setup
+                    request appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">At <samp class="+ topic/ph sw-d/systemoutput ph systemoutput sysout">Proceed?</samp>, enter <kbd class="+ topic/ph sw-d/userinput ph userinput">y</kbd>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Rubrik CLI starts the system setup process. The Bootstrap Progress
+                    section appears and the CLI displays progress messages. When the setup process
+                    finishes, <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span> is ready to register.</div>
+            </li></ol></section>
+        <section class="- topic/section task/result section result" id="d2104770e454"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage on Microsoft Azure</span> is set up.</section>
+        <section class="- topic/section task/postreq section postreq" id="d2104770e462"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>Choose a method to register <span class="- topic/ph ph">Rubrik Cloud Cluster Elastic Storage</span>, as described in <a class="- topic/xref xref" href="../install/rsc_cluster_registration.html" title="Rubrik offers two methods for registering clusters with Rubrik Security Cloud, online and offline.">Cluster registration</a>.</section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="azure_cc_es_workflow.html" title="Setting up Rubrik Cloud Cluster Elastic Storage on Microsoft Azure consists of a sequence of tasks performed in the correct order.">Workflow for Rubrik Cloud Cluster Elastic Storage on Microsoft Azure</a><div class="- topic/desc ">Setting up Rubrik Cloud Cluster Elastic Storage on Microsoft Azure consists of a sequence of         tasks performed in the correct order.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

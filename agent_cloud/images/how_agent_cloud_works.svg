@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="640" viewBox="0 0 840 640" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<rect width="840" height="640" fill="#F4F7FA" rx="12"/>
+<rect x="0" y="0" width="840" height="72" fill="#0A2347" rx="12"/><rect x="0" y="60" width="840" height="12" fill="#0A2347"/><rect x="0" y="69" width="840" height="3" fill="#09A8B8"/>
+<text x="24" y="32" font-size="18" font-weight="bold" fill="#FFFFFF" letter-spacing="0.3">How Agent Cloud Works</text>
+<text x="24" y="52" font-size="11" fill="#8AACCC">Control plane, data plane, and the four ways to connect agents</text>
+<rect x="24" y="92" width="792" height="96" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="24" y="92" width="792" height="30" rx="8" fill="#0C3460"/><rect x="24" y="112" width="792" height="10" fill="#0C3460"/>
+<text x="420.0" y="111.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Control plane — runs in Rubrik Security Cloud</text>
+<text x="420" y="142" font-size="11" fill="#1A2A3A" text-anchor="middle">User interface, policy definitions, inventory, dashboards, alerts</text>
+<text x="420" y="157" font-size="11" fill="#1A2A3A" text-anchor="middle">Orchestrates connections, policy evaluation, and Agent Rewind</text>
+<line x1="420" y1="300" x2="420" y2="190" stroke="#09A8B8" stroke-width="2.5"/>
+<polygon points="420.0,190.0 423.9,198.1 416.1,198.1" fill="#09A8B8"/>
+<text x="432" y="252" font-size="10" fill="#4A6A8A" text-anchor="start">Metadata and policy results only</text>
+<rect x="24" y="304" width="792" height="134" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="24" y="304" width="792" height="30" rx="8" fill="#075F68"/><rect x="24" y="324" width="792" height="10" fill="#075F68"/>
+<text x="420.0" y="323.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Data plane — you choose where it runs</text>
+<rect x="48" y="348" width="232" height="54" rx="8" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+<text x="164" y="371" font-size="12" fill="#0A2347" text-anchor="middle" font-weight="bold">SaaS</text>
+<text x="164" y="389" font-size="10" fill="#4A6A8A" text-anchor="middle">Operated by Rubrik</text>
+<rect x="304" y="348" width="232" height="54" rx="8" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+<text x="420" y="371" font-size="12" fill="#0A2347" text-anchor="middle" font-weight="bold">AWS VPC</text>
+<text x="420" y="389" font-size="10" fill="#4A6A8A" text-anchor="middle">In your AWS account</text>
+<rect x="560" y="348" width="232" height="54" rx="8" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+<text x="676" y="371" font-size="12" fill="#0A2347" text-anchor="middle" font-weight="bold">Azure VNet</text>
+<text x="676" y="389" font-size="10" fill="#4A6A8A" text-anchor="middle">In your Azure subscription</text>
+<text x="420" y="424" font-size="10" fill="#4A6A8A" text-anchor="middle">Processes prompts, responses, and tool calls, and evaluates your policies</text>
+<text x="420" y="466" font-size="12" fill="#0A2347" text-anchor="middle" font-weight="bold">Ways to connect your agents</text>
+<line x1="120.0" y1="510" x2="120.0" y2="440" stroke="#B0C8E0" stroke-width="2" stroke-dasharray="6,4"/>
+<polygon points="120.0,440.0 123.9,448.1 116.1,448.1" fill="#B0C8E0"/>
+<rect x="24" y="512" width="192" height="96" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="24" y="512" width="192" height="28" rx="8" fill="#0B3A72"/><rect x="24" y="530" width="192" height="10" fill="#0B3A72"/>
+<text x="120.0" y="530.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">API integrations</text>
+<text x="120.0" y="560" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Copilot Studio,</text>
+<text x="120.0" y="575" font-size="10.5" fill="#1A2A3A" text-anchor="middle">ChatGPT Enterprise,</text>
+<text x="120.0" y="590" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Amazon Bedrock</text>
+<line x1="320.0" y1="510" x2="320.0" y2="440" stroke="#B0C8E0" stroke-width="2" stroke-dasharray="6,4"/>
+<polygon points="320.0,440.0 323.9,448.1 316.1,448.1" fill="#B0C8E0"/>
+<rect x="224" y="512" width="192" height="96" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="224" y="512" width="192" height="28" rx="8" fill="#0B3A72"/><rect x="224" y="530" width="192" height="10" fill="#0B3A72"/>
+<text x="320.0" y="530.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Gateway or LiteLLM</text>
+<text x="320.0" y="560" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Custom agents that</text>
+<text x="320.0" y="575" font-size="10.5" fill="#1A2A3A" text-anchor="middle">call model providers</text>
+<text x="320.0" y="590" font-size="10.5" fill="#1A2A3A" text-anchor="middle">directly</text>
+<line x1="520.0" y1="510" x2="520.0" y2="440" stroke="#B0C8E0" stroke-width="2" stroke-dasharray="6,4"/>
+<polygon points="520.0,440.0 523.9,448.1 516.1,448.1" fill="#B0C8E0"/>
+<rect x="424" y="512" width="192" height="96" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="424" y="512" width="192" height="28" rx="8" fill="#0B3A72"/><rect x="424" y="530" width="192" height="10" fill="#0B3A72"/>
+<text x="520.0" y="530.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Endpoint detection</text>
+<text x="520.0" y="560" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Coding and desktop</text>
+<text x="520.0" y="575" font-size="10.5" fill="#1A2A3A" text-anchor="middle">agents on employee</text>
+<text x="520.0" y="590" font-size="10.5" fill="#1A2A3A" text-anchor="middle">devices</text>
+<line x1="720.0" y1="510" x2="720.0" y2="440" stroke="#B0C8E0" stroke-width="2" stroke-dasharray="6,4"/>
+<polygon points="720.0,440.0 723.9,448.1 716.1,448.1" fill="#B0C8E0"/>
+<rect x="624" y="512" width="192" height="96" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="624" y="512" width="192" height="28" rx="8" fill="#0B3A72"/><rect x="624" y="530" width="192" height="10" fill="#0B3A72"/>
+<text x="720.0" y="530.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">OpenTelemetry</text>
+<text x="720.0" y="560" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Frameworks that</text>
+<text x="720.0" y="575" font-size="10.5" fill="#1A2A3A" text-anchor="middle">emit OpenTelemetry</text>
+<text x="720.0" y="590" font-size="10.5" fill="#1A2A3A" text-anchor="middle">traces</text>
+<rect x="0" y="618" width="840" height="22" fill="#0A2347"/><rect x="0" y="618" width="840" height="22" fill="#0A2347" rx="12"/><rect x="0" y="618" width="840" height="12" fill="#0A2347"/>
+<text x="24" y="632" font-size="9" fill="#8AACCC">Rubrik Security Cloud — Agent Cloud architecture overview</text>
+<rect width="840" height="640" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/></svg>

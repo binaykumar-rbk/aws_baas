@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Azure Protection Quickstart Workflow
+  Canvas: 960 x 520  |  5 phases  |  14px uniform line spacing
+  Content strictly follows azr_protecting_first_subscription.dita
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520"
+     viewBox="0 0 960 520"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="960" height="520" fill="#F4F7FA" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="960" height="64" fill="#0A2347" rx="12"/>
+  <rect x="0" y="52" width="960" height="12" fill="#0A2347"/>
+  <rect x="0" y="61" width="960" height="3" fill="#09A8B8"/>
+  <text x="480" y="30" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="bold"
+        letter-spacing="0.3">Azure Protection — Quickstart Workflow</text>
+  <text x="480" y="50" text-anchor="middle" fill="#8AACCC" font-size="11">Five steps to protect your first Azure subscription with Rubrik Security Cloud</text>
+
+  <!-- Connector line across all phase circles -->
+  <line x1="110" y1="178" x2="860" y2="178" stroke="#B0C8E0" stroke-width="2"/>
+
+  <!-- ======================== PHASE 1 — PLAN ======================== -->
+  <rect x="24" y="84" width="172" height="286" fill="#FFFFFF" rx="8"
+        stroke="#09A8B8" stroke-width="1.5"/>
+  <rect x="24" y="84" width="172" height="42" fill="#075F68" rx="8"/>
+  <rect x="24" y="112" width="172" height="14" fill="#075F68"/>
+  <text x="110" y="110" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold">Plan</text>
+  <circle cx="110" cy="178" r="24" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+  <text x="110" y="184" text-anchor="middle" fill="#09A8B8" font-size="17" font-weight="bold">1</text>
+  <text x="110" y="216" text-anchor="middle" fill="#075F68" font-size="10" font-weight="bold">PREREQUISITES</text>
+  <line x1="40" y1="222" x2="180" y2="222" stroke="#C0D8E0" stroke-width="1"/>
+  <text x="44" y="238" fill="#1A2A3A" font-size="10">&#x25B8; Active RSC account</text>
+  <text x="44" y="252" fill="#1A2A3A" font-size="10">&#x25B8; Azure subscription with VMs</text>
+  <text x="44" y="266" fill="#1A2A3A" font-size="10">&#x25B8; Azure Global Admin in</text>
+  <text x="52" y="280" fill="#1A2A3A" font-size="10">  Microsoft Entra ID</text>
+  <text x="44" y="294" fill="#1A2A3A" font-size="10">&#x25B8; RSC Admin or Cloud Admin</text>
+  <text x="44" y="308" fill="#1A2A3A" font-size="10">&#x25B8; Assign appropriate team roles</text>
+  <text x="44" y="356" fill="#4A6A8A" font-size="9" font-style="italic">See: Plan your Azure protection</text>
+
+  <!-- Arrow 1 → 2 -->
+  <line x1="196" y1="178" x2="212" y2="178" stroke="#09A8B8" stroke-width="2"/>
+  <polygon points="196,172 212,178 196,184" fill="#09A8B8"/>
+
+  <!-- ======================== PHASE 2 — CONNECT ======================== -->
+  <rect x="214" y="84" width="172" height="286" fill="#FFFFFF" rx="8"
+        stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="214" y="84" width="172" height="42" fill="#0C3460" rx="8"/>
+  <rect x="214" y="112" width="172" height="14" fill="#0C3460"/>
+  <text x="300" y="110" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold">Connect</text>
+  <circle cx="300" cy="178" r="24" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2"/>
+  <text x="300" y="184" text-anchor="middle" fill="#09A8B8" font-size="17" font-weight="bold">2</text>
+  <text x="300" y="216" text-anchor="middle" fill="#2A5080" font-size="10" font-weight="bold">IN RSC</text>
+  <line x1="230" y1="222" x2="370" y2="222" stroke="#C8D8E8" stroke-width="1"/>
+  <!-- Sequence as specified; permission categories named from the actual task steps -->
+  <text x="234" y="238" fill="#1A2A3A" font-size="10">&#x25B8; Add Azure subscription</text>
+  <text x="234" y="252" fill="#1A2A3A" font-size="10">&#x25B8; Select Azure VMs and</text>
+  <text x="242" y="266" fill="#1A2A3A" font-size="10">  Exocompute permissions</text>
+  <text x="234" y="280" fill="#1A2A3A" font-size="10">&#x25B8; Add more permissions later</text>
+  <text x="234" y="294" fill="#1A2A3A" font-size="10">&#x25B8; Use Configure with OAuth</text>
+  <text x="234" y="308" fill="#1A2A3A" font-size="10">&#x25B8; Verify subscription in RSC</text>
+  <text x="234" y="344" fill="#4A6A8A" font-size="9" font-style="italic">See: Creating Azure</text>
+  <text x="234" y="356" fill="#4A6A8A" font-size="9" font-style="italic">cloud accounts with OAuth</text>
+
+  <!-- Arrow 2 → 3 -->
+  <line x1="386" y1="178" x2="402" y2="178" stroke="#09A8B8" stroke-width="2"/>
+  <polygon points="386,172 402,178 386,184" fill="#09A8B8"/>
+
+  <!-- ======================== PHASE 3 — RSC PROVISIONS (automated, no user action) ======================== -->
+  <rect x="404" y="84" width="172" height="286" fill="#FFFFFF" rx="8"
+        stroke="#C8D8E8" stroke-width="1" stroke-dasharray="6,3"/>
+  <rect x="404" y="84" width="172" height="42" fill="#1A4A6A" rx="8"/>
+  <rect x="404" y="112" width="172" height="14" fill="#1A4A6A"/>
+  <text x="490" y="113" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold">RSC Provisions</text>
+  <circle cx="490" cy="178" r="24" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2"/>
+  <text x="490" y="184" text-anchor="middle" fill="#09A8B8" font-size="17" font-weight="bold">3</text>
+  <text x="490" y="216" text-anchor="middle" fill="#5A7A9A" font-size="10" font-weight="bold">AUTOMATED</text>
+  <line x1="420" y1="222" x2="560" y2="222" stroke="#C8D8E8" stroke-width="1"/>
+  <!-- System voice — RSC is the actor, no user steps in this phase -->
+  <text x="424" y="238" fill="#4A5A6A" font-size="10">&#x25B8; Exocompute cluster deployed</text>
+  <text x="424" y="252" fill="#4A5A6A" font-size="10">&#x25B8; VNet, subnet, and security</text>
+  <text x="432" y="266" fill="#4A5A6A" font-size="10">  rules provisioned by RSC</text>
+  <text x="424" y="280" fill="#4A5A6A" font-size="10">&#x25B8; No action required</text>
+  <text x="424" y="356" fill="#4A6A8A" font-size="9" font-style="italic">See: Set up Exocompute on Azure</text>
+
+  <!-- Arrow 3 → 4 -->
+  <line x1="576" y1="178" x2="592" y2="178" stroke="#09A8B8" stroke-width="2"/>
+  <polygon points="576,172 592,178 576,184" fill="#09A8B8"/>
+
+  <!-- ======================== PHASE 4 — PROTECT ======================== -->
+  <rect x="594" y="84" width="172" height="286" fill="#FFFFFF" rx="8"
+        stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="594" y="84" width="172" height="42" fill="#0C3460" rx="8"/>
+  <rect x="594" y="112" width="172" height="14" fill="#0C3460"/>
+  <text x="680" y="110" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold">Protect</text>
+  <circle cx="680" cy="178" r="24" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2"/>
+  <text x="680" y="184" text-anchor="middle" fill="#09A8B9" font-size="17" font-weight="bold">4</text>
+  <text x="680" y="216" text-anchor="middle" fill="#2A5080" font-size="10" font-weight="bold">SLA DOMAINS</text>
+  <line x1="610" y1="222" x2="750" y2="222" stroke="#C8D8E8" stroke-width="1"/>
+  <!-- "Add archiving/replication" removed per request -->
+  <text x="614" y="238" fill="#1A2A3A" font-size="10">&#x25B8; Create an SLA Domain</text>
+  <text x="614" y="252" fill="#1A2A3A" font-size="10">&#x25B8; Set snapshot frequency</text>
+  <text x="622" y="266" fill="#1A2A3A" font-size="10">  and retention duration</text>
+  <text x="614" y="280" fill="#1A2A3A" font-size="10">&#x25B8; Assign to subscription,</text>
+  <text x="622" y="294" fill="#1A2A3A" font-size="10">  resource group, or VMs</text>
+  <text x="614" y="344" fill="#4A6A8A" font-size="9" font-style="italic">See: Set up Azure</text>
+  <text x="614" y="356" fill="#4A6A8A" font-size="9" font-style="italic">workloads protection</text>
+
+  <!-- Arrow 4 → 5 -->
+  <line x1="766" y1="178" x2="782" y2="178" stroke="#21DDAA" stroke-width="2"/>
+  <polygon points="766,172 782,178 766,184" fill="#21DDAA"/>
+
+  <!-- ======================== PHASE 5 — VERIFY ======================== -->
+  <rect x="784" y="84" width="152" height="286" fill="#FFFFFF" rx="8"
+        stroke="#21DDAA" stroke-width="1.5"/>
+  <rect x="784" y="84" width="152" height="42" fill="#0A4030" rx="8"/>
+  <rect x="784" y="112" width="152" height="14" fill="#0A4030"/>
+  <text x="860" y="110" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold">Verify</text>
+  <circle cx="860" cy="178" r="24" fill="#F4F7FA" stroke="#21DDAA" stroke-width="2.5"/>
+  <text x="860" y="184" text-anchor="middle" fill="#21DDAA" font-size="17" font-weight="bold">5</text>
+  <text x="860" y="216" text-anchor="middle" fill="#0A6048" font-size="10" font-weight="bold">VALIDATION</text>
+  <line x1="800" y1="222" x2="920" y2="222" stroke="#B0D8C8" stroke-width="1"/>
+  <!-- "Verify Exocompute health check passes" removed per request -->
+  <text x="804" y="238" fill="#1A2A3A" font-size="10">&#x25B8; Confirm VMs show</text>
+  <text x="812" y="252" fill="#1A2A3A" font-size="10">  Protected status in RSC</text>
+  <text x="804" y="266" fill="#1A2A3A" font-size="10">&#x25B8; Take on-demand snapshot</text>
+  <text x="804" y="280" fill="#1A2A3A" font-size="10">&#x25B8; Confirm it completes</text>
+  <text x="804" y="344" fill="#4A6A8A" font-size="9" font-style="italic">See: Management of Azure</text>
+  <text x="804" y="356" fill="#4A6A8A" font-size="9" font-style="italic">virtual machine snapshots</text>
+
+  <!-- ======================== FOOTER ======================== -->
+  <rect x="0" y="392" width="960" height="128" fill="#0A2347" rx="0"/>
+  <rect x="0" y="508" width="960" height="12" fill="#0A2347" rx="12"/>
+  <rect x="0" y="392" width="960" height="3" fill="#09A8B8"/>
+  <text x="480" y="414" text-anchor="middle" fill="#4DD2D2" font-size="11"
+        font-weight="bold" letter-spacing="0.8">BEFORE YOU BEGIN</text>
+
+  <!-- Card 1 — updated title to "Exocompute networking method is permanent" -->
+  <rect x="24" y="424" width="280" height="54" fill="#0D2E5A" rx="5"
+        stroke="#FFB721" stroke-width="1"/>
+  <text x="34" y="441" fill="#FFB721" font-size="11" font-weight="bold">Exocompute networking method is permanent</text>
+  <text x="34" y="457" fill="#8AACCC" font-size="10">The method selected when adding the account</text>
+  <text x="34" y="471" fill="#8AACCC" font-size="10">cannot be changed without re-adding it</text>
+
+  <!-- Card 2 — RSC access required -->
+  <rect x="340" y="424" width="280" height="54" fill="#0D2E5A" rx="5"
+        stroke="#2FCAFF" stroke-width="1"/>
+  <text x="350" y="441" fill="#2FCAFF" font-size="11" font-weight="bold">RSC access required</text>
+  <text x="350" y="457" fill="#8AACCC" font-size="10">You need an RSC account with Administrator</text>
+  <text x="350" y="471" fill="#8AACCC" font-size="10">or Cloud Admin role to complete this task</text>
+
+  <!-- Card 3 — Azure Global Admin for OAuth -->
+  <rect x="656" y="424" width="280" height="54" fill="#0D2E5A" rx="5"
+        stroke="#21DDAA" stroke-width="1"/>
+  <text x="666" y="441" fill="#21DDAA" font-size="11" font-weight="bold">Azure Global Admin required</text>
+  <text x="666" y="457" fill="#8AACCC" font-size="10">Azure Global Administrator privileges in</text>
+  <text x="666" y="471" fill="#8AACCC" font-size="10">Microsoft Entra ID are required for OAuth</text>
+
+  <text x="480" y="500" text-anchor="middle" fill="#4A7A9A" font-size="9">Rubrik Security Cloud  |  Azure Native Protection  |  Quickstart Guide</text>
+
+  <!-- Perimeter border -->
+  <rect width="960" height="520" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/>
+
+</svg>

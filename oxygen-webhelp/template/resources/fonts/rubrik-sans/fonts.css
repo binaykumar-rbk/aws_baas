@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Rubrik Sans';
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    src: url('rubriksansvf.woff2') format('woff2');
+}
+
+:root {
+    --rubrik-font: 'Rubrik Sans';
+}

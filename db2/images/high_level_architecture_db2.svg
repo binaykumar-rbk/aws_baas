@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"
+     viewBox="0 0 800 600"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+  <!-- Db2 protection architecture: communication flow + protection hierarchy -->
+  <!-- Layout:                                                                -->
+  <!--   y=20-330  Section 1: Communication architecture                     -->
+  <!--   y=350-580 Section 2: Db2 instances protection hierarchy             -->
+  <defs>
+    <marker id="arrR" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6B7280"/>
+    </marker>
+  </defs>
+
+  <!-- ===== Section 1: Communication architecture ===== -->
+  <text x="40" y="35" font-size="14" font-weight="600" fill="#273637">Communication architecture</text>
+
+  <!-- Db2 host card (left) -->
+  <rect x="40" y="55" width="290" height="260" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="40" y="55" width="290" height="40" rx="8" fill="#0C2448"/>
+  <rect x="40" y="87" width="290" height="8" fill="#0C2448"/>
+  <text x="185" y="80" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">Db2 host</text>
+  <text x="185" y="115" font-size="11.5" fill="#6C7576" text-anchor="middle">Linux / AIX / Windows</text>
+
+  <!-- RBS inner card -->
+  <rect x="70" y="135" width="230" height="90" rx="6" fill="#F6F8F7" stroke="#E6EAE9" stroke-width="1"/>
+  <rect x="70" y="135" width="4" height="90" rx="2" fill="#1DA1DC"/>
+  <text x="185" y="160" font-size="13" font-weight="600" fill="#273637" text-anchor="middle">Rubrik Backup Service</text>
+  <text x="185" y="178" font-size="11.5" fill="#6C7576" text-anchor="middle">(RBS)</text>
+  <text x="185" y="200" font-size="11.5" fill="#6C7576" text-anchor="middle">Agent bridge between</text>
+  <text x="185" y="215" font-size="11.5" fill="#6C7576" text-anchor="middle">Db2 host and Rubrik cluster</text>
+
+  <!-- Db2 host port label -->
+  <text x="185" y="260" font-size="12" font-weight="700" fill="#1DA1DC" text-anchor="middle">Ports 12800 / 12801</text>
+  <text x="185" y="278" font-size="11" fill="#6C7576" text-anchor="middle">TCP &#x2014; on Db2 host</text>
+  <text x="185" y="297" font-size="11" fill="#6C7576" text-anchor="middle">RBS &#x2194; Rubrik cluster</text>
+
+  <!-- Rubrik cluster card (right) -->
+  <rect x="470" y="55" width="290" height="260" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="470" y="55" width="290" height="40" rx="8" fill="#0C2448"/>
+  <rect x="470" y="87" width="290" height="8" fill="#0C2448"/>
+  <text x="615" y="80" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">Rubrik cluster</text>
+  <text x="615" y="115" font-size="11.5" fill="#6C7576" text-anchor="middle">RSC / CDM</text>
+
+  <!-- Cluster activities -->
+  <rect x="500" y="135" width="230" height="90" rx="6" fill="#F6F8F7" stroke="#E6EAE9" stroke-width="1"/>
+  <rect x="500" y="135" width="4" height="90" rx="2" fill="#1DA1DC"/>
+  <circle cx="518" cy="159" r="2.5" fill="#1DA1DC"/>
+  <text x="528" y="163" font-size="11.5" fill="#273637">Stores Db2 backups</text>
+  <circle cx="518" cy="184" r="2.5" fill="#1DA1DC"/>
+  <text x="528" y="188" font-size="11.5" fill="#273637">Manages SLA Domains</text>
+  <circle cx="518" cy="209" r="2.5" fill="#1DA1DC"/>
+  <text x="528" y="213" font-size="11.5" fill="#273637">Hosts RBS installer</text>
+
+  <!-- Cluster port label -->
+  <text x="615" y="260" font-size="12" font-weight="700" fill="#1DA1DC" text-anchor="middle">Port 9639</text>
+  <text x="615" y="278" font-size="11" fill="#6C7576" text-anchor="middle">TCP &#x2014; on cluster nodes</text>
+  <text x="615" y="297" font-size="11" fill="#6C7576" text-anchor="middle">inbound from Db2 host</text>
+
+  <!-- Arrow: Db2 host -> Rubrik cluster (backup data &amp; control) -->
+  <line x1="332" y1="165" x2="468" y2="165" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arrR)"/>
+  <text x="400" y="158" font-size="11" fill="#6C7576" text-anchor="middle">Backup data &amp; control</text>
+
+  <!-- Arrow: Rubrik cluster -> Db2 host (RBS install over HTTPS) -->
+  <line x1="468" y1="200" x2="332" y2="200" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arrR)"/>
+  <text x="400" y="220" font-size="11" fill="#6C7576" text-anchor="middle">RBS install over HTTPS</text>
+
+  <!-- ===== Section 2: Db2 instances protection hierarchy ===== -->
+  <text x="40" y="360" font-size="14" font-weight="600" fill="#273637">Db2 instances protection hierarchy</text>
+
+  <!-- Parent: Db2 instance with SLA tag -->
+  <rect x="290" y="385" width="220" height="65" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="290" y="385" width="4" height="65" rx="2" fill="#1DA1DC"/>
+  <text x="400" y="412" font-size="14" font-weight="600" fill="#273637" text-anchor="middle">Db2 instance</text>
+  <text x="400" y="432" font-size="11.5" fill="#6C7576" text-anchor="middle">SLA Domain X assigned</text>
+
+  <!-- Tree connector lines -->
+  <line x1="400" y1="450" x2="400" y2="475" stroke="#6B7280" stroke-width="1.5"/>
+  <line x1="150" y1="475" x2="650" y2="475" stroke="#6B7280" stroke-width="1.5"/>
+  <line x1="150" y1="475" x2="150" y2="495" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrR)"/>
+  <line x1="400" y1="475" x2="400" y2="495" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrR)"/>
+  <line x1="650" y1="475" x2="650" y2="495" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrR)"/>
+
+  <!-- Db2 database 1: inherits -->
+  <rect x="70" y="500" width="160" height="70" rx="6" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1"/>
+  <rect x="70" y="500" width="4" height="70" rx="2" fill="#1DA1DC"/>
+  <text x="150" y="525" font-size="13" font-weight="600" fill="#273637" text-anchor="middle">Db2 database</text>
+  <text x="150" y="548" font-size="11.5" fill="#6C7576" text-anchor="middle">Inherits SLA X</text>
+
+  <!-- Db2 database 2: inherits -->
+  <rect x="320" y="500" width="160" height="70" rx="6" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1"/>
+  <rect x="320" y="500" width="4" height="70" rx="2" fill="#1DA1DC"/>
+  <text x="400" y="525" font-size="13" font-weight="600" fill="#273637" text-anchor="middle">Db2 database</text>
+  <text x="400" y="548" font-size="11.5" fill="#6C7576" text-anchor="middle">Inherits SLA X</text>
+
+  <!-- Db2 database 3: override -->
+  <rect x="570" y="500" width="160" height="70" rx="6" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1"/>
+  <rect x="570" y="500" width="4" height="70" rx="2" fill="#0086C0"/>
+  <text x="650" y="525" font-size="13" font-weight="600" fill="#273637" text-anchor="middle">Db2 database</text>
+  <text x="650" y="548" font-size="11.5" fill="#6C7576" text-anchor="middle">Override: SLA Y</text>
+</svg>

@@ -1,0 +1,477 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="task"/><meta name="description" content="Create an Azure private endpoint for an existing Rubrik Cloud Vault location for data center workloads to route archival traffic over the Azure backbone network instead of the public internet. You must disable the location before you create a private endpoint."/><meta name="DC.relation" content="../saas/rcv_secure_connectivity_azr_pe.html"/><meta name="DC.relation" content="../saas/rcv_rubrik_cloud_vault.html"/><meta name="DC.relation" content="../saas/rcv_networking.html"/><meta name="DC.relation" content="../saas/rcv_networking_dc.html"/><meta name="DC.relation" content="../saas/rcv_reqs_using_private_endpoint.html"/><meta name="DC.relation" content="../saas/rcv_managing_private_endpoints.html"/><meta name="DC.relation" content="rcv_secure_connectivity_azr_pe.html"/><meta name="DC.relation" content="rcv_managing_private_endpoints.html"/><meta name="DC.relation" content="rcv_creating_rcv_dc_workloads_azure.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="rcv_configuring_azure_private_endpoint"/>        
+      <title>Enabling Azure private endpoints for an existing RCV location</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="rcv_configuring_azure_private_endpoint-d39307e10667"/><meta name="wh-source-relpath" content="saas/rcv_configuring_azure_private_endpoint.dita"/><meta name="wh-out-relpath" content="saas/rcv_configuring_azure_private_endpoint.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="rcv_configuring_azure_private_endpoint" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../saas/sla_domains.html">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li><div class="topicref" data-id="rcv_rubrik_cloud_vault"><div class="title"><a href="../saas/rcv_rubrik_cloud_vault.html">Rubrik Cloud Vault</a><div class="wh-tooltip"><p class="shortdesc">Rubrik Cloud Vault is a Rubrik-managed cloud service that provides isolated and         immutable copies of protected data, enhancing cyber resiliency.</p></div></div></div></li><li><div class="topicref" data-id="rcv_networking"><div class="title"><a href="../saas/rcv_networking.html">RCV network connectivity</a><div class="wh-tooltip"><p class="shortdesc">All Rubrik Cloud Vault (RCV) locations require allowlisted network endpoints, and         additional options such as private connectivity depend on whether the location serves data         center, Cloud Native Protection, or NAS Cloud Direct workloads.</p></div></div></div></li><li><div class="topicref" data-id="rcv_networking_dc"><div class="title"><a href="../saas/rcv_networking_dc.html">Networking for data center workloads</a><div class="wh-tooltip"><p class="shortdesc">This topic describes how to secure archival traffic between your Rubrik clusters and         RCV locations for data center workloads by using Azure private endpoints or AWS private         connectivity, and how to configure proxy, IP allow list, and reader cluster network         settings.</p></div></div></div></li><li><div class="topicref" data-id="rcv_secure_connectivity_azr_pe"><div class="title"><a href="../saas/rcv_secure_connectivity_azr_pe.html">Secure connectivity with Azure private endpoints</a><div class="wh-tooltip"><p class="shortdesc">For data center workloads, an Azure private endpoint in your own Azure tenant sends         data from your Rubrik clusters to RCV over a private connection, such as ExpressRoute,         instead of the public internet.</p></div></div></div></li><li class="active"><div class="topicref" data-id="rcv_configuring_azure_private_endpoint"><div class="title"><a href="../saas/rcv_configuring_azure_private_endpoint.html">Enabling Azure private endpoints for an existing RCV location</a><div class="wh-tooltip"><p class="shortdesc">Create an Azure private endpoint for an existing Rubrik Cloud Vault location for data         center workloads to route archival traffic over the Azure backbone network instead of the         public internet. You must disable the location before you create a private         endpoint.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../saas/rcv_reqs_using_private_endpoint.html" title="Requirements for using a private endpoint with Rubrik Cloud Vault" aria-label="Previous topic: Requirements for using a private endpoint with Rubrik Cloud Vault" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../saas/rcv_managing_private_endpoints.html" title="Managing private endpoints" aria-label="Next topic: Managing private endpoints" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="sla_domains-d39307e6483" class="topicref" data-id="sla_domains" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action sla_domains-d39307e6483-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="sla_domains-d39307e6483-link">SLA Domains</a><div class="wh-tooltip"><p class="shortdesc">SLA Domains in <span class="ph">RSC</span> unify data protection policies, providing a         unified approach to manage data protection across various workloads and         environments.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="arch_dc_archival_locations-d39307e7909" class="topicref" data-id="arch_dc_archival_locations" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action arch_dc_archival_locations-d39307e7909-link" class="wh-expand-btn"></span><div class="title"><a href="../archival/arch_dc_archival_locations.html" id="arch_dc_archival_locations-d39307e7909-link">Data center archival locations</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> supports archiving backed-up data from data center workloads to         external storage destinations, including cloud storage providers, NFS shares, S3-compatible         object stores, and tape.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="rcv_rubrik_cloud_vault-d39307e10399" class="topicref" data-id="rcv_rubrik_cloud_vault" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action rcv_rubrik_cloud_vault-d39307e10399-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_rubrik_cloud_vault.html" id="rcv_rubrik_cloud_vault-d39307e10399-link">Rubrik Cloud Vault</a><div class="wh-tooltip"><p class="shortdesc">Rubrik Cloud Vault is a Rubrik-managed cloud service that provides isolated and         immutable copies of protected data, enhancing cyber resiliency.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_dashboard-d39307e10410" class="topicref" data-id="rcv_dashboard" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_dashboard-d39307e10410-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_dashboard.html" id="rcv_dashboard-d39307e10410-link">Rubrik Cloud Vault dashboard</a><div class="wh-tooltip"><p class="shortdesc">The Rubrik Cloud Vault dashboard in <span class="ph">RSC</span> displays the data protection         and usage summary of all the Rubrik Cloud Vault locations connected to <span class="ph">RSC</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_page-d39307e10455" class="topicref" data-id="rcv_page" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_page-d39307e10455-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_page.html" id="rcv_page-d39307e10455-link">Rubrik Cloud Vaults page</a><div class="wh-tooltip"><p class="shortdesc">The Rubrik Cloud Vaults page provides a list of all available archival locations and         the actions that <span class="ph">RSC</span> supports for each location.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_security-d39307e10491" class="topicref" data-id="rcv_security" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_security-d39307e10491-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_security.html" id="rcv_security-d39307e10491-link">Rubrik Cloud Vault security</a><div class="wh-tooltip"><p class="shortdesc">Rubrik Cloud Vault adheres to security standards for the protection of archived         backups.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="rcv_networking-d39307e10601" class="topicref" data-id="rcv_networking" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action rcv_networking-d39307e10601-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_networking.html" id="rcv_networking-d39307e10601-link">RCV network connectivity</a><div class="wh-tooltip"><p class="shortdesc">All Rubrik Cloud Vault (RCV) locations require allowlisted network endpoints, and         additional options such as private connectivity depend on whether the location serves data         center, Cloud Native Protection, or NAS Cloud Direct workloads.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_networking_all_locations-d39307e10612" class="topicref" data-id="rcv_networking_all_locations" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_networking_all_locations-d39307e10612-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_networking_all_locations.html" id="rcv_networking_all_locations-d39307e10612-link">Networking for all RCV locations</a><div class="wh-tooltip"><p class="shortdesc">You must allowlist specific endpoints in your network for all RCV locations.         Depending on your location type, additional networking configuration may also be         required.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="rcv_networking_dc-d39307e10634" class="topicref" data-id="rcv_networking_dc" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action rcv_networking_dc-d39307e10634-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_networking_dc.html" id="rcv_networking_dc-d39307e10634-link">Networking for data center workloads</a><div class="wh-tooltip"><p class="shortdesc">This topic describes how to secure archival traffic between your Rubrik clusters and         RCV locations for data center workloads by using Azure private endpoints or AWS private         connectivity, and how to configure proxy, IP allow list, and reader cluster network         settings.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true"><div data-tocid="rcv_secure_connectivity_azr_pe-d39307e10645" class="topicref" data-id="rcv_secure_connectivity_azr_pe" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action rcv_secure_connectivity_azr_pe-d39307e10645-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_secure_connectivity_azr_pe.html" id="rcv_secure_connectivity_azr_pe-d39307e10645-link">Secure connectivity with Azure private endpoints</a><div class="wh-tooltip"><p class="shortdesc">For data center workloads, an Azure private endpoint in your own Azure tenant sends         data from your Rubrik clusters to RCV over a private connection, such as ExpressRoute,         instead of the public internet.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="rcv_reqs_using_private_endpoint-d39307e10656" class="topicref" data-id="rcv_reqs_using_private_endpoint" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_reqs_using_private_endpoint.html" id="rcv_reqs_using_private_endpoint-d39307e10656-link">Requirements for using a private endpoint with Rubrik Cloud Vault</a><div class="wh-tooltip"><p class="shortdesc">Connecting a private endpoint to send data to Rubrik Cloud Vault over a private         connection has specific requirements.</p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="rcv_configuring_azure_private_endpoint-d39307e10667" class="topicref" data-id="rcv_configuring_azure_private_endpoint" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_configuring_azure_private_endpoint.html" id="rcv_configuring_azure_private_endpoint-d39307e10667-link">Enabling Azure private endpoints for an existing RCV location</a><div class="wh-tooltip"><p class="shortdesc">Create an Azure private endpoint for an existing Rubrik Cloud Vault location for data         center workloads to route archival traffic over the Azure backbone network instead of the         public internet. You must disable the location before you create a private         endpoint.</p></div></div></div></li><li role="treeitem"><div data-tocid="rcv_managing_private_endpoints-d39307e10678" class="topicref" data-id="rcv_managing_private_endpoints" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_managing_private_endpoints.html" id="rcv_managing_private_endpoints-d39307e10678-link">Managing private endpoints</a><div class="wh-tooltip"><p class="shortdesc">Manage your private endpoints by adding, modifying, or deleting them.</p></div></div></div></li><li role="treeitem"><div data-tocid="rcv_options_resolve_storage_url-d39307e10689" class="topicref" data-id="rcv_options_resolve_storage_url" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_options_resolve_storage_url.html" id="rcv_options_resolve_storage_url-d39307e10689-link">Options to resolve the storage URL</a><div class="wh-tooltip"><p class="shortdesc">To use Rubrik Cloud Vault with a private endpoint, the Rubrik cluster must be able to         resolve the storage URL to the private IP address of the endpoint created.</p></div></div></div></li><li role="treeitem"><div data-tocid="rcv_enabling_rbk_clus_resolve_str_url-d39307e10700" class="topicref" data-id="rcv_enabling_rbk_clus_resolve_str_url" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_enabling_rbk_clus_resolve_str_url.html" id="rcv_enabling_rbk_clus_resolve_str_url-d39307e10700-link">Enabling the Rubrik cluster to resolve the storage URL</a><div class="wh-tooltip"><p class="shortdesc">Enable the Rubrik cluster to resolve the storage URL to the private IP address of the         endpoint. This is required to use Rubrik Cloud Vault with a private endpoint.</p></div></div></div></li></ul></li><li role="treeitem"><div data-tocid="rcv_configuring_aws_private_connectivity-d39307e10711" class="topicref" data-id="rcv_configuring_aws_private_connectivity" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_configuring_aws_private_connectivity.html" id="rcv_configuring_aws_private_connectivity-d39307e10711-link">Enabling AWS private connectivity for an existing RCV location</a><div class="wh-tooltip"><p class="shortdesc">Enable AWS VPC interface endpoints on an existing Rubrik Cloud Vault location for         data center workloads to route archival traffic over private network paths. You must disable         the location before making changes to its network settings.</p></div></div></div></li><li role="treeitem"><div data-tocid="rcv_connecting_reader_location-d39307e10722" class="topicref" data-id="rcv_connecting_reader_location" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_connecting_reader_location.html" id="rcv_connecting_reader_location-d39307e10722-link">Connecting a reader location</a><div class="wh-tooltip"><p class="shortdesc">Connect a secondary Rubrik cluster to an existing RCV location as a reader to provide         read-only access to archived data.</p></div></div></div></li><li role="treeitem"><div data-tocid="rcv_aws_reader_network_settings-d39307e10733" class="topicref" data-id="rcv_aws_reader_network_settings" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_aws_reader_network_settings.html" id="rcv_aws_reader_network_settings-d39307e10733-link">Configuring network settings for AWS RCV reader locations</a><div class="wh-tooltip"><p class="shortdesc">When connecting a reader cluster to an AWS RCV location that has private connectivity         or an IP allow list configured, configure matching network settings during the Connect As         Reader wizard.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_networking_cnp-d39307e10744" class="topicref" data-id="rcv_networking_cnp" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_networking_cnp-d39307e10744-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_networking_cnp.html" id="rcv_networking_cnp-d39307e10744-link">Networking for Cloud Native Protection workloads</a><div class="wh-tooltip"><p class="shortdesc">Cloud Native Protection (CNP) RCV locations support Azure private endpoints to secure         archival traffic within your Azure virtual network.</p></div></div></div></li><li role="treeitem"><div data-tocid="rcv_networking_ncd-d39307e10766" class="topicref" data-id="rcv_networking_ncd" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_networking_ncd.html" id="rcv_networking_ncd-d39307e10766-link">Networking for NAS Cloud Direct workloads</a><div class="wh-tooltip"><p class="shortdesc">NAS Cloud Direct (NCD) RCV locations on Azure support Azure private endpoints. No         additional networking configuration is available in <span class="ph">RSC</span> for NCD         locations.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_prep_location_creation-d39307e10780" class="topicref" data-id="rcv_prep_location_creation" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_prep_location_creation-d39307e10780-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_prep_location_creation.html" id="rcv_prep_location_creation-d39307e10780-link">Preparation for RCV location creation</a><div class="wh-tooltip"><p class="shortdesc">Before using Rubrik Cloud Vault, you must understand the options available for         creating an RCV location to ensure optimal data protection and recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_azure_config-d39307e10932" class="topicref" data-id="rcv_azure_config" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_azure_config-d39307e10932-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_azure_config.html" id="rcv_azure_config-d39307e10932-link">RCV configuration on Azure</a><div class="wh-tooltip"><p class="shortdesc">Information about configuring Rubrik Cloud Vault locations on Azure.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_aws_config-d39307e10982" class="topicref" data-id="rcv_aws_config" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_aws_config-d39307e10982-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_aws_config.html" id="rcv_aws_config-d39307e10982-link">RCV configuration on AWS</a><div class="wh-tooltip"><p class="shortdesc">Information about configuring Rubrik Cloud Vault locations on AWS.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_gcp_config-d39307e11032" class="topicref" data-id="rcv_gcp_config" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_gcp_config-d39307e11032-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_gcp_config.html" id="rcv_gcp_config-d39307e11032-link">Configuration of RCV on GCP</a><div class="wh-tooltip"><p class="shortdesc">Information about configuring Rubrik Cloud Vault locations on GCP.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_failover_azure-d39307e11065" class="topicref" data-id="rcv_failover_azure" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_failover_azure-d39307e11065-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_failover_azure.html" id="rcv_failover_azure-d39307e11065-link">Failover for RCV on Azure</a><div class="wh-tooltip"><p class="shortdesc">The failover process for Rubrik Cloud Vault ensures continuous data availability         during regional outages and disasters by switching between primary and secondary regions         configured with Multi-region redundancy.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_workloads_protection-d39307e11131" class="topicref" data-id="rcv_workloads_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_workloads_protection-d39307e11131-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_workloads_protection.html" id="rcv_workloads_protection-d39307e11131-link">Protection of workloads in RCV</a><div class="wh-tooltip"><p class="shortdesc">You can protect your workloads in the Rubrik Cloud Vault locations by assigning SLA         Domains to your workloads.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_license_management-d39307e11165" class="topicref" data-id="rcv_license_management" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_license_management-d39307e11165-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_license_management.html" id="rcv_license_management-d39307e11165-link">Rubrik Cloud Vault license management</a><div class="wh-tooltip"><p class="shortdesc">Monitor your RCV storage consumption, view the storage runway and forecast, receive         notifications at consumption thresholds, and replace licenses when required.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_location_management-d39307e11220" class="topicref" data-id="rcv_location_management" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_location_management-d39307e11220-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_location_management.html" id="rcv_location_management-d39307e11220-link">Rubrik Cloud Vault location management</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides different options to manage your Rubrik Cloud Vault         locations.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="cascading_archival-d39307e11357" class="topicref" data-id="cascading_archival" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action cascading_archival-d39307e11357-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/cascading_archival.html" id="cascading_archival-d39307e11357-link">Cascading archival</a><div class="wh-tooltip"><p class="shortdesc">Using cascading archival, you can increase replicated data redundancy and decrease         data storage costs by archiving replicated snapshots from a replication target Rubrik         cluster to a remote archival location.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="replication-d39307e11412" class="topicref" data-id="replication" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action replication-d39307e11412-link" class="wh-expand-btn"></span><div class="title"><a href="../replication/replication.html" id="replication-d39307e11412-link">Replication</a><div class="wh-tooltip"><p class="shortdesc">The replication feature directs the Rubrik cluster to send replicas of source       snapshots or backups to a target Rubrik cluster and defines the maximum time to keep the       replica on each cluster.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic task/task topic task" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Enabling Azure private endpoints for an existing RCV location</h1>
+    
+    <div class="- topic/body task/taskbody body taskbody"><p class="- topic/shortdesc shortdesc">Create an Azure private endpoint for an existing Rubrik Cloud Vault location for data
+        center workloads to route archival traffic over the Azure backbone network instead of the
+        public internet. You must disable the location before you create a private
+        endpoint.</p>
+        <section class="- topic/section task/prereq section prereq" id="d1545336e80"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li">An RCV location on Azure for data center workloads.</li>
+                <li class="- topic/li li">Permissions in the Azure portal to create private endpoints in your
+                    subscription.</li>
+                <li class="- topic/li li">Environment requirements, as described in <a class="- topic/xref xref" href="rcv_reqs_using_private_endpoint.html" title="Connecting a private endpoint to send data to Rubrik Cloud Vault over a private connection has specific requirements.">Requirements for using a private endpoint with Rubrik Cloud Vault</a>.</li>
+            </ul>
+        </section>
+        <section class="- topic/section task/context section context" id="d1545336e101"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>
+            <p class="- topic/p p">A private endpoint creates a private connection between your Azure virtual network
+                and the RCV storage account. Azure private endpoints incur additional charges in
+                your Azure account.</p>
+            <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">Archiving stops while the location is disabled.</div></div>
+            <p class="- topic/p p">For RCV locations for cloud-native workloads, see <a class="- topic/xref xref" href="adding_private_endpoint.html" title="Create a private endpoint connection from your environment to an RCV Cloud Native location to secure network traffic between your workloads and the RCV archival storage.">Adding a private endpoint for RCV Cloud Native locations</a>.</p>
+        </section>
+        <section class="- topic/ol task/steps ol steps" id="d1545336e123"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="- topic/ol task/steps ol steps"><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Log in to <span class="- topic/ph ph">RSC</span>.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <img class="- topic/image image" height="16" width="NaN" src="../reuse/conrefs/../../images/ui-icons/AppTray.svg" alt="Applications"/> and select
+                        <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Data Protection</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Data Protection dashboard appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">On the navigation bar, click <span class="+ topic/ph ui-d/menucascade ph menucascade"><span class="+ topic/ph ui-d/uicontrol ph uicontrol">Infrastructure</span><abbr title="and then"> &gt; </abbr><span class="+ topic/ph ui-d/uicontrol ph uicontrol"> Rubrik Cloud Vault</span></span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Rubrik Cloud Vault dashboard appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">RCV Locations</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">A list of RCV locations appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Locate the RCV location, click <img class="- topic/image image" height="16" width="NaN" src="../images/ui-icons/More.svg" alt="More"/>, and select <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Disable Rubrik Cloud
+                        Vault</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">The <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Create Private Endpoint</span> option is not available
+                    until the location is disabled. Archiving stops while the location is
+                    disabled.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <img class="- topic/image image" height="16" width="NaN" src="../images/ui-icons/More.svg" alt="More"/> for the same
+                    location and select <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Create Private Endpoint</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Create Private Endpoint wizard appears.</div>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">Review the introduction and click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Next</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">The introduction describes the three stages of the workflow: Create Endpoint
+                    in Azure, Connect Endpoint in <span class="- topic/ph ph">RSC</span>, and Update Reader Cluster.
+                    The introduction does not appear if you previously chose not to show it.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">On the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">How to Connect</span> page, copy the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Rubrik
+                        Cloud Vault Resource ID</span>.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">In the Azure portal, create the private endpoint.</span>
+                <ol type="a" class="- topic/ol task/substeps ol substeps">
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">In the Azure portal, create a new private endpoint in your
+                            subscription.</span>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">On the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Resource</span> tab, from <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Connection
+                                method</span>, select <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Connect to an Azure resource
+                                by resource ID or alias</span>.</span>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Resource ID or alias</span>, paste the Rubrik Cloud
+                            Vault resource ID.</span>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Target subresource</span>, select
+                                <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Blob</span>.</span>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">Review the settings and create the endpoint.</span>
+                        <div class="- topic/itemgroup task/info itemgroup info">Azure can take a few minutes to provision the endpoint.</div>
+                    </li>
+                    <li class="- topic/li task/substep li substep substepexpand">
+                        <span class="- topic/ph task/cmd ph cmd">Copy the resource ID of the new private endpoint.</span>
+                    </li>
+                </ol>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">In the wizard, click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Next</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Connect Endpoint in <span class="- topic/ph ph">RSC</span> page appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Private Endpoint Resource ID</span>, enter the resource ID of
+                    the private endpoint.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">Format:
+                        <code class="+ topic/ph pr-d/codeph ph codeph">/subscriptions/&lt;subscriptionId&gt;/resourcegroups/&lt;resourceGroup&gt;/providers/microsoft.network/privateendpoints/&lt;privateEndpointName&gt;</code></div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Endpoint Name</span>, enter a unique name for the private
+                    endpoint.</span>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Description</span>, enter a description for the private
+                    endpoint.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Create</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">A confirmation appears. If you need a different private endpoint for a
+                    reader location, click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Create Another Endpoint</span>.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <img class="- topic/image image" height="16" width="NaN" src="../images/ui-icons/More.svg" alt="More"/> for the location
+                    and select <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Enable Rubrik Cloud Vault</span>.</span>
+            </li></ol></section>
+        <section class="- topic/section task/result section result" id="d1545336e367"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The private endpoint connection is configured for the RCV location. Network settings
+            on the owner and reader clusters must be updated to use the private endpoint.</section>
+        <section class="- topic/section task/postreq section postreq" id="d1545336e373"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li">Configure the Rubrik cluster to resolve the storage URL to the private endpoint
+                    IP address:<ul class="- topic/ul ul">
+                        <li class="- topic/li li"><a class="- topic/xref xref" href="rcv_options_resolve_storage_url.html" title="To use Rubrik Cloud Vault with a private endpoint, the Rubrik cluster must be able to resolve the storage URL to the private IP address of the endpoint created.">Options to resolve the storage URL</a>: Choose between
+                            updating your DNS servers and mapping the endpoint in the Rubrik cluster
+                            host file.</li>
+                        <li class="- topic/li li"><a class="- topic/xref xref" href="rcv_enabling_rbk_clus_resolve_str_url.html" title="Enable the Rubrik cluster to resolve the storage URL to the private IP address of the endpoint. This is required to use Rubrik Cloud Vault with a private endpoint.">Enabling the Rubrik cluster to resolve the storage URL</a>: If you use
+                            the host file option, map the endpoint IP address to the storage URL on
+                            the Rubrik cluster.</li>
+                    </ul></li>
+                <li class="- topic/li li">If reader clusters are connected to this location, configure private endpoints
+                    for the reader clusters from the action menu of the owner location.</li>
+            </ul>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="rcv_secure_connectivity_azr_pe.html" title="For data center workloads, an Azure private endpoint in your own Azure tenant sends data from your Rubrik clusters to RCV over a private connection, such as ExpressRoute, instead of the public internet.">Secure connectivity with Azure private endpoints</a><div class="- topic/desc ">For data center workloads, an Azure private endpoint in your own Azure tenant sends         data from your Rubrik clusters to RCV over a private connection, such as ExpressRoute,         instead of the public internet.</div></li></ul></div><div class="- topic/linklist linklist reltasks"><strong>Related tasks</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="rcv_managing_private_endpoints.html" title="Manage your private endpoints by adding, modifying, or deleting them.">Managing private endpoints</a><div class="- topic/desc ">Manage your private endpoints by adding, modifying, or deleting them.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="rcv_creating_rcv_dc_workloads_azure.html" title="Create a Rubrik Cloud Vault location on Azure, assign it to a Rubrik cluster, and configure encryption with an Azure Key Vault or RSA Key for archiving backups of data center workloads.">Creating RCV locations for data center workloads on Azure</a><div class="- topic/desc ">Create a Rubrik Cloud Vault location on Azure, assign it to a Rubrik cluster, and         configure encryption with an Azure Key Vault or RSA Key for archiving backups of data center         workloads.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

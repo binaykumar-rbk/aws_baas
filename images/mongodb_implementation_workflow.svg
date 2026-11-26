@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Height calculation:
+     72 (title bar) + 16 (gap) +
+     140 (Phase 1, 2 sub-boxes) + 24 (arrow) + 140 (Phase 2, 2 sub-boxes) + 24 (arrow) +
+     78 (Phase 3) + 24 (arrow) + 78 (Phase 4) + 24 (arrow) +
+     78 (Phase 5) + 24 (arrow) + 78 (Phase 6) +
+     24 (gap after last) + 22 (footer) = 846px -->
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="846"
+     viewBox="0 0 840 846"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+
+    <!-- SVG background -->
+    <rect width="840" height="846" fill="#F4F7FA" rx="12"/>
+
+    <!-- Perimeter border -->
+    <rect width="840" height="846" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/>
+
+    <!-- Title bar -->
+    <rect x="0" y="0" width="840" height="72" fill="#0A2347" rx="12"/>
+    <rect x="0" y="60" width="840" height="12" fill="#0A2347"/>
+    <rect x="0" y="69" width="840" height="3" fill="#09A8B8"/>
+    <text x="420" y="34" font-size="18" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle" letter-spacing="0.3">MongoDB Protection Implementation Workflow</text>
+    <text x="420" y="56" font-size="11" fill="#8AACCC"
+          text-anchor="middle">RSC &#x2014; MongoDB</text>
+
+    <!-- Vertical connector line -->
+    <line x1="60" y1="88" x2="60" y2="740"
+          stroke="#B0C8E0" stroke-width="2" stroke-dasharray="6,4"/>
+
+    <!-- ============================================================ -->
+    <!-- Phase 1: Plan your MongoDB protection (y=88, height=140, 2 sub-boxes) -->
+    <!-- ============================================================ -->
+    <rect x="88" y="88" width="728" height="140" rx="8"
+          fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+    <rect x="88" y="88" width="728" height="36" fill="#075F68" rx="8"/>
+    <rect x="88" y="112" width="728" height="12" fill="#075F68"/>
+    <text x="452" y="112" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Plan your MongoDB protection</text>
+    <text x="452" y="146" font-size="10" fill="#4A6A8A" text-anchor="middle">Understand RSC capabilities, plan user access, and review the required permissions and limitations.</text>
+    <!-- Sub-box 1: Plan logical -->
+    <rect x="108" y="158" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="452" y="177" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Plan for logical backup and recovery</text>
+    <!-- Sub-box 2: Plan physical -->
+    <rect x="108" y="189" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="452" y="208" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Plan for physical backup and recovery using Ops Manager</text>
+    <circle cx="60" cy="106" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="112" font-size="16" font-weight="bold" fill="#09A8B8"
+          text-anchor="middle">1</text>
+
+    <!-- Arrow 1 to 2 -->
+    <line x1="60" y1="228" x2="60" y2="237" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,237 60,245 67,237" fill="#09A8B8"/>
+
+    <!-- ============================================================ -->
+    <!-- Phase 2: Set up your MongoDB source (y=252, height=140, 2 sub-boxes) -->
+    <!-- ============================================================ -->
+    <rect x="88" y="252" width="728" height="140" rx="8"
+          fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+    <rect x="88" y="252" width="728" height="36" fill="#0C3460" rx="8"/>
+    <rect x="88" y="276" width="728" height="12" fill="#0C3460"/>
+    <text x="452" y="276" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Set up your MongoDB source</text>
+    <text x="452" y="310" font-size="10" fill="#4A6A8A" text-anchor="middle">Install the Rubrik Backup Service, meet the prerequisites, and add your MongoDB hosts and source.</text>
+    <!-- Sub-box 1: Set up source logical -->
+    <rect x="108" y="322" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="452" y="341" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Set up source for logical backup and recovery</text>
+    <!-- Sub-box 2: Set up source physical -->
+    <rect x="108" y="353" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="452" y="372" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Set up source for physical backup and recovery using Ops Manager</text>
+    <circle cx="60" cy="270" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="276" font-size="16" font-weight="bold" fill="#09A8B8"
+          text-anchor="middle">2</text>
+
+    <!-- Arrow 2 to 3 -->
+    <line x1="60" y1="392" x2="60" y2="401" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,401 60,409 67,401" fill="#09A8B8"/>
+
+    <!-- ============================================================ -->
+    <!-- Phase 3: Set up protection (y=416, height=78) -->
+    <!-- ============================================================ -->
+    <rect x="88" y="416" width="728" height="78" rx="8"
+          fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+    <rect x="88" y="416" width="728" height="36" fill="#0B3A72" rx="8"/>
+    <rect x="88" y="440" width="728" height="12" fill="#0B3A72"/>
+    <text x="452" y="440" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Set up protection</text>
+    <text x="452" y="474" font-size="10" fill="#4A6A8A" text-anchor="middle">Assign SLA Domains, evaluate protection options, create custom SLA Domains, and take snapshots.</text>
+    <circle cx="60" cy="434" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="440" font-size="16" font-weight="bold" fill="#09A8B8"
+          text-anchor="middle">3</text>
+
+    <!-- Arrow 3 to 4 -->
+    <line x1="60" y1="494" x2="60" y2="503" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,503 60,511 67,503" fill="#09A8B8"/>
+
+    <!-- ============================================================ -->
+    <!-- Phase 4: Manage MongoDB objects (y=518, height=78) -->
+    <!-- ============================================================ -->
+    <rect x="88" y="518" width="728" height="78" rx="8"
+          fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+    <rect x="88" y="518" width="728" height="36" fill="#075F68" rx="8"/>
+    <rect x="88" y="542" width="728" height="12" fill="#075F68"/>
+    <text x="452" y="542" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Manage MongoDB objects</text>
+    <text x="452" y="576" font-size="10" fill="#4A6A8A" text-anchor="middle">Monitor inventory, refresh and remove sources, delete snapshots, and view events.</text>
+    <circle cx="60" cy="536" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="542" font-size="16" font-weight="bold" fill="#09A8B8"
+          text-anchor="middle">4</text>
+
+    <!-- Arrow 4 to 5 (recovery phase — green arrowhead) -->
+    <line x1="60" y1="596" x2="60" y2="605" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,605 60,613 67,605" fill="#21DDAA"/>
+
+    <!-- ============================================================ -->
+    <!-- Phase 5: Recover MongoDB (y=620, height=78, recovery accent) -->
+    <!-- ============================================================ -->
+    <rect x="88" y="620" width="728" height="78" rx="8"
+          fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+    <rect x="88" y="620" width="728" height="36" fill="#0A4030" rx="8"/>
+    <rect x="88" y="644" width="728" height="12" fill="#0A4030"/>
+    <text x="452" y="644" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Recover MongoDB</text>
+    <text x="452" y="678" font-size="10" fill="#4A6A8A" text-anchor="middle">Recover MongoDB databases, collections, or Ops Manager sources to a specific point in time.</text>
+    <circle cx="60" cy="638" r="22" fill="#F4F7FA" stroke="#21DDAA" stroke-width="2.5"/>
+    <text x="60" y="644" font-size="16" font-weight="bold" fill="#21DDAA"
+          text-anchor="middle">5</text>
+
+    <!-- Arrow 5 to 6 -->
+    <line x1="60" y1="698" x2="60" y2="707" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,707 60,715 67,707" fill="#09A8B8"/>
+
+    <!-- ============================================================ -->
+    <!-- Phase 6: Generate reports (y=722, height=78) -->
+    <!-- ============================================================ -->
+    <rect x="88" y="722" width="728" height="78" rx="8"
+          fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+    <rect x="88" y="722" width="728" height="36" fill="#0C3460" rx="8"/>
+    <rect x="88" y="746" width="728" height="12" fill="#0C3460"/>
+    <text x="452" y="746" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Generate reports</text>
+    <text x="452" y="780" font-size="10" fill="#4A6A8A" text-anchor="middle">Access and create reports to monitor the protection, compliance, and capacity of your workloads.</text>
+    <circle cx="60" cy="740" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="746" font-size="16" font-weight="bold" fill="#09A8B8"
+          text-anchor="middle">6</text>
+
+    <!-- Footer -->
+    <rect x="0" y="824" width="840" height="22" fill="#0A2347" rx="0"/>
+    <rect x="0" y="834" width="840" height="12" fill="#0A2347" rx="12"/>
+    <text x="420" y="839" font-size="9" fill="#4A7A9A"
+          text-anchor="middle">Rubrik Security Cloud &#x2014; MongoDB Workloads</text>
+
+</svg>

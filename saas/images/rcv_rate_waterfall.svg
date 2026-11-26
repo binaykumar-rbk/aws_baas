@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"
+     viewBox="0 0 800 500"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+    <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3"
+                orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#6B7280"/>
+        </marker>
+    </defs>
+
+    <!-- Title bar -->
+    <rect x="0" y="0" width="800" height="50" fill="#0C2448"/>
+    <text x="400" y="32" font-size="18" font-weight="700" fill="#FFFFFF"
+          text-anchor="middle">RCV downgrade billing: rate waterfall</text>
+
+    <!-- Scenario box -->
+    <rect x="40" y="72" width="720" height="60" rx="6"
+          fill="#F6F8F7" stroke="#E6EAE9" stroke-width="1"/>
+    <text x="56" y="94" font-size="12.5" font-weight="600" fill="#273637">Scenario</text>
+    <text x="56" y="114" font-size="12" fill="#6C7576">Day 1 to 10: Multi Region tier, peak 55 BETB. Day 15: downgraded to Single Zone. Day 20: new peak 60 BETB.</text>
+
+    <!-- Bar heading -->
+    <text x="160" y="167" font-size="13" font-weight="600" fill="#273637"
+          text-anchor="middle">60 BETB total</text>
+
+    <!-- 5 BETB segment (upper, Single Zone rate) -->
+    <rect x="100" y="180" width="120" height="18" fill="#1DA1DC"
+          stroke="#0C2448" stroke-width="1"/>
+    <text x="160" y="192" font-size="10.5" font-weight="700" fill="#FFFFFF"
+          text-anchor="middle">5 BETB</text>
+
+    <!-- 55 BETB segment (lower, Multi Region rate) -->
+    <rect x="100" y="198" width="120" height="182" fill="#0086C0"
+          stroke="#0C2448" stroke-width="1"/>
+    <text x="160" y="285" font-size="15" font-weight="700" fill="#FFFFFF"
+          text-anchor="middle">55 BETB</text>
+    <text x="160" y="303" font-size="12" fill="#FFFFFF" text-anchor="middle">higher-tier peak</text>
+
+    <!-- Callout arrows from bar to right-side boxes -->
+    <line x1="225" y1="189" x2="355" y2="189" stroke="#6B7280"
+          stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="225" y1="285" x2="355" y2="285" stroke="#6B7280"
+          stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <!-- Right-side box: upper 5 BETB (Single Zone rate) -->
+    <rect x="360" y="160" width="400" height="70" rx="6"
+          fill="#FFFFFF" stroke="#1DA1DC" stroke-width="1.5"/>
+    <text x="380" y="182" font-size="13" font-weight="600" fill="#273637">Upper 5 BETB (delta above the higher-tier peak)</text>
+    <text x="380" y="202" font-size="12" fill="#6C7576">Bills at the Single Zone rate</text>
+    <text x="380" y="218" font-size="11" fill="#555555">Charge = max(0, 60 - 55) x Single Zone rate</text>
+
+    <!-- Right-side box: lower 55 BETB (Multi Region rate) -->
+    <rect x="360" y="255" width="400" height="70" rx="6"
+          fill="#FFFFFF" stroke="#0086C0" stroke-width="1.5"/>
+    <text x="380" y="277" font-size="13" font-weight="600" fill="#273637">Lower 55 BETB (higher-tier peak)</text>
+    <text x="380" y="297" font-size="12" fill="#6C7576">Bills at the Multi Region rate</text>
+    <text x="380" y="313" font-size="11" fill="#555555">Charge = 55 x Multi Region rate</text>
+
+    <!-- Footnote -->
+    <rect x="40" y="400" width="720" height="80" rx="6"
+          fill="#F6F8F7" stroke="#E6EAE9" stroke-width="1"/>
+    <text x="60" y="422" font-size="12.5" font-weight="600" fill="#273637">When the waterfall applies</text>
+    <text x="60" y="443" font-size="12" fill="#6C7576">Only to sequential tier changes within one billing cycle.</text>
+    <text x="60" y="460" font-size="12" fill="#6C7576">Simultaneous tiers (Backup and Archive on the same location) bill in full at each rate.</text>
+</svg>

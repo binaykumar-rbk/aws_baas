@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="568"
+     viewBox="0 0 800 568"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+  <!--
+    PostgreSQL implementation workflow (Pattern 1 - Vertical Workflow).
+    Layout:
+      Phase 1 (Plan):                  y=20-108  (88px)
+      Arrow 1->2:                      y=108-130 (22px)
+      Phase 2 (Set up cluster):        y=130-218 (88px)
+      Arrow 2->3:                      y=218-240 (22px)
+      Phase 3 (Set up protection):     y=240-328 (88px)
+      Arrow 3->4:                      y=328-350 (22px)
+      Phase 4 (Manage):                y=350-438 (88px)
+      Arrow 4->5:                      y=438-460 (22px)
+      Phase 5 (Recover):               y=460-548 (88px)
+      Bottom padding:                  y=548-568 (20px)
+    Imagemap click coords (x1, y1, x2, y2):
+      Phase 1: 20, 20, 780, 108  -> postgresql_planning_protection.dita
+      Phase 2: 20, 130, 780, 218 -> postgresql_setup.dita
+      Phase 3: 20, 240, 780, 328 -> postgresql_protection_setup.dita
+      Phase 4: 20, 350, 780, 438 -> postgresql_manage_protection.dita
+      Phase 5: 20, 460, 780, 548 -> postgresql_recovery.dita
+  -->
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6B7280"/>
+    </marker>
+  </defs>
+
+  <!-- Phase 1: Plan -->
+  <rect x="20" y="20" width="760" height="88" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="20" y="20" width="760" height="50" rx="8" fill="#0C2448"/>
+  <rect x="20" y="52" width="760" height="18" fill="#0C2448"/>
+  <circle cx="56" cy="45" r="15" fill="#1DA1DC"/>
+  <text x="56" y="50" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="82" y="50" font-size="15" font-weight="600" fill="#FFFFFF">Plan your PostgreSQL protection</text>
+  <text x="40" y="94" font-size="12.5" fill="#6C7576">Review prerequisites, plan user and access management, and review protection limitations.</text>
+
+  <line x1="400" y1="108" x2="400" y2="129" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 2: Set up the PostgreSQL cluster -->
+  <rect x="20" y="130" width="760" height="88" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="20" y="130" width="760" height="50" rx="8" fill="#0C2448"/>
+  <rect x="20" y="162" width="760" height="18" fill="#0C2448"/>
+  <circle cx="56" cy="155" r="15" fill="#1DA1DC"/>
+  <text x="56" y="160" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="82" y="160" font-size="15" font-weight="600" fill="#FFFFFF">Set up PostgreSQL clusters</text>
+  <text x="40" y="204" font-size="12.5" fill="#6C7576">Evaluate authentication options, complete prerequisites, and register hosts and clusters.</text>
+
+  <line x1="400" y1="218" x2="400" y2="239" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 3: Set up PostgreSQL protection -->
+  <rect x="20" y="240" width="760" height="88" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="20" y="240" width="760" height="50" rx="8" fill="#0C2448"/>
+  <rect x="20" y="272" width="760" height="18" fill="#0C2448"/>
+  <circle cx="56" cy="265" r="15" fill="#1DA1DC"/>
+  <text x="56" y="270" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="82" y="270" font-size="15" font-weight="600" fill="#FFFFFF">Set up PostgreSQL protection</text>
+  <text x="40" y="314" font-size="12.5" fill="#6C7576">Evaluate SLA Domain options and configure archival and replication.</text>
+
+  <line x1="400" y1="328" x2="400" y2="349" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 4: Manage PostgreSQL protection -->
+  <rect x="20" y="350" width="760" height="88" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="20" y="350" width="760" height="50" rx="8" fill="#0C2448"/>
+  <rect x="20" y="382" width="760" height="18" fill="#0C2448"/>
+  <circle cx="56" cy="375" r="15" fill="#1DA1DC"/>
+  <text x="56" y="380" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+  <text x="82" y="380" font-size="15" font-weight="600" fill="#FFFFFF">Manage PostgreSQL protection</text>
+  <text x="40" y="424" font-size="12.5" fill="#6C7576">Create SLA Domains, assign them to clusters, and manage snapshots.</text>
+
+  <line x1="400" y1="438" x2="400" y2="459" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 5: Recover PostgreSQL -->
+  <rect x="20" y="460" width="760" height="88" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="20" y="460" width="760" height="50" rx="8" fill="#0C2448"/>
+  <rect x="20" y="492" width="760" height="18" fill="#0C2448"/>
+  <circle cx="56" cy="485" r="15" fill="#1DA1DC"/>
+  <text x="56" y="490" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+  <text x="82" y="490" font-size="15" font-weight="600" fill="#FFFFFF">Recover PostgreSQL</text>
+  <text x="40" y="534" font-size="12.5" fill="#6C7576">Recover clusters to original location, alternate location, or in HA configuration.</text>
+
+</svg>

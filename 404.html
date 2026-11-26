@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="icon" href="favicon.ico"/>
+    <title>Page Not Found - Rubrik Security Cloud</title>
+    
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rubrik-teal: #009dac;
+            --rubrik-dark: #15292b;
+            --rubrik-light-bg: #edf5f5;
+            --rubrik-cyan: #02dbf0;
+            --text-dark: #333;
+            --text-light: #ededed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .wh_header {
+            background: url('https://docs.rubrik.com/en-us/saas/oxygen-webhelp/template/resources/images/bgr_right.png') right no-repeat var(--rubrik-dark);
+            padding: 1.5rem 2rem;
+            color: #fff;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .publication-title {
+            color: var(--rubrik-teal);
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+        .publication-title:hover {
+            color: var(--rubrik-cyan);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+        }
+
+        .error-container {
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--rubrik-teal);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .home-button {
+            display: inline-block;
+            background-color: var(--rubrik-teal);
+            color: #fff;
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .home-button:hover {
+            background-color: #007a87;
+        }
+
+        .search-suggestion {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        .redirect-message {
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .wh_footer {
+            background: var(--rubrik-dark);
+            color: #dcdcdc;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--rubrik-cyan);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .publication-title {
+                font-size: 1.3rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <!-- Auto-redirect script -->
+    <script>
+        // Redirect to home page after 5 seconds
+        let countdown = 5;
+
+        function updateCountdown() {
+            const element = document.getElementById('countdown');
+            if (element) {
+                element.textContent = countdown;
+            }
+
+            if (countdown <= 0) {
+                window.location.href = 'https://docs.rubrik.com/en-us/saas/index.html';
+            } else {
+                countdown--;
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        // Start countdown when page loads
+        window.addEventListener('load', function() {
+            updateCountdown();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="wh_header">
+        <div class="header-content">
+            <a href="https://docs.rubrik.com/en-us/saas/index.html">
+                <img src="https://docs.rubrik.com/en-us/saas/oxygen-webhelp/template/resources/images/rubrik_logo.png" alt="Rubrik Logo" class="logo">
+            </a>
+            <a href="https://docs.rubrik.com/en-us/saas/index.html" class="publication-title">Rubrik Security Cloud</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                The page you are looking for does not exist. It is possible that the page has been removed or renamed.
+            </p>
+            <a href="https://docs.rubrik.com/en-us/saas/index.html" class="home-button">Go to Home Page</a>
+            <p class="search-suggestion">
+                Use the search bar to find the information you are looking for.
+            </p>
+            <p class="redirect-message">
+                You will be automatically redirected to the home page in <span id="countdown">5</span> seconds...
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="wh_footer">
+        <ul class="footer-links">
+            <li><a href="https://support.rubrik.com/" target="_blank">Support</a></li>
+            <li>|</li>
+            <li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li>
+            <li>|</li>
+            <li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li>
+            <li>|</li>
+            <li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li>
+            <li>|</li>
+            <li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li>
+            <li>|</li>
+            <li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li>
+        </ul>
+        <div class="footer-text">Copyright © Rubrik - Zero Trust Data Security™</div>
+    </footer>
+</body>
+</html>
+    

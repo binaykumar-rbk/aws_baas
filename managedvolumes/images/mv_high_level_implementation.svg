@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="740"
+     viewBox="0 0 800 740"
+     font-family="Segoe UI, Calibri, Arial, sans-serif"
+     role="img" aria-labelledby="mv-impl-title mv-impl-desc">
+  <title id="mv-impl-title">Managed Volumes and SLA Managed Volumes protection implementation workflow</title>
+  <desc id="mv-impl-desc">Five-phase Managed Volumes and SLA Managed Volumes implementation workflow showing: 1 Plan your Managed Volumes and SLA Managed Volumes protection, 2 Set up your Managed Volumes and SLA Managed Volumes, 3 Set up your Managed Volumes and SLA Managed Volumes protection, 4 Manage Managed Volumes and SLA Managed Volumes snapshots (with 4.a Object details, 4.b Snapshot management, and 4.c Object-level pause and resume for Managed Volumes and SLA Managed Volumes), 5 Recover Managed Volumes and SLA Managed Volumes (with 5.a Recovering files and folders from a snapshot, and 5.b Live Mounts from Managed Volumes and SLA Managed Volumes snapshots).</desc>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6B7280"/>
+    </marker>
+  </defs>
+
+  <!-- Phase 1: Plan -->
+  <rect x="50" y="30" width="700" height="90" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="50" y="30" width="700" height="50" rx="8" fill="#0C2448"/>
+  <rect x="50" y="62" width="700" height="18" fill="#0C2448"/>
+  <circle cx="86" cy="55" r="15" fill="#1DA1DC"/>
+  <text x="86" y="60" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="400" y="60" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle">Plan your Managed Volumes and SLA Managed Volumes protection</text>
+  <text x="400" y="105" font-size="12.5" fill="#6C7576" text-anchor="middle">Review host setup requirements, channel guidelines, floating IP addresses, and protection limitations.</text>
+
+  <line x1="400" y1="120" x2="400" y2="141" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 2: Set up MV and SLA MV -->
+  <rect x="50" y="142" width="700" height="90" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="50" y="142" width="700" height="50" rx="8" fill="#0C2448"/>
+  <rect x="50" y="174" width="700" height="18" fill="#0C2448"/>
+  <circle cx="86" cy="167" r="15" fill="#1DA1DC"/>
+  <text x="86" y="172" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="400" y="172" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle">Set up your Managed Volumes and SLA Managed Volumes</text>
+  <text x="400" y="217" font-size="12.5" fill="#6C7576" text-anchor="middle">Create Managed Volumes and SLA Managed Volumes, configure floating IP addresses, and assign application tags.</text>
+
+  <line x1="400" y1="232" x2="400" y2="253" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 3: Set up protection -->
+  <rect x="50" y="254" width="700" height="90" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="50" y="254" width="700" height="50" rx="8" fill="#0C2448"/>
+  <rect x="50" y="286" width="700" height="18" fill="#0C2448"/>
+  <circle cx="86" cy="279" r="15" fill="#1DA1DC"/>
+  <text x="86" y="284" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="400" y="284" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle">Set up your Managed Volumes and SLA Managed Volumes protection</text>
+  <text x="400" y="329" font-size="12.5" fill="#6C7576" text-anchor="middle">Configure SLA Managed Volumes with backup scripts and assign SLA Domains for retention and recovery.</text>
+
+  <line x1="400" y1="344" x2="400" y2="365" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 4: Manage snapshots (with 3 compact children) -->
+  <rect x="50" y="366" width="700" height="180" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="50" y="366" width="700" height="50" rx="8" fill="#0C2448"/>
+  <rect x="50" y="398" width="700" height="18" fill="#0C2448"/>
+  <circle cx="86" cy="391" r="15" fill="#1DA1DC"/>
+  <text x="86" y="396" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">4</text>
+  <text x="400" y="396" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle">Manage Managed Volumes and SLA Managed Volumes snapshots</text>
+  <text x="400" y="437" font-size="12.5" fill="#6C7576" text-anchor="middle">Monitor object details, take on-demand snapshots, manage retention, and pause or resume protection.</text>
+
+  <!-- Child 4.a -->
+  <rect x="70" y="450" width="660" height="26" rx="4" fill="#F5F8FA" stroke="#E6EAE9" stroke-width="1"/>
+  <text x="400" y="468" font-size="12" fill="#6C7576" text-anchor="middle"><tspan font-weight="600" fill="#0C2448">4.a</tspan>  Managed Volumes and SLA Managed Volumes object details</text>
+
+  <!-- Child 4.b -->
+  <rect x="70" y="480" width="660" height="26" rx="4" fill="#F5F8FA" stroke="#E6EAE9" stroke-width="1"/>
+  <text x="400" y="498" font-size="12" fill="#6C7576" text-anchor="middle"><tspan font-weight="600" fill="#0C2448">4.b</tspan>  Managed Volumes and SLA Managed Volumes snapshot management</text>
+
+  <!-- Child 4.c -->
+  <rect x="70" y="510" width="660" height="26" rx="4" fill="#F5F8FA" stroke="#E6EAE9" stroke-width="1"/>
+  <text x="400" y="528" font-size="12" fill="#6C7576" text-anchor="middle"><tspan font-weight="600" fill="#0C2448">4.c</tspan>  Object-level pause and resume for Managed Volumes and SLA Managed Volumes</text>
+
+  <line x1="400" y1="546" x2="400" y2="567" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Phase 5: Recover (with 2 compact children) -->
+  <rect x="50" y="568" width="700" height="150" rx="8" fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1.5"/>
+  <rect x="50" y="568" width="700" height="50" rx="8" fill="#0C2448"/>
+  <rect x="50" y="600" width="700" height="18" fill="#0C2448"/>
+  <circle cx="86" cy="593" r="15" fill="#1DA1DC"/>
+  <text x="86" y="598" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">5</text>
+  <text x="400" y="598" font-size="15" font-weight="600" fill="#FFFFFF" text-anchor="middle">Recover Managed Volumes and SLA Managed Volumes</text>
+  <text x="400" y="639" font-size="12.5" fill="#6C7576" text-anchor="middle">Recover files and folders from a snapshot, or use Live Mount for in-place access.</text>
+
+  <!-- Child 5.a -->
+  <rect x="70" y="652" width="660" height="26" rx="4" fill="#F5F8FA" stroke="#E6EAE9" stroke-width="1"/>
+  <text x="400" y="670" font-size="12" fill="#6C7576" text-anchor="middle"><tspan font-weight="600" fill="#0C2448">5.a</tspan>  Recovering files and folders from a snapshot</text>
+
+  <!-- Child 5.b -->
+  <rect x="70" y="682" width="660" height="26" rx="4" fill="#F5F8FA" stroke="#E6EAE9" stroke-width="1"/>
+  <text x="400" y="700" font-size="12" fill="#6C7576" text-anchor="middle"><tspan font-weight="600" fill="#0C2448">5.b</tspan>  Live Mounts from Managed Volumes and SLA Managed Volumes snapshots</text>
+
+</svg>

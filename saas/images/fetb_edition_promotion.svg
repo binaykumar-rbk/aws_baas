@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440"
+     viewBox="0 0 800 440"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+    <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3"
+                orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#6B7280"/>
+        </marker>
+    </defs>
+
+    <!-- Title bar -->
+    <rect x="0" y="0" width="800" height="50" fill="#0C2448"/>
+    <text x="400" y="32" font-size="18" font-weight="700" fill="#FFFFFF"
+          text-anchor="middle">Edition promotion within a billing cycle</text>
+
+    <!-- Curved arc FE to EE (skips BE) -->
+    <path d="M 120,140 Q 400,68 680,140" stroke="#6B7280" stroke-width="1.8"
+          fill="none" marker-end="url(#arrow)"/>
+    <text x="400" y="88" font-size="12.5" fill="#273637" text-anchor="middle"
+          font-weight="600">Any of 4 apps (skip BE)</text>
+
+    <!-- FE state card -->
+    <rect x="40" y="140" width="160" height="100" rx="8"
+          fill="#F6F8F7" stroke="#E6EAE9" stroke-width="1.5"/>
+    <rect x="40" y="140" width="160" height="34" rx="8" fill="#0C2448"/>
+    <rect x="40" y="166" width="160" height="8" fill="#0C2448"/>
+    <text x="120" y="163" font-size="16" font-weight="700" fill="#FFFFFF"
+          text-anchor="middle">FE</text>
+    <text x="120" y="200" font-size="13" font-weight="600" fill="#273637"
+          text-anchor="middle">Foundation Edition</text>
+    <text x="120" y="220" font-size="11.5" fill="#6C7576" text-anchor="middle">Default. No security apps.</text>
+
+    <!-- Arrow FE to BE -->
+    <line x1="200" y1="190" x2="315" y2="190" stroke="#6B7280"
+          stroke-width="1.8" marker-end="url(#arrow)"/>
+    <text x="260" y="180" font-size="11.5" fill="#273637" text-anchor="middle"
+          font-weight="600">Anomaly Detection</text>
+
+    <!-- BE state card -->
+    <rect x="320" y="140" width="160" height="100" rx="8"
+          fill="#F6F8F7" stroke="#E6EAE9" stroke-width="1.5"/>
+    <rect x="320" y="140" width="160" height="34" rx="8" fill="#0C2448"/>
+    <rect x="320" y="166" width="160" height="8" fill="#0C2448"/>
+    <text x="400" y="163" font-size="16" font-weight="700" fill="#FFFFFF"
+          text-anchor="middle">BE</text>
+    <text x="400" y="200" font-size="13" font-weight="600" fill="#273637"
+          text-anchor="middle">Business Edition</text>
+    <text x="400" y="220" font-size="11.5" fill="#6C7576" text-anchor="middle">Anomaly Detection only.</text>
+
+    <!-- Arrow BE to EE -->
+    <line x1="480" y1="190" x2="595" y2="190" stroke="#6B7280"
+          stroke-width="1.8" marker-end="url(#arrow)"/>
+    <text x="540" y="180" font-size="11.5" fill="#273637" text-anchor="middle"
+          font-weight="600">Any of 4 apps</text>
+
+    <!-- EE state card (terminal, highlighted) -->
+    <rect x="600" y="140" width="160" height="100" rx="8"
+          fill="#1B2A4A" stroke="#0086C0" stroke-width="2"/>
+    <text x="680" y="163" font-size="16" font-weight="700" fill="#FFFFFF"
+          text-anchor="middle">EE</text>
+    <text x="680" y="200" font-size="13" font-weight="600" fill="#FFFFFF"
+          text-anchor="middle">Enterprise Edition</text>
+    <text x="680" y="220" font-size="11.5" fill="#FFFFFF" text-anchor="middle">Terminal (highest tier).</text>
+
+    <!-- Footnote box -->
+    <rect x="40" y="290" width="720" height="120" rx="6"
+          fill="#FFFFFF" stroke="#E6EAE9" stroke-width="1"/>
+    <text x="60" y="315" font-size="12.5" font-weight="600" fill="#273637">Apps that promote to Enterprise Edition</text>
+    <text x="60" y="335" font-size="12" fill="#6C7576">Threat Hunting, Threat Monitoring, Sensitive Data Discovery, Appsflows</text>
+    <text x="60" y="367" font-size="12.5" font-weight="600" fill="#273637">One-way promotion</text>
+    <text x="60" y="387" font-size="12" fill="#6C7576">Objects only move forward. Once promoted, an object cannot return to a</text>
+    <text x="60" y="403" font-size="12" fill="#6C7576">lower edition within the same billing cycle.</text>
+</svg>

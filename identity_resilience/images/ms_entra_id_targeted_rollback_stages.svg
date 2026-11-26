@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="296"
+     viewBox="0 0 960 296"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+
+<!-- Height: title bar(72) + gap(16) + circles(cy=108,r=24) + gap(4)
+     + cards(y=136,h=108) + gap(30) + footer(22) = 296px
+     Cards: x1=24(w=288) x2=336(w=288) x3=648(w=288), gap=24px each -->
+
+<!-- BACKGROUND -->
+<rect width="960" height="296" fill="#F4F7FA" rx="12"/>
+
+<!-- PERIMETER BORDER -->
+<rect width="960" height="296" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/>
+
+<!-- TITLE BAR -->
+<rect x="0" y="0" width="960" height="72" fill="#0A2347" rx="12"/>
+<rect x="0" y="60" width="960" height="12" fill="#0A2347"/>
+<rect x="0" y="69" width="960" height="3" fill="#09A8B8"/>
+<text x="480" y="36" font-size="18" font-weight="bold" fill="#FFFFFF"
+      text-anchor="middle" letter-spacing="0.3">Surgical rollback recovery</text>
+<text x="480" y="55" font-size="11" fill="#8AACCC"
+      text-anchor="middle">Three-stage recovery workflow</text>
+
+<!-- CONNECTORS (y=108) -->
+<!-- Line 1 to 2 -->
+<line x1="192" y1="108" x2="316" y2="108" stroke="#B0C8E0" stroke-width="2"/>
+<line x1="332" y1="108" x2="456" y2="108" stroke="#B0C8E0" stroke-width="2"/>
+<polygon points="316,102 332,108 316,114" fill="#09A8B8"/>
+<!-- Line 2 to 3 (final — green) -->
+<line x1="504" y1="108" x2="628" y2="108" stroke="#B0C8E0" stroke-width="2"/>
+<line x1="644" y1="108" x2="768" y2="108" stroke="#B0C8E0" stroke-width="2"/>
+<polygon points="628,102 644,108 628,114" fill="#21DDAA"/>
+
+<!-- CARD 1: CLASSIFICATION -->
+<circle cx="168" cy="108" r="24" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+<text x="168" y="114" font-size="17" font-weight="bold" fill="#09A8B8"
+      text-anchor="middle">1</text>
+<rect x="24" y="136" width="288" height="108" rx="8" fill="#FFFFFF"
+      stroke="#09A8B8" stroke-width="1.5"/>
+<rect x="24" y="136" width="288" height="42" rx="8" fill="#075F68"/>
+<rect x="24" y="164" width="288" height="14" fill="#075F68"/>
+<text x="168" y="162" font-size="13" font-weight="bold" fill="#FFFFFF"
+      text-anchor="middle">Classification</text>
+<text x="168" y="192" font-size="10" fill="#4A6A8A" text-anchor="middle">RSC classifies each change</text>
+<text x="168" y="207" font-size="10" fill="#4A6A8A" text-anchor="middle">as suspicious, legitimate,</text>
+<text x="168" y="222" font-size="10" fill="#4A6A8A" text-anchor="middle">or unknown.</text>
+
+<!-- CARD 2: REVIEW CHANGES -->
+<circle cx="480" cy="108" r="24" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+<text x="480" y="114" font-size="17" font-weight="bold" fill="#09A8B8"
+      text-anchor="middle">2</text>
+<rect x="336" y="136" width="288" height="108" rx="8" fill="#FFFFFF"
+      stroke="#C8D8E8" stroke-width="1"/>
+<rect x="336" y="136" width="288" height="42" rx="8" fill="#0C3460"/>
+<rect x="336" y="164" width="288" height="14" fill="#0C3460"/>
+<text x="480" y="162" font-size="13" font-weight="bold" fill="#FFFFFF"
+      text-anchor="middle">Review Changes</text>
+<text x="480" y="192" font-size="10" fill="#4A6A8A" text-anchor="middle">Classified changes appear in</text>
+<text x="480" y="207" font-size="10" fill="#4A6A8A" text-anchor="middle">the triage workspace for</text>
+<text x="480" y="222" font-size="10" fill="#4A6A8A" text-anchor="middle">review and marking.</text>
+
+<!-- CARD 3: ROLL BACK CHANGES (final — green) -->
+<circle cx="792" cy="108" r="24" fill="#F4F7FA" stroke="#21DDAA" stroke-width="2.5"/>
+<text x="792" y="114" font-size="17" font-weight="bold" fill="#21DDAA"
+      text-anchor="middle">3</text>
+<rect x="648" y="136" width="288" height="108" rx="8" fill="#FFFFFF"
+      stroke="#21DDAA" stroke-width="1.5"/>
+<rect x="648" y="136" width="288" height="42" rx="8" fill="#0A4030"/>
+<rect x="648" y="164" width="288" height="14" fill="#0A4030"/>
+<text x="792" y="162" font-size="13" font-weight="bold" fill="#FFFFFF"
+      text-anchor="middle">Roll Back Changes</text>
+<text x="792" y="192" font-size="10" fill="#4A6A8A" text-anchor="middle">RSC rolls back marked changes</text>
+<text x="792" y="207" font-size="10" fill="#4A6A8A" text-anchor="middle">and restores the tenant to</text>
+<text x="792" y="222" font-size="10" fill="#4A6A8A" text-anchor="middle">a clean state.</text>
+
+<!-- FOOTER -->
+<rect x="0" y="274" width="960" height="22" fill="#0A2347" rx="0"/>
+<rect x="0" y="284" width="960" height="12" fill="#0A2347" rx="12"/>
+<text x="480" y="290" font-size="9" fill="#4A7A9A"
+      text-anchor="middle">Rubrik Security Cloud &#x2014; Microsoft Entra ID</text>
+
+</svg>

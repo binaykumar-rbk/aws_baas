@@ -1,0 +1,552 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="concept"/><meta name="description" content="You can configure your GCP network, storage class selection, and snapshot retention settings to reduce ongoing costs when using Exocompute on GCP for archiving and data protection operations."/><meta name="DC.subject" content="Exocompute on GCP cost,GCP Exocompute best practices,GKE cost optimization,GCS storage class,Private Google Access"/><meta name="keywords" content="Exocompute on GCP cost, GCP Exocompute best practices, GKE cost optimization, GCS storage class, Private Google Access"/><meta name="DC.relation" content="../gcp/exocompute_gcp.html"/><meta name="DC.relation" content="../gcp/gcp.html"/><meta name="DC.relation" content="../gcp/gcp_removing_pcr_configuration.html"/><meta name="DC.relation" content="../saas/viewing_exo_health_check_events_2.html"/><meta name="DC.relation" content="gcp_private_exocompute.html"/><meta name="DC.relation" content="config_exocompute_gcp.html"/><meta name="DC.publisher" content="Rubrik Technical Publications"/><meta name="DC.date.created" content="2026-06-26"/><meta name="DC.date.modified" content="2026-06-26"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="gcp_exo_cost_best_practices"/>        
+      <title>Best practices for reducing Exocompute on GCP costs</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="gcp_exo_cost_best_practices-d39307e20830"/><meta name="wh-source-relpath" content="gcp/gcp_exo_cost_best_practices.dita"/><meta name="wh-out-relpath" content="gcp/gcp_exo_cost_best_practices.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="gcp_exo_cost_best_practices" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../rubrik/supported_workloads.html">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li><div class="topicref"><div class="title"><a href="../saas/aws_workloads.html">Cloud workloads</a></div></div></li><li><div class="topicref" data-id="gcp"><div class="title"><a href="../gcp/gcp.html">Google Cloud Platform workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protects the following types of Google Cloud Platform workloads:         Google Compute Engine instances and persistent disks, <span class="ph">Cloud SQL instances, and         BigQuery         datasets</span>.</p></div></div></div></li><li><div class="topicref" data-id="exocompute_gcp"><div class="title"><a href="../gcp/exocompute_gcp.html">Exocompute on GCP</a><div class="wh-tooltip"><p class="shortdesc">With the Exocompute on GCP feature, <span class="ph">RSC</span> launches a Google Kubernetes         Engine cluster to perform various operations to protect GCP workloads. <span class="ph">RSC</span>         uses the Google Kubernetes Engine cluster to serve as a compute resource in your GCP         project.</p></div></div></div></li><li class="active"><div class="topicref" data-id="gcp_exo_cost_best_practices"><div class="title"><a href="../gcp/gcp_exo_cost_best_practices.html">Best practices for reducing Exocompute on GCP costs</a><div class="wh-tooltip"><p class="shortdesc">You can configure your GCP network, storage class selection, and snapshot retention         settings to reduce ongoing costs when using Exocompute on GCP for archiving and data         protection operations.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../gcp/gcp_removing_pcr_configuration.html" title="Removing a Private Container Registry" aria-label="Previous topic: Removing a Private Container Registry" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../saas/viewing_exo_health_check_events_2.html" title="Viewing Exocompute events" aria-label="Next topic: Viewing Exocompute events" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="supported_workloads-d39307e15533" class="topicref" data-id="supported_workloads" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="supported_workloads-d39307e15533-link"><span class="ph">Rubrik Security Cloud</span> workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> securely manages and protects data from a wide variety of         workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e15548" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e15548-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/aws_workloads.html" id="tocId-d39307e15548-link">Cloud workloads</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="aws_workloads-d39307e15549" class="topicref" data-id="aws_workloads" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action aws_workloads-d39307e15549-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/aws_workloads.html" id="aws_workloads-d39307e15549-link">Amazon Web Services workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protects the following types of Amazon Web Services workloads:         EC2 instances, EBS volumes, Amazon S3, <span class="ph">Amazon RDS and Aurora databases,             Amazon DynamoDB, AWS Glue Iceberg Tables, and AWS S3 Tables</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="gcp-d39307e20005" class="topicref" data-id="gcp" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action gcp-d39307e20005-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp.html" id="gcp-d39307e20005-link">Google Cloud Platform workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protects the following types of Google Cloud Platform workloads:         Google Compute Engine instances and persistent disks, <span class="ph">Cloud SQL instances, and         BigQuery         datasets</span>.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="key_features_gcp_protection-d39307e20021" class="topicref" data-id="key_features_gcp_protection" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../gcp/key_features_gcp_protection.html" id="key_features_gcp_protection-d39307e20021-link">Key features for protecting GCP workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides unified data management, automated global data         protection, and various recovery options to protect your GCP workloads.</p></div></div></div></li><li role="treeitem"><div data-tocid="common_gcp_protection_terms-d39307e20034" class="topicref" data-id="common_gcp_protection_terms" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../gcp/common_gcp_protection_terms.html" id="common_gcp_protection_terms-d39307e20034-link">Common GCP protection terms</a><div class="wh-tooltip"><p class="shortdesc">It is important to understand some common terms when protecting GCP workloads with             <span class="ph">RSC</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="high_level_arch_gcp_protection-d39307e20048" class="topicref" data-id="high_level_arch_gcp_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action high_level_arch_gcp_protection-d39307e20048-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/high_level_arch_gcp_protection.html" id="high_level_arch_gcp_protection-d39307e20048-link">High-level architecture for GCP protection</a><div class="wh-tooltip"><p class="shortdesc">A high-level architectural overview of how <span class="ph">RSC</span> protects GCP workloads         and <span class="ph">RSC</span> and GCP IAM roles provisioning process.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="planning_gcp_protection-d39307e20109" class="topicref" data-id="planning_gcp_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action planning_gcp_protection-d39307e20109-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/planning_gcp_protection.html" id="planning_gcp_protection-d39307e20109-link">Planning for GCP protection</a><div class="wh-tooltip"><p class="shortdesc">Before setting up a GCP project in <span class="ph">RSC</span>, you need to plan user and         access management for designated <span class="ph">RSC</span> users. This planning also involves         reviewing the permissions that <span class="ph">RSC</span> requires in your GCP environment to         protect your GCP workloads.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_project_setup-d39307e20281" class="topicref" data-id="gcp_project_setup" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_project_setup-d39307e20281-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_project_setup.html" id="gcp_project_setup-d39307e20281-link">GCP project setup</a><div class="wh-tooltip"><p class="shortdesc">You can set up a GCP project by adding the project to <span class="ph">RSC</span> and start         protecting your GCP workloads.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="exocompute_gcp-d39307e20676" class="topicref" data-id="exocompute_gcp" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action exocompute_gcp-d39307e20676-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/exocompute_gcp.html" id="exocompute_gcp-d39307e20676-link">Exocompute on GCP</a><div class="wh-tooltip"><p class="shortdesc">With the Exocompute on GCP feature, <span class="ph">RSC</span> launches a Google Kubernetes         Engine cluster to perform various operations to protect GCP workloads. <span class="ph">RSC</span>         uses the Google Kubernetes Engine cluster to serve as a compute resource in your GCP         project.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="exo_gcp_setup_automation-d39307e20693" class="topicref" data-id="exo_gcp_setup_automation" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../gcp/exo_gcp_setup_automation.html" id="exo_gcp_setup_automation-d39307e20693-link">Exocompute on GCP setup and automation</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> sets up and automates Exocompute infrastructure on Google Cloud         Platform by creating and configuring necessary resources.</p></div></div></div></li><li role="treeitem"><div data-tocid="gcp_private_exocompute-d39307e20706" class="topicref" data-id="gcp_private_exocompute" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_private_exocompute.html" id="gcp_private_exocompute-d39307e20706-link">Private Exocompute on GCP</a><div class="wh-tooltip"><p class="shortdesc">Private Exocompute on GCP isolates the Exocompute GKE cluster from the public         internet by keeping the Kubernetes API server endpoint within your VPC network.</p></div></div></div></li><li role="treeitem"><div data-tocid="exo_gcp_workflow_example-d39307e20717" class="topicref" data-id="exo_gcp_workflow_example" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../gcp/exo_gcp_workflow_example.html" id="exo_gcp_workflow_example-d39307e20717-link">Exocompute on GCP workflow example</a><div class="wh-tooltip"><p class="shortdesc">A workflow example to demonstrate the Exocompute lifecycle on GCP when indexing a         snapshot of a GCE instance.</p></div></div></div></li><li role="treeitem"><div data-tocid="config_exocompute_gcp-d39307e20728" class="topicref" data-id="config_exocompute_gcp" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../gcp/config_exocompute_gcp.html" id="config_exocompute_gcp-d39307e20728-link">Configuration of Exocompute on GCP</a><div class="wh-tooltip"><p class="shortdesc">You can configure Exocompute on GCP to launch Exocompute resources to perform tasks         such as restoring files and leveraging storage tiering.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_private_container_registry-d39307e20739" class="topicref" data-id="gcp_private_container_registry" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_private_container_registry-d39307e20739-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_private_container_registry.html" id="gcp_private_container_registry-d39307e20739-link">Private Container Registry for GCP</a><div class="wh-tooltip"><p class="shortdesc">For the         Google         Cloud Platform Exocompute         project         that you add manually, you can configure a Private Container Registry so that Exocompute         pulls container images from a Google Artifact Registry repository that you host, instead of         a registry that Rubrik hosts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_exocompute_health_check-d39307e20772" class="topicref" data-id="gcp_exocompute_health_check" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_exocompute_health_check-d39307e20772-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_exocompute_health_check.html" id="gcp_exocompute_health_check-d39307e20772-link">Exocompute health check for GCP</a><div class="wh-tooltip"><p class="shortdesc">The Exocompute health check for GCP feature in <span class="ph">RSC</span> runs a health         check for a GKE cluster and displays the cluster's current status. With this health check         feature, you can confirm if the GKE cluster is functioning correctly.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="maint_exo_gcp-d39307e20808" class="topicref" data-id="maint_exo_gcp" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action maint_exo_gcp-d39307e20808-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/maint_exo_gcp.html" id="maint_exo_gcp-d39307e20808-link">Maintenance of Exocompute on GCP</a><div class="wh-tooltip"><p class="shortdesc">Maintaining Exocompute on GCP involves regularly reviewing and updating permissions         to ensure optimal performance and resource management.</p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="gcp_exo_cost_best_practices-d39307e20830" class="topicref" data-id="gcp_exo_cost_best_practices" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_exo_cost_best_practices.html" id="gcp_exo_cost_best_practices-d39307e20830-link">Best practices for reducing Exocompute on GCP costs</a><div class="wh-tooltip"><p class="shortdesc">You can configure your GCP network, storage class selection, and snapshot retention         settings to reduce ongoing costs when using Exocompute on GCP for archiving and data         protection operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="viewing_exo_health_check_events-d39307e20841" class="topicref" data-id="viewing_exo_health_check_events" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action viewing_exo_health_check_events-d39307e20841-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/viewing_exo_health_check_events_2.html" id="viewing_exo_health_check_events-d39307e20841-link">Viewing Exocompute events</a><div class="wh-tooltip"><p class="shortdesc">View the Events page from the Dashboard to see the Exocompute events.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_storage_tiering_setup-d39307e20863" class="topicref" data-id="gcp_storage_tiering_setup" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_storage_tiering_setup-d39307e20863-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_storage_tiering_setup.html" id="gcp_storage_tiering_setup-d39307e20863-link">GCP storage tiering setup</a><div class="wh-tooltip"><p class="shortdesc">You can use GCP storage tiering to archive GCE instance or persistent disk snapshots         that are older than a specified threshold to GCS storage classes. By archiving snapshots to         these storage classes, you can optimize costs.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_workload_protection_setup-d39307e20989" class="topicref" data-id="gcp_workload_protection_setup" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_workload_protection_setup-d39307e20989-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_workload_protection_setup.html" id="gcp_workload_protection_setup-d39307e20989-link">GCP workloads protection setup</a><div class="wh-tooltip"><p class="shortdesc">You can set up SLA Domains to apply data protection policies, ensuring automatic and         hierarchical protection of GCP projects and individual GCP workloads, with granular control         overriding higher-level assignments.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_workload_recovery-d39307e21255" class="topicref" data-id="gcp_workload_recovery" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_workload_recovery-d39307e21255-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_workload_recovery.html" id="gcp_workload_recovery-d39307e21255-link">GCP workloads recovery</a><div class="wh-tooltip"><p class="shortdesc">After <span class="ph">RSC</span> takes snapshots of your GCP workloads, you can recover the         required workloads using these snapshots.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gce_instances_persistent_disks-d39307e21559" class="topicref" data-id="gce_instances_persistent_disks" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gce_instances_persistent_disks-d39307e21559-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gce_instances_persistent_disks.html" id="gce_instances_persistent_disks-d39307e21559-link">GCE instances and persistent disks</a><div class="wh-tooltip"><p class="shortdesc">After you set up protection for GCE instances and persistent disks, <span class="ph">RSC</span> takes automated snapshots of those instances and disks based on the policies configured         in SLA Domains. You can also take on-demand snapshots and refresh GCP projects.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_cloud_sql-d39307e21779" class="topicref" data-id="gcp_cloud_sql" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_cloud_sql-d39307e21779-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_cloud_sql.html" id="gcp_cloud_sql-d39307e21779-link">Google Cloud SQL</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> supports backup and recovery of Google Cloud SQL         instances.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="gcp_bigquery-d39307e21883" class="topicref" data-id="gcp_bigquery" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action gcp_bigquery-d39307e21883-link" class="wh-expand-btn"></span><div class="title"><a href="../gcp/gcp_bigquery.html" id="gcp_bigquery-d39307e21883-link">Google BigQuery</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> supports backup and recovery of Google BigQuery         datasets.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="oci_workload_protection-d39307e21987" class="topicref" data-id="oci_workload_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action oci_workload_protection-d39307e21987-link" class="wh-expand-btn"></span><div class="title"><a href="../oci/oci_workload_protection.html" id="oci_workload_protection-d39307e21987-link">Oracle Cloud Infrastructure workloads</a><div class="wh-tooltip"><p class="shortdesc">Rubrik provides protection for Oracle Cloud Infrastructure workloads.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_workloads-d39307e22110" class="topicref" data-id="azr_workloads" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_workloads-d39307e22110-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/azr_workloads.html" id="azr_workloads-d39307e22110-link">Microsoft Azure workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph"><span class="ph">RSC</span> protects the data and resources of Azure             virtual machines, Azure managed disks, Azure Blob Storage, Azure SQL workloads, and             Azure PostgreSQL Flexible Servers in Azure subscriptions.</span></p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e26419" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e26419-link" class="wh-expand-btn"></span><div class="title"><a href="../kubernetes/k8s_workload_protection.html" id="tocId-d39307e26419-link">Container workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e28108" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e28108-link" class="wh-expand-btn"></span><div class="title"><a href="../nutanix_ahv/ahv_virtual_machines.html" id="tocId-d39307e28108-link">Data center workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e34019" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e34019-link" class="wh-expand-btn"></span><div class="title"><a href="../db2/ibm_db2.html" id="tocId-d39307e34019-link">Database workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e41666" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e41666-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops.html" id="tocId-d39307e41666-link">DevOps workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="saas_workloads-d39307e43266" class="topicref" data-id="saas_workloads" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action saas_workloads-d39307e43266-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/saas_workloads.html" id="saas_workloads-d39307e43266-link">SaaS workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protection for SaaS workloads simplifies protecting and managing         backups for SaaS application instances.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e49125" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e49125-link" class="wh-expand-btn"></span><div class="title"><a href="../managedvolumes/mv_managed_volumes_sla_managed_volumes.html" id="tocId-d39307e49125-link">Storage workloads</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic concept/concept topic concept" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Best practices for reducing Exocompute on GCP costs</h1>
+    
+    
+    <div class="- topic/body concept/conbody body conbody"><p class="- topic/shortdesc shortdesc">You can configure your GCP network, storage class selection, and snapshot retention
+        settings to reduce ongoing costs when using Exocompute on GCP for archiving and data
+        protection operations.</p>
+        <p class="- topic/p p">Exocompute on GCP uses a Google Kubernetes Engine (GKE) cluster to perform high-volume
+            data operations, including archiving to and retrieval from Google Cloud Storage (GCS).
+            Several factors determine the total cost: how GCS traffic is routed from GKE worker
+            nodes, the GCS storage class selected for long-term retention, whether archived
+            snapshots are stored in the same region as the source, and whether primary persistent
+            disk snapshots are retained after archiving completes. Misconfiguring any of these
+            factors can result in avoidable ongoing charges.</p>
+        <p class="- topic/p p">Review the following guidance before you enable Exocompute on GCP in a production
+            environment, and use it to audit an existing deployment that may be incurring avoidable
+            costs.</p>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Enable Private Google Access on the Exocompute subnet</h2>
+            
+            <p class="- topic/p p">When GKE worker nodes in your Exocompute cluster read from or write to GCS during
+                archiving and recovery operations, the routing path determines whether GCP charges
+                data processing fees. If GCS traffic routes through a Cloud NAT gateway, GCP applies
+                per-GB data processing charges for every gigabyte that passes through it, along with
+                an hourly Cloud NAT fee. For sustained archiving workloads, these charges accumulate
+                rapidly.</p>
+            <p class="- topic/p p">Private Google Access (PGA) enables GCE instances without external IP addresses,
+                including GKE worker nodes, to reach Google APIs, including GCS, through private IP
+                addresses on the Google network at no per-GB processing cost. Enabling PGA on the
+                subnet used by the Exocompute GKE cluster routes all GCS archiving and retrieval
+                traffic over the Google backbone, bypassing Cloud NAT for that traffic. For more
+                information about Exocompute networking modes on GCP, see <a class="- topic/xref xref" href="gcp_exocompute_networking_modes.html" title="It is important that you evaluate the available options for Exocompute on GCP networking modes when adding a GCP project.">Exocompute on GCP networking modes</a>.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="3"><caption></caption><colgroup><col style="width:25%"/><col style="width:37.5%"/><col style="width:37.5%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="gcp_exo_cost_best_practices__entry__1">Factor</th>
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="gcp_exo_cost_best_practices__entry__2">Cloud NAT path</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="gcp_exo_cost_best_practices__entry__3">Private Google Access</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__1">Data processing charge</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__2">Charged per GB processed by Cloud NAT</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="gcp_exo_cost_best_practices__entry__3">No charge for Google API traffic</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__1">Cloud NAT hourly charge</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__2">Charged per hour when a Cloud NAT gateway is present</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="gcp_exo_cost_best_practices__entry__3">Not applicable for Google API traffic</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__1">Network path</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__2">Routes GCS traffic through the Cloud NAT gateway</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="gcp_exo_cost_best_practices__entry__3">Routes traffic directly to Google APIs over private Google IP
+                                ranges</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="gcp_exo_cost_best_practices__entry__1">Setup complexity</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="gcp_exo_cost_best_practices__entry__2">No setup required (default behavior)</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="gcp_exo_cost_best_practices__entry__3">Enabled per subnet in the GCP console or through the networking
+                                API</td>
+                        </tr>
+                    </tbody></table></div>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">When using Rubrik-managed networking</strong>: <span class="- topic/ph ph">RSC</span> automatically
+                    provisions the VPC, subnet, and firewall rules for the Exocompute GKE cluster
+                    and enables PGA on the auto-created subnet. No manual PGA configuration is
+                    required.</li>
+                <li class="- topic/li li"><strong class="+ topic/ph hi-d/b ph b">When using customer-managed networking</strong>: You must ensure PGA is enabled on
+                    the regional subnet you provide for GKE deployment. For more information about
+                    networking prerequisites and PGA configuration requirements, see <a class="- topic/xref xref" href="gcp_exo_cust_managed_network_prereq.html" title="Information about the required settings for the VPC network, subnets, and firewalls that will host the Exocompute GKE cluster when you select the customer-managed networking mode while onboarding a GCP project for the Exocompute use case.">Exocompute on GCP customer-managed networking prerequisites</a>.</li>
+            </ul>
+            <div class="- topic/note note important note_important"><span class="note__title">Important:</span> <div class="note__body">When you use customer-managed networking, enable PGA on the
+                Exocompute subnet before you enable Exocompute in a production environment to avoid
+                unexpected costs. If Cloud NAT is the only outbound path from your Exocompute subnet
+                to GCS, all archiving and retrieval data transfers are subject to Cloud NAT data
+                processing charges.</div></div>
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example</strong>: An organization protects 300 GCE instances with daily backups.
+                Snapshots that meet the archival threshold in the SLA Domain are tiered to a GCS
+                bucket by the GKE cluster. Without PGA, GKE nodes route all write traffic through
+                the Cloud NAT gateway, incurring a data processing charge on every gigabyte written
+                to the archival location. Enabling PGA on the Exocompute subnet routes that same
+                traffic over private Google IP addresses at no additional charge.</p>
+            <p class="- topic/p p">For more information about Private Google Access, see <a class="- topic/xref xref" href="https://cloud.google.com/vpc/docs/private-google-access" target="_blank" rel="external noopener">Private Google Access overview (Google Cloud
+                    documentation)</a>.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Store archived snapshots in source GCP region</h2>
+            
+            <p class="- topic/p p">GCP applies inter-region egress charges when data transfers across regional
+                boundaries. When <span class="- topic/ph ph">RSC</span> archives a GCE instance or persistent disk
+                snapshot to a GCS bucket, the archiving GKE cluster reads snapshot data from the
+                source region and writes it to the bucket region. If the GCS bucket region differs
+                from the region where the protected resources reside, every archiving and recovery
+                operation incurs cross-region data transfer charges in addition to standard GCS
+                storage costs.</p>
+            <p class="- topic/p p">Selecting the same GCP region for the GCS archival location as the region of the
+                protected GCE instances and persistent disks eliminates cross-region egress charges
+                entirely. For more information about archival location and region planning options,
+                see <a class="- topic/xref xref" href="evaluate_options_gcp_storage_tiering.html" title="Before setting up Google Cloud Platform (GCP) storage tiering, it is important to evaluate the tiering options to align with archiving needs, balancing cost, performance, and data retrieval.">Evaluation of options for GCP storage tiering</a>.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="3"><caption></caption><colgroup><col style="width:37.5%"/><col style="width:25%"/><col style="width:37.5%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="gcp_exo_cost_best_practices__entry__16">Archival configuration</th>
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="gcp_exo_cost_best_practices__entry__17">Data transfer cost</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="gcp_exo_cost_best_practices__entry__18">Notes</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__16">GCS bucket in the same region as the source</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="gcp_exo_cost_best_practices__entry__17">No inter-region egress charge</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="gcp_exo_cost_best_practices__entry__18">Recommended for cost optimization</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="gcp_exo_cost_best_practices__entry__16">GCS bucket in a different region</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="gcp_exo_cost_best_practices__entry__17">Inter-region egress charges apply on every archiving and
+                                recovery operation</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="gcp_exo_cost_best_practices__entry__18">May be justified by compliance or geographic redundancy
+                                requirements</td>
+                        </tr>
+                    </tbody></table></div>
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example:</strong> An organization protects GCE instances in
+                    <code class="+ topic/ph pr-d/codeph ph codeph">us-central1</code> and initially configured the GCS archival bucket in
+                    <code class="+ topic/ph pr-d/codeph ph codeph">us-east1</code> for geographic separation. Every nightly archiving run
+                incurs inter-region egress charges on the snapshot data written to the bucket.
+                Moving the bucket to <code class="+ topic/ph pr-d/codeph ph codeph">us-central1</code> eliminates those charges without
+                changing the SLA Domain or protection configuration.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Select the appropriate GCS storage class</h2>
+            
+            <p class="- topic/p p"><span class="- topic/ph ph">RSC</span> supports writing archived data to different GCS storage classes.
+                Selecting the appropriate storage class for your planned retention period balances
+                storage cost against retrieval time and frequency. You configure the GCS storage
+                class within <span class="- topic/ph ph">RSC</span> when creating an archival location and not through
+                GCS-native tools such as GCS lifecycle management policies. For more information
+                about GCS storage class pricing and minimum storage durations, see <a class="- topic/xref xref" href="gcs_storage_classes.html" title="RSC supports four GCS storage classes when creating an archival location to meet different storage requirements.">GCS storage classes</a>.</p>
+            
+            <div class="- topic/note note caution note_caution"><span class="note__title">CAUTION:</span> <div class="note__body">Do not change the GCS storage class for Rubrik-archived data
+                outside of <span class="- topic/ph ph">RSC</span>. Modifying storage class settings directly in the GCP
+                console or through GCS lifecycle management policies may cause subsequent archiving
+                and recovery operations to fail. Manage all storage class settings for
+                Rubrik-archived data through <span class="- topic/ph ph">RSC</span> only.</div></div>
+            <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">GCS charges the full minimum storage cost even if <span class="- topic/ph ph">RSC</span> deletes the
+                archived snapshot before the minimum duration expires. Align the SLA Domain
+                retention period with the minimum storage duration of the selected storage class to
+                avoid early deletion fees.</div></div>
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Instant Tiering:</strong>
+                <span class="- topic/ph ph">RSC</span> supports GCP Instant Tiering, which tiers GCE instance and
+                persistent disk snapshots to the configured archival location immediately after each
+                backup completes. When you configure a source retention period of zero days, the
+                primary snapshot is deleted after archiving, eliminating ongoing primary snapshot
+                storage costs. For more information, see <a class="- topic/xref xref" href="gcp_instant_tiering.html" title="In RSC, you can instantly tier GCE instance or persistent disk snapshots to the specified archival location, enhancing cost efficiency.">GCP instant tiering</a>.</p>
+            
+            <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">Rubrik recommends a minimum snapshot schedule of one snapshot every day when using
+                Instant Tiering. Schedules with a frequency shorter than 24 hours can result in
+                multiple overlapping in-progress snapshot chains on primary storage, which increases
+                primary storage costs.</div></div>
+            <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Example:</strong> An organization protects 400 GCE instances with daily backups and a
+                14-day primary retention. Without Instant Tiering, up to 14 primary snapshots for
+                each instance accumulate in persistent disk snapshot storage at any given time,
+                generating ongoing primary storage charges across the entire fleet. Enabling Instant
+                Tiering with a source retention of zero days removes primary snapshots immediately
+                after each archiving completes. Snapshots are written directly to the configured GCS
+                storage class and removed from primary storage, reducing primary storage costs to
+                near zero.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Monitor GCP costs for Exocompute</h2>
+            
+            <p class="- topic/p p">Use GCP Cost Management to view the costs associated with your Exocompute
+                environment. Filter by the GCP project designated as the Exocompute host project to
+                isolate Exocompute-related charges from other workloads in the same billing
+                account.</p>
+            <p class="- topic/p p">When Exocompute launches a GKE cluster, <span class="- topic/ph ph">RSC</span> creates GKE node pools
+                and associated resources within the designated Exocompute host project. Filtering
+                your cost analysis by this project separates Exocompute infrastructure charges from
+                your other GCP workloads. For more information about the resources that Exocompute
+                creates in the GCP project, see <a class="- topic/xref xref" href="exocompute_gcp.html" title="With the Exocompute on GCP feature, RSC launches a Google Kubernetes Engine cluster to perform various operations to protect GCP workloads. RSC uses the Google Kubernetes Engine cluster to serve as a compute resource in your GCP project.">Exocompute on GCP</a>.</p>
+            <div class="- topic/p p">For Exocompute deployments, monitor the following cost categories:<ul class="- topic/ul ul">
+                    <li class="- topic/li li">GKE worker node compute charges for Exocompute operations</li>
+                    <li class="- topic/li li">GCS storage charges for archived data, broken down by storage class</li>
+                    <li class="- topic/li li">GCS retrieval charges for data read during recovery operations. Retrieval
+                        costs are highest for Coldline and Archive class data.</li>
+                    <li class="- topic/li li">Cloud NAT data processing and hourly charges. The presence of these charges
+                        for GCS-bound traffic indicates that PGA is not configured on the Exocompute
+                        subnet. Enabling Cloud NAT on a subnet also enables PGA by default. For more
+                        information, see <a class="- topic/xref xref" href="https://docs.cloud.google.com/nat/docs/nat-product-interactions#interaction-pga" target="_blank" rel="external noopener">NAT and Private Google Access (Google
+                            Cloud documentation)</a>.</li>
+                    <li class="- topic/li li">Inter-region egress charges. The presence of these charges indicates that
+                        the GCS archival bucket region does not match the source GCE instance
+                        region.</li>
+                </ul></div>
+            <div class="- topic/note note tip note_tip"><span class="note__title">Tip:</span> <div class="note__body">If GCP Cost Management shows ongoing Cloud NAT data processing charges
+                in the Exocompute host project, verify that Private Google Access is enabled on the
+                subnet used by the GKE node pool. Traffic from subnets without PGA continues to
+                route Google API calls through Cloud NAT regardless of other network
+                settings.</div></div>
+            <p class="- topic/p p">For more information about monitoring GCP costs, see <a class="- topic/xref xref" href="https://cloud.google.com/cost-management#documentation" target="_blank" rel="external noopener">GCP cost management (Google Cloud documentation)</a>.</p>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="gcp_private_exocompute.html" title="Private Exocompute on GCP isolates the Exocompute GKE cluster from the public internet by keeping the Kubernetes API server endpoint within your VPC network.">Private Exocompute on GCP</a><div class="- topic/desc ">Private Exocompute on GCP isolates the Exocompute GKE cluster from the public         internet by keeping the Kubernetes API server endpoint within your VPC network.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="config_exocompute_gcp.html" title="You can configure Exocompute on GCP to launch Exocompute resources to perform tasks such as restoring files and leveraging storage tiering.">Configuration of Exocompute on GCP</a><div class="- topic/desc ">You can configure Exocompute on GCP to launch Exocompute resources to perform tasks         such as restoring files and leveraging storage tiering.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="concept"/><meta name="description" content="Roll forward restores a compromised identity environment to a clean baseline snapshot, then replays only legitimate changes from the compromise window into the restored environment."/><meta name="DC.relation" content="../identity_resilience/ir_clean_recovery.html"/><meta name="DC.relation" content="../identity_resilience/identity_resilience.html"/><meta name="DC.relation" content="../identity_resilience/ir_recovery_paths.html"/><meta name="DC.relation" content="../identity_resilience/ir_targeted_rollback.html"/><meta name="DC.relation" content="ir_clean_recovery_ad.html"/><meta name="DC.relation" content="ir_roll_forward_entra_id.html"/><meta name="DC.relation" content="ir_change_classifications.html"/><meta name="DC.relation" content="ir_recovery_paths.html"/><meta name="DC.relation" content="ir_clean_recovery.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="ir_roll_forward"/>        
+      <title>Roll forward</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="ir_roll_forward-d39307e57038"/><meta name="wh-source-relpath" content="identity_resilience/ir_roll_forward.dita"/><meta name="wh-out-relpath" content="identity_resilience/ir_roll_forward.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="ir_roll_forward" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../identity_resilience/identity_resilience.html">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li><div class="topicref" data-id="identity_resilience"><div class="title"><a href="../identity_resilience/identity_resilience.html"><span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">Rubrik <span class="ph">Identity Resilience</span> secures, monitors, and recovers the         Identity Providers.</p></div></div></div></li><li><div class="topicref" data-id="ir_clean_recovery"><div class="title"><a href="../identity_resilience/ir_clean_recovery.html">Clean recovery</a><div class="wh-tooltip"><p class="shortdesc">Clean recovery returns a compromised identity environment to a clean and         current state by selectively recovering legitimate business changes alongside the         identity infrastructure.</p></div></div></div></li><li class="active"><div class="topicref" data-id="ir_roll_forward"><div class="title"><a href="../identity_resilience/ir_roll_forward.html">Roll forward</a><div class="wh-tooltip"><p class="shortdesc">Roll forward restores a compromised identity environment to a clean baseline         snapshot, then replays only legitimate changes from the compromise window into the restored         environment.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../identity_resilience/ir_recovery_paths.html" title="Recovery paths" aria-label="Previous topic: Recovery paths" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../identity_resilience/ir_targeted_rollback.html" title="Targeted rollback" aria-label="Next topic: Targeted rollback" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true"><div data-tocid="identity_resilience-d39307e56759" class="topicref" data-id="identity_resilience" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action identity_resilience-d39307e56759-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="identity_resilience-d39307e56759-link"><span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">Rubrik <span class="ph">Identity Resilience</span> secures, monitors, and recovers the         Identity Providers.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56774" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56774-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_key_features.html" id="tocId-d39307e56774-link">Introduction to Identity Resilience</a></div></div></li><li role="treeitem"><div data-tocid="ir_supported_func_idp-d39307e56806" class="topicref" data-id="ir_supported_func_idp" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_supported_func_idp.html" id="ir_supported_func_idp-d39307e56806-link">Supported functionalities and identities for IdP</a><div class="wh-tooltip"><p class="shortdesc">Information about the functionalities and identities supported for specific Identity         Provider in <span class="ph">Identity Resilience</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_idp_protection_planning-d39307e56820" class="topicref" data-id="ir_idp_protection_planning" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_idp_protection_planning-d39307e56820-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_idp_protection_planning.html" id="ir_idp_protection_planning-d39307e56820-link">IdP protection planning </a><div class="wh-tooltip"><p class="shortdesc">Effective planning for Identity Provider protection involves defining the scope,         assessing criticality, strategizing onboarding and integration, managing permissions and         credentials, establishing SLA Domains, and preparing for recovery scenarios to ensure robust         defense and rapid recovery of identity environments.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56863" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56863-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_adding_idp.html" id="tocId-d39307e56863-link">Configuring and protecting Identity Providers</a></div></div></li><li role="treeitem"><div data-tocid="ir_dashboard-d39307e57000" class="topicref" data-id="ir_dashboard" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_dashboard.html" id="ir_dashboard-d39307e57000-link"><span class="ph">Identity Resilience</span> dashboard</a><div class="wh-tooltip"><p class="shortdesc">The <span class="ph">Identity Resilience</span> dashboard provides a unified overview of         identity-related policy violations, activity alerts, and the protection status of hybrid         identity environments.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="ir_clean_recovery-d39307e57016" class="topicref" data-id="ir_clean_recovery" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action ir_clean_recovery-d39307e57016-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_clean_recovery.html" id="ir_clean_recovery-d39307e57016-link">Clean recovery</a><div class="wh-tooltip"><p class="shortdesc">Clean recovery returns a compromised identity environment to a clean and         current state by selectively recovering legitimate business changes alongside the         identity infrastructure.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="ir_recovery_paths-d39307e57027" class="topicref" data-id="ir_recovery_paths" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_recovery_paths.html" id="ir_recovery_paths-d39307e57027-link">Recovery paths</a><div class="wh-tooltip"><p class="shortdesc">Comparison between roll forward and targeted rollback. Roll forward is recommended         when a clean rebuild is required, and targeted rollback is recommended when the attack is         contained and minimal disruption to the live environment is a priority.</p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="ir_roll_forward-d39307e57038" class="topicref" data-id="ir_roll_forward" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_roll_forward.html" id="ir_roll_forward-d39307e57038-link">Roll forward</a><div class="wh-tooltip"><p class="shortdesc">Roll forward restores a compromised identity environment to a clean baseline         snapshot, then replays only legitimate changes from the compromise window into the restored         environment.</p></div></div></div></li><li role="treeitem"><div data-tocid="ir_targeted_rollback-d39307e57049" class="topicref" data-id="ir_targeted_rollback" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_targeted_rollback.html" id="ir_targeted_rollback-d39307e57049-link">Targeted rollback</a><div class="wh-tooltip"><p class="shortdesc">Targeted rollback stays in the current live environment and reverts only the changes         you select, preserving all other changes from the same window.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_change_classifications-d39307e57060" class="topicref" data-id="ir_change_classifications" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_change_classifications-d39307e57060-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_change_classifications.html" id="ir_change_classifications-d39307e57060-link">Change classifications in clean recovery</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> assigns each change detected during clean recovery one of three         classifications based on signals from connected integrations and user-uploaded         files.</p></div></div></div></li><li role="treeitem"><div data-tocid="ir_snapshot_threat_enrichment-d39307e57095" class="topicref" data-id="ir_snapshot_threat_enrichment" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_snapshot_threat_enrichment.html" id="ir_snapshot_threat_enrichment-d39307e57095-link">Snapshot threat enrichment</a><div class="wh-tooltip"><p class="shortdesc">Snapshot threat enrichment marks snapshots that fall within a confirmed compromise         window, helping you select a safe recovery point and avoid restoring from a compromised         state. For Active Directory, enrichment uses both Rubrik's internal Threat Monitoring scan         and identity threat integration alerts. For Microsoft Entra ID, enrichment uses identity         threat integration alerts.</p></div></div></div></li><li role="treeitem"><div data-tocid="ir_snapshot_comparison-d39307e57106" class="topicref" data-id="ir_snapshot_comparison" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_snapshot_comparison.html" id="ir_snapshot_comparison-d39307e57106-link">Snapshot comparison</a><div class="wh-tooltip"><p class="shortdesc">Snapshot comparison identifies every object that changed between the clean baseline         snapshot and the latest available snapshot, and attributes each change to the actor who made         it using the activity log.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_clean_recovery_ad-d39307e57117" class="topicref" data-id="ir_clean_recovery_ad" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_clean_recovery_ad-d39307e57117-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_clean_recovery_ad.html" id="ir_clean_recovery_ad-d39307e57117-link">Clean recovery for Active Directory</a><div class="wh-tooltip"><p class="shortdesc">Clean recovery for Active Directory combines Active Directory Forest Recovery         with roll forward recovery to return the AD forest to a clean and current state         after a security breach.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_clean_rec_entra_id-d39307e57161" class="topicref" data-id="ir_clean_rec_entra_id" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_clean_rec_entra_id-d39307e57161-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_clean_rec_entra_id.html" id="ir_clean_rec_entra_id-d39307e57161-link">Clean recovery for Microsoft Entra ID</a><div class="wh-tooltip"><p class="shortdesc">Clean recovery returns a compromised Microsoft Entra ID tenant to a known clean state         using one of two recovery types: roll forward or targeted rollback.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_policies_violations-d39307e57266" class="topicref" data-id="ir_policies_violations" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_policies_violations-d39307e57266-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_policies_violations.html" id="ir_policies_violations-d39307e57266-link">Policies and violations in <span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Identity Resilience</span> policies are predefined by Rubrik to identify gaps         in your identity security posture and simplify the process to mitigate identity-based cyber         risks.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_identities-d39307e57492" class="topicref" data-id="ir_identities" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_identities-d39307e57492-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_identities.html" id="ir_identities-d39307e57492-link">Identities in <span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">The Identities page in <span class="ph">Identity Resilience</span> provides a centralized view         of all human and non-human identities discovered in your environment.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_computers-d39307e57630" class="topicref" data-id="ir_computers" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_computers-d39307e57630-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_computers.html" id="ir_computers-d39307e57630-link">Computers in <span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">The Computers page in <span class="ph">Identity Resilience</span> provides a centralized view         of Active Directory computer accounts discovered in your environment.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_gpo_inventory-d39307e57708" class="topicref" data-id="ir_gpo_inventory" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_gpo_inventory-d39307e57708-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_gpo_inventory.html" id="ir_gpo_inventory-d39307e57708-link">GPO inventory</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides a Group Policy Objects inventory that gives Active         Directory administrators a centralized view of all Group Policy Objects, their metadata, and         their full change history.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_activity_auditor-d39307e57758" class="topicref" data-id="ir_activity_auditor" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_activity_auditor-d39307e57758-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_activity_auditor.html" id="ir_activity_auditor-d39307e57758-link">Activity auditor in <span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">The Activity auditor provides a centralized, immutable record of identity management         events<span class="ph"> and authentication attempts</span> across supported identity providers.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_alerts-d39307e57931" class="topicref" data-id="ir_alerts" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_alerts-d39307e57931-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_alerts.html" id="ir_alerts-d39307e57931-link">Alerts in <span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">The Alerts feature within Rubrik <span class="ph">Identity Resilience</span> provides         real-time, live tracking of critical events and suspicious activities detected within your         Active Directory and Entra ID environments.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_alert_rules-d39307e58016" class="topicref" data-id="ir_alert_rules" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_alert_rules-d39307e58016-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_alert_rules.html" id="ir_alert_rules-d39307e58016-link">Alert rules in <span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">Alert rules trigger alerts when specific activities are detected within an Identity         Provider by monitoring changes captured through activity logging.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ir_agent_activity-d39307e58109" class="topicref" data-id="ir_agent_activity" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ir_agent_activity-d39307e58109-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_agent_activity.html" id="ir_agent_activity-d39307e58109-link"><span class="ph">Identity Resilience</span> integration with Rubrik <span class="ph">Agent Cloud</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Identity Resilience</span> integrates with Rubrik <span class="ph">Agent Cloud</span> to         add the Agent Activity tab. The tab shows the AI agent sessions, actions, active alerts, and         accessed agents of an identity, so that you can assess what the identity did through AI         agents after a suspected compromise.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e58181" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e58181-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/ir_events.html" id="tocId-d39307e58181-link">Events and reports</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e58242" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e58242-link" class="wh-expand-btn"></span><div class="title"><a href="../adds/ad_protection.html" id="tocId-d39307e58242-link">Identity workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="identity_recovery-d39307e60648" class="topicref" data-id="identity_recovery" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action identity_recovery-d39307e60648-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_recovery/identity_recovery.html" id="identity_recovery-d39307e60648-link"><span class="ph">Identity Recovery</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Identity Recovery</span> orchestrates the recovery of identity         infrastructure, including Active Directory forests and Microsoft Entra ID tenants, from         accidental deletion, misconfiguration, account compromise, or catastrophic         failure.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic concept/concept topic concept" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Roll forward</h1>
+    
+    
+    <div class="- topic/body concept/conbody body conbody"><p class="- topic/shortdesc shortdesc">Roll forward restores a compromised identity environment to a clean baseline
+        snapshot, then replays only legitimate changes from the compromise window into the restored
+        environment.</p>
+        <p class="- topic/p p">Advanced persistent threats often remain undetected for weeks before an attack surfaces.
+            Recovering strictly from a clean snapshot eliminates attacker persistence but also
+            erases all legitimate organizational changes made since that snapshot, such as new user
+            accounts, group membership updates, password resets, and application registrations. Roll
+            forward returns the recovered environment to a clean and current state by selectively
+            reintroducing only the legitimate changes.</p>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">How roll forward works</h2>
+            
+            <p class="- topic/p p">Roll forward runs in four stages:</p>
+            <ol class="- topic/ol ol">
+                <li class="- topic/li li">Restore to baseline: You select a clean baseline snapshot, and <span class="- topic/ph ph">RSC</span> restores the directory or forest to that point.</li>
+                <li class="- topic/li li">Classify changes: After the restore, <span class="- topic/ph ph">RSC</span> analyzes every change
+                    that occurred between the baseline snapshot and the latest available snapshot.
+                    Each change is classified as suspicious, legitimate, or unknown using signals
+                    from connected security integrations and any custom files you upload. For more
+                    information, see <a class="- topic/xref xref" href="ir_change_classifications.html" title="RSC assigns each change detected during clean recovery one of three classifications based on signals from connected integrations and user-uploaded files.">Change classifications in clean recovery</a>.</li>
+                <li class="- topic/li li">Review changes: When classification completes, you review the results in
+                    the change review workspace. You can filter by classification, group by actor or
+                    object type, and override individual verdicts before marking changes for roll
+                    forward.</li>
+                <li class="- topic/li li">Roll forward: <span class="- topic/ph ph">RSC</span> injects the changes you marked into the
+                    restored environment, returning it to a current state without reintroducing
+                    attacker modifications.</li>
+            </ol>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">When to use roll forward</h2>
+            
+            <p class="- topic/p p">Roll forward is the recommended recovery path when:</p>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li">The attack is widespread and the environment is fully compromised.</li>
+                <li class="- topic/li li">Attacker persistence is embedded at the infrastructure level, such as through
+                    domain controller compromise or Golden Ticket attacks.</li>
+                <li class="- topic/li li">A clean rebuild is required to guarantee the attacker has no remaining
+                    foothold.</li>
+                <li class="- topic/li li">Significant legitimate business activity occurred between the clean baseline and
+                    the incident date and must be preserved.</li>
+            </ul>
+            <p class="- topic/p p">For guidance on choosing between roll forward and surgical rollback, see <a class="- topic/xref xref" href="ir_recovery_paths.html" title="Comparison between roll forward and targeted rollback. Roll forward is recommended when a clean rebuild is required, and targeted rollback is recommended when the attack is contained and minimal disruption to the live environment is a priority.">Recovery paths</a>.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Supported workloads</h2>
+            
+            <p class="- topic/p p">Roll forward is available for:</p>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li">Active Directory. For more information, see <a class="- topic/xref xref" href="ir_clean_recovery_ad.html" title="Clean recovery for Active Directory combines Active Directory Forest Recovery with roll forward recovery to return the AD forest to a clean and current state after a security breach.">Clean recovery for Active Directory</a>.</li>
+                <li class="- topic/li li">Microsoft Entra ID. For more information, see <a class="- topic/xref xref" href="ir_roll_forward_entra_id.html" title="Roll forward recovery restores a compromised Microsoft Entra ID tenant to a snapshot baseline, then classifies and reapplies legitimate changes from the compromise window.">Roll forward recovery for Microsoft Entra ID</a>.</li>
+            </ul>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="ir_clean_recovery_ad.html" title="Clean recovery for Active Directory combines Active Directory Forest Recovery with roll forward recovery to return the AD forest to a clean and current state after a security breach.">Clean recovery for Active Directory</a><div class="- topic/desc ">Clean recovery for Active Directory combines Active Directory Forest Recovery         with roll forward recovery to return the AD forest to a clean and current state         after a security breach.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="ir_roll_forward_entra_id.html" title="Roll forward recovery restores a compromised Microsoft Entra ID tenant to a snapshot baseline, then classifies and reapplies legitimate changes from the compromise window.">Roll forward recovery for Microsoft Entra ID</a><div class="- topic/desc ">Roll forward recovery restores a compromised Microsoft Entra ID tenant to a snapshot         baseline, then classifies and reapplies legitimate changes from the compromise         window.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="ir_recovery_paths.html" title="Comparison between roll forward and targeted rollback. Roll forward is recommended when a clean rebuild is required, and targeted rollback is recommended when the attack is contained and minimal disruption to the live environment is a priority.">Recovery paths</a><div class="- topic/desc ">Comparison between roll forward and targeted rollback. Roll forward is recommended         when a clean rebuild is required, and targeted rollback is recommended when the attack is         contained and minimal disruption to the live environment is a priority.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="ir_clean_recovery.html" title="Clean recovery returns a compromised identity environment to a clean and current state by selectively recovering legitimate business changes alongside the identity infrastructure.">Clean recovery</a><div class="- topic/desc ">Clean recovery returns a compromised identity environment to a clean and         current state by selectively recovering legitimate business changes alongside the         identity infrastructure.</div></li></ul></div><div class="- topic/linklist linklist relref"><strong>Related reference</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="ir_change_classifications.html" title="RSC assigns each change detected during clean recovery one of three classifications based on signals from connected integrations and user-uploaded files.">Change classifications in clean recovery</a><div class="- topic/desc ">RSC assigns each change detected during clean recovery one of three         classifications based on signals from connected integrations and user-uploaded         files.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

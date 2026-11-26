@@ -1,0 +1,472 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="task"/><meta name="description" content="Configure the replication policy for an SLA Domain when creating a custom SLA Domain or when editing any SLA Domain."/><meta name="DC.relation" content="../saas/replication_config_types_sla_domain.html"/><meta name="DC.relation" content="../saas/sla_domains.html"/><meta name="DC.relation" content="../saas/sla_domain_administration.html"/><meta name="DC.relation" content="../saas/limitations_replication_config.html"/><meta name="DC.relation" content="../cdm_old/replication_target_changes_2.html"/><meta name="DC.relation" content="replication_config_types_sla_domain.html"/><meta name="DC.relation" content="rsc_creating_sla_domains_manytoone_rep.html"/><meta name="DC.relation" content="rsc_creating_sla_domains_onetoone_rep.html"/><meta name="DC.relation" content="limitations_replication_config.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="configuring_replication_policy"/>        
+      <title>Configuring replication policy</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="configuring_replication_policy-d39307e6881"/><meta name="wh-source-relpath" content="saas/configuring_replication_policy.dita"/><meta name="wh-out-relpath" content="saas/configuring_replication_policy.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="configuring_replication_policy" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../saas/sla_domains.html">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li><div class="topicref" data-id="sla_domains"><div class="title"><a href="../saas/sla_domains.html">SLA Domains</a><div class="wh-tooltip"><p class="shortdesc">SLA Domains in <span class="ph">RSC</span> unify data protection policies, providing a         unified approach to manage data protection across various workloads and         environments.</p></div></div></div></li><li><div class="topicref" data-id="sla_domain_administration"><div class="title"><a href="../saas/sla_domain_administration.html">SLA Domain administration</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides centralized administration of SLA Domains.</p></div></div></div></li><li><div class="topicref" data-id="replication_config_types_sla_domain"><div class="title"><a href="../saas/replication_config_types_sla_domain.html">Replication configuration types in SLA Domain</a><div class="wh-tooltip"><p class="shortdesc">You can configure replication types, such as many-to-one and one-to-one, and         configure replication between multiple source and target clusters using a single SLA Domain         to maintain consistent backup and disaster recovery.</p></div></div></div></li><li class="active"><div class="topicref" data-id="configuring_replication_policy"><div class="title"><a href="../saas/configuring_replication_policy.html">Configuring replication policy</a><div class="wh-tooltip"><p class="shortdesc">Configure the replication policy for an SLA Domain when creating a custom SLA Domain         or when editing any SLA Domain.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../saas/limitations_replication_config.html" title="Limitations in replication configuration" aria-label="Previous topic: Limitations in replication configuration" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../cdm_old/replication_target_changes_2.html" title="Replication target changes" aria-label="Next topic: Replication target changes" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true"><div data-tocid="sla_domains-d39307e6483" class="topicref" data-id="sla_domains" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action sla_domains-d39307e6483-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="sla_domains-d39307e6483-link">SLA Domains</a><div class="wh-tooltip"><p class="shortdesc">SLA Domains in <span class="ph">RSC</span> unify data protection policies, providing a         unified approach to manage data protection across various workloads and         environments.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="sla_domains_features-d39307e6497" class="topicref" data-id="sla_domains_features" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains_features.html" id="sla_domains_features-d39307e6497-link">SLA Domains features</a><div class="wh-tooltip"><p class="shortdesc">Information about the features available when creating an SLA Domain.</p></div></div></div></li><li role="treeitem"><div data-tocid="default_sla_domains-d39307e6508" class="topicref" data-id="default_sla_domains" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/default_sla_domains.html" id="default_sla_domains-d39307e6508-link">Default SLA Domains</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides preconfigured SLA Domains.</p></div></div></div></li><li role="treeitem"><div data-tocid="sla_domain_deployment_model-d39307e6521" class="topicref" data-id="sla_domain_deployment_model" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domain_deployment_model.html" id="sla_domain_deployment_model-d39307e6521-link">SLA Domain deployment models</a><div class="wh-tooltip"><p class="shortdesc">The deployment model for an SLA Domain determines who manages the archival storage         and compute resources for cloud workload protection.</p></div></div></div></li><li role="treeitem"><div data-tocid="sla_domains_assignment-d39307e6532" class="topicref" data-id="sla_domains_assignment" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains_assignment.html" id="sla_domains_assignment-d39307e6532-link">SLA Domains assignment</a><div class="wh-tooltip"><p class="shortdesc">You can protect and manage your data by assigning SLA Domains across various         workloads in <span class="ph">RSC</span>.</p></div></div></div></li><li role="treeitem"><div data-tocid="snapshot_window-d39307e6546" class="topicref" data-id="snapshot_window" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../cdm_old/snapshot_window.html" id="snapshot_window-d39307e6546-link">Snapshot window</a><div class="wh-tooltip"><p class="shortdesc">You can configure an SLA Domain to include a snapshot window.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="dlc_granular_snapshot_scheduling-d39307e6557" class="topicref" data-id="dlc_granular_snapshot_scheduling" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action dlc_granular_snapshot_scheduling-d39307e6557-link" class="wh-expand-btn"></span><div class="title"><a href="../dlc/dlc_granular_snapshot_scheduling.html" id="dlc_granular_snapshot_scheduling-d39307e6557-link">Granular snapshot scheduling</a><div class="wh-tooltip"><p class="shortdesc">Granular snapshot scheduling gives you precise control over when <span class="ph">Rubrik Security Cloud</span> captures and retains snapshots, enabling flexible multi-day         selections for weekly, monthly, and yearly snapshot frequencies.</p></div></div></div></li><li role="treeitem"><div data-tocid="sla_domain_attributes-d39307e6613" class="topicref" data-id="sla_domain_attributes" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domain_attributes.html" id="sla_domain_attributes-d39307e6613-link">SLA Domain attributes</a><div class="wh-tooltip"><p class="shortdesc">Information about the details for managing SLA Domains and the available actions and         attributes on the SLA Domains dashboard.</p></div></div></div></li><li role="treeitem"><div data-tocid="local_retention_frequency_requirements-d39307e6624" class="topicref" data-id="local_retention_frequency_requirements" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/local_retention_frequency_requirements.html" id="local_retention_frequency_requirements-d39307e6624-link">Local retention requirements for snapshot frequencies</a><div class="wh-tooltip"><p class="shortdesc">For each snapshot frequency that is not part of the archival policy, the local         retention of an SLA Domain must be greater than the sum of the snapshot frequency and         snapshot retention. Otherwise, <span class="ph">RSC</span> displays a validation error when you save         the SLA Domain.</p></div></div></div></li><li role="treeitem"><div data-tocid="sla_domain_details-d39307e6638" class="topicref" data-id="sla_domain_details" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domain_details.html" id="sla_domain_details-d39307e6638-link">SLA Domain details</a><div class="wh-tooltip"><p class="shortdesc">Information about SLA Domain details page that provides a list of tabs, actionable         options, and key details summarized through information cards.</p></div></div></div></li><li role="treeitem"><div data-tocid="requirements_for_sla_domain_names-d39307e6649" class="topicref" data-id="requirements_for_sla_domain_names" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/requirements_for_sla_domain_names.html" id="requirements_for_sla_domain_names-d39307e6649-link">Requirements for SLA Domain names</a><div class="wh-tooltip"><p class="shortdesc">An SLA Domain must meet specific name requirements.</p></div></div></div></li><li role="treeitem"><div data-tocid="sla_domain_states-d39307e6661" class="topicref" data-id="sla_domain_states" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domain_states.html" id="sla_domain_states-d39307e6661-link">SLA Domain states</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protects objects through an SLA Domain. The SLA Domain state         determines an object protection.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="sla_domain_administration-d39307e6674" class="topicref" data-id="sla_domain_administration" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action sla_domain_administration-d39307e6674-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domain_administration.html" id="sla_domain_administration-d39307e6674-link">SLA Domain administration</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides centralized administration of SLA Domains.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="rsc_creating_custom_sla_domain-d39307e6687" class="topicref" data-id="rsc_creating_custom_sla_domain" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rsc_creating_custom_sla_domain-d39307e6687-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_creating_custom_sla_domain.html" id="rsc_creating_custom_sla_domain-d39307e6687-link">Creating a custom SLA Domain</a><div class="wh-tooltip"><p class="shortdesc">Create a custom SLA Domain to define and customize workload protection and management         policies.</p></div></div></div></li><li role="treeitem"><div data-tocid="rsc_creating_sla_domains_manytoone_rep-d39307e6720" class="topicref" data-id="rsc_creating_sla_domains_manytoone_rep" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_creating_sla_domains_manytoone_rep.html" id="rsc_creating_sla_domains_manytoone_rep-d39307e6720-link">Creating SLA Domains for many-to-one replication</a><div class="wh-tooltip"><p class="shortdesc">Create an SLA Domain for many-to-one replication, the traditional replication mode         supported by <span class="ph">RSC</span> SLA Domains. This method consolidates data protection from         multiple source clusters onto a single target cluster, ensuring centralized recovery and         protection.</p></div></div></div></li><li role="treeitem"><div data-tocid="rsc_creating_sla_domains_onetoone_rep-d39307e6734" class="topicref" data-id="rsc_creating_sla_domains_onetoone_rep" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_creating_sla_domains_onetoone_rep.html" id="rsc_creating_sla_domains_onetoone_rep-d39307e6734-link">Creating SLA Domains for one-to-one replication</a><div class="wh-tooltip"><p class="shortdesc">Create an SLA Domain for one-to-one replication when there are more than two         replication targets and the source and replication clusters are in a dedicated replication         configuration. With one-to-one replication, you can configure multiple replication pairs,         but a source cluster can replicate to a maximum of two target clusters.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="archival_policy-d39307e6745" class="topicref" data-id="archival_policy" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action archival_policy-d39307e6745-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/archival_policy.html" id="archival_policy-d39307e6745-link">Archival policy</a><div class="wh-tooltip"><p class="shortdesc">An archival policy is a configurable set of rules in an SLA Domain that defines         where, when, and how long a Rubrik cluster archives protected data.</p></div></div></div></li><li role="treeitem"><div data-tocid="replication_settings_for_specific_workloads-d39307e6837" class="topicref" data-id="replication_settings_for_specific_workloads" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/replication_settings_for_specific_workloads.html" id="replication_settings_for_specific_workloads-d39307e6837-link">Replication settings for specific workloads</a><div class="wh-tooltip"><p class="shortdesc">When creating or editing an SLA Domain, enabling replication for certain workloads         requires additional settings.</p></div></div></div></li><li role="treeitem"><div data-tocid="replication_target_changes-d39307e6848" class="topicref" data-id="replication_target_changes" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../cdm_old/replication_target_changes.html" id="replication_target_changes-d39307e6848-link">Replication target changes</a><div class="wh-tooltip"><p class="shortdesc">Editing the replication targets in an SLA Domain does not impact existing         snapshots.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="replication_config_types_sla_domain-d39307e6859" class="topicref" data-id="replication_config_types_sla_domain" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action replication_config_types_sla_domain-d39307e6859-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/replication_config_types_sla_domain.html" id="replication_config_types_sla_domain-d39307e6859-link">Replication configuration types in SLA Domain</a><div class="wh-tooltip"><p class="shortdesc">You can configure replication types, such as many-to-one and one-to-one, and         configure replication between multiple source and target clusters using a single SLA Domain         to maintain consistent backup and disaster recovery.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="limitations_replication_config-d39307e6870" class="topicref" data-id="limitations_replication_config" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/limitations_replication_config.html" id="limitations_replication_config-d39307e6870-link">Limitations in replication configuration</a><div class="wh-tooltip"><p class="shortdesc">Configuring replication as part of the SLA Domain creation process has specific         limitations that require consideration.</p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="configuring_replication_policy-d39307e6881" class="topicref" data-id="configuring_replication_policy" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/configuring_replication_policy.html" id="configuring_replication_policy-d39307e6881-link">Configuring replication policy</a><div class="wh-tooltip"><p class="shortdesc">Configure the replication policy for an SLA Domain when creating a custom SLA Domain         or when editing any SLA Domain.</p></div></div></div></li><li role="treeitem"><div data-tocid="replication_target_changes-d39307e6892" class="topicref" data-id="replication_target_changes" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../cdm_old/replication_target_changes_2.html" id="replication_target_changes-d39307e6892-link">Replication target changes</a><div class="wh-tooltip"><p class="shortdesc">Editing the replication targets in an SLA Domain does not impact existing         snapshots.</p></div></div></div></li><li role="treeitem"><div data-tocid="replication_settings_for_specific_workloads-d39307e6903" class="topicref" data-id="replication_settings_for_specific_workloads" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/replication_settings_for_specific_workloads_2.html" id="replication_settings_for_specific_workloads-d39307e6903-link">Replication settings for specific workloads</a><div class="wh-tooltip"><p class="shortdesc">When creating or editing an SLA Domain, enabling replication for certain workloads         requires additional settings.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="sla_domains_without_snapshot_schedules-d39307e6914" class="topicref" data-id="sla_domains_without_snapshot_schedules" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action sla_domains_without_snapshot_schedules-d39307e6914-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains_without_snapshot_schedules.html" id="sla_domains_without_snapshot_schedules-d39307e6914-link">Continuous Data Protection-only SLA Domains for Amazon RDS</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> workloads, such as Amazon RDS, support both continuous data         backup and scheduled backups. You can enable them as needed. With Continuous Data         Protection-only SLA Domains, you can exclude snapshot schedules for supported workloads by         turning off the frequency and retention when creating or editing the Continuous Data         Protection-only SLA Domains.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="retention_locked_sla_domain-d39307e6971" class="topicref" data-id="retention_locked_sla_domain" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action retention_locked_sla_domain-d39307e6971-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/retention_locked_sla_domain.html" id="retention_locked_sla_domain-d39307e6971-link">Retention-locked SLA Domains</a><div class="wh-tooltip"><p class="shortdesc">The retention lock feature on <span class="ph">RSC</span> SLA Domains ensures the security         and integrity of your data for a specified duration by preventing the premature deletion of         snapshots for various workloads.</p></div></div></div></li><li role="treeitem"><div data-tocid="cloning_custom_global_sla_domain-d39307e7090" class="topicref" data-id="cloning_custom_global_sla_domain" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/cloning_custom_sla_domain.html" id="cloning_custom_global_sla_domain-d39307e7090-link">Cloning a custom SLA Domain</a><div class="wh-tooltip"><p class="shortdesc">Create a clone of an existing SLA Domain.</p></div></div></div></li><li role="treeitem"><div data-tocid="edit_sla_domain-d39307e7102" class="topicref" data-id="edit_sla_domain" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/edit_sla_domain.html" id="edit_sla_domain-d39307e7102-link">Edit an SLA Domain</a><div class="wh-tooltip"><p class="shortdesc">Make changes to an existing custom SLA Domain.</p></div></div></div></li><li role="treeitem"><div data-tocid="viewing_sla_domain_details-d39307e7113" class="topicref" data-id="viewing_sla_domain_details" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/viewing_sla_domain_details.html" id="viewing_sla_domain_details-d39307e7113-link">Viewing SLA Domain details</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides a specific page for each SLA Domain.</p></div></div></div></li><li role="treeitem"><div data-tocid="deleting_an_sla_domain-d39307e7126" class="topicref" data-id="deleting_an_sla_domain" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/deleting_an_sla_domain.html" id="deleting_an_sla_domain-d39307e7126-link">Deleting an SLA Domain</a><div class="wh-tooltip"><p class="shortdesc">Delete an SLA Domain to remove it from <span class="ph">RSC</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="sla_domain_pause_resume-d39307e7140" class="topicref" data-id="sla_domain_pause_resume" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action sla_domain_pause_resume-d39307e7140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domain_pause_resume.html" id="sla_domain_pause_resume-d39307e7140-link">SLA Domain protection pause and resume</a><div class="wh-tooltip"><p class="shortdesc">SLA Domain protection pause and resume feature enables you to temporarily pause and         resume the protection activity within an SLA Domain.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="object_level_protection_pause_resume-d39307e7173" class="topicref" data-id="object_level_protection_pause_resume" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action object_level_protection_pause_resume-d39307e7173-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/object_level_protection_pause_resume.html" id="object_level_protection_pause_resume-d39307e7173-link">Object-level protection pause and resume</a><div class="wh-tooltip"><p class="shortdesc">The object-level protection pause and resume feature provides granular control over         data protection activities with <span class="ph">RSC</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="object_level_snapshot_window-d39307e7212" class="topicref" data-id="object_level_snapshot_window" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action object_level_snapshot_window-d39307e7212-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/object_level_snapshot_window.html" id="object_level_snapshot_window-d39307e7212-link">Object-level snapshot windows</a><div class="wh-tooltip"><p class="shortdesc">Object-level snapshot windows let you control when backups run for individual CDM         objects, independently of the snapshot window configured in the SLA Domain.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="managing_protection_object-d39307e7245" class="topicref" data-id="managing_protection_object" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action managing_protection_object-d39307e7245-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/managing_protection_object.html" id="managing_protection_object-d39307e7245-link">Managing protection for an object</a><div class="wh-tooltip"><p class="shortdesc">Manage protection for an object by assigning an SLA Domain to optimize data         management and enhance data protection.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="retention_mgmt_existing_snapshots-d39307e7267" class="topicref" data-id="retention_mgmt_existing_snapshots" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action retention_mgmt_existing_snapshots-d39307e7267-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/retention_mgmt_existing_snapshots.html" id="retention_mgmt_existing_snapshots-d39307e7267-link">Retention management for existing snapshots</a><div class="wh-tooltip"><p class="shortdesc">You can manage the retention period of existing snapshots to prevent accidental data         loss, ensuring the preservation of individual snapshot retention even when modifying SLA         Domains.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="sla_snapshot_download_overview-d39307e7289" class="topicref" data-id="sla_snapshot_download_overview" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action sla_snapshot_download_overview-d39307e7289-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_snapshot_download_overview.html" id="sla_snapshot_download_overview-d39307e7289-link">SLA Domain assignment during snapshot download</a><div class="wh-tooltip"><p class="shortdesc">When downloading snapshots from archival or replication locations, you can assign an         SLA Domain to control the retention period of the downloaded snapshot on the Rubrik         cluster.</p></div></div></div></li><li role="treeitem"><div data-tocid="changing_snapshot_retention_inv_page-d39307e7322" class="topicref" data-id="changing_snapshot_retention_inv_page" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/changing_snapshot_retention_inv_page.html" id="changing_snapshot_retention_inv_page-d39307e7322-link">Changing retention of snapshots from the Inventory page</a><div class="wh-tooltip"><p class="shortdesc">Change the retention period of individual snapshots from the Snapshots card on the         Inventory page to implement the required modifications.</p></div></div></div></li><li role="treeitem"><div data-tocid="retention_policy_modificn_exist_snpsht-d39307e7333" class="topicref" data-id="retention_policy_modificn_exist_snpsht" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/retention_policy_modificn_exist_snpsht.html" id="retention_policy_modificn_exist_snpsht-d39307e7333-link">Retention policy modification for existing snapshots</a><div class="wh-tooltip"><p class="shortdesc">After configuring the SLA Domain settings, you can modify the retention policy for         existing snapshots.</p></div></div></div></li><li role="treeitem"><div data-tocid="rules_archiving_replication_policies-d39307e7344" class="topicref" data-id="rules_archiving_replication_policies" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/rules_archiving_replication_policies.html" id="rules_archiving_replication_policies-d39307e7344-link">Rules for archiving and replication policies</a><div class="wh-tooltip"><p class="shortdesc">When configuring an SLA Domain, Rubrik clusters that are selected for archiving in         the archival policy do not appear as replication target options in the replication         policy.</p></div></div></div></li><li role="treeitem"><div data-tocid="impact_retention_changes_arch_rep_policies-d39307e7355" class="topicref" data-id="impact_retention_changes_arch_rep_policies" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../cdm_old/impact_retention_changes_arch_rep_policies.html" id="impact_retention_changes_arch_rep_policies-d39307e7355-link">Impact of retention changes on archival and replication policies</a><div class="wh-tooltip"><p class="shortdesc">When the retention period associated with any SLA rule is changed, it can potentially         trigger an automatic change of existing archival and replication         policies in an SLA Domain.</p></div></div></div></li><li role="treeitem"><div data-tocid="impact_of_sla_domain_changes_on_snapshots-d39307e7366" class="topicref" data-id="impact_of_sla_domain_changes_on_snapshots" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../cdm_old/impact_of_sla_domain_changes_on_snapshots.html" id="impact_of_sla_domain_changes_on_snapshots-d39307e7366-link">Impact of SLA Domain changes on snapshots</a><div class="wh-tooltip"><p class="shortdesc">Examples showing the impact of changing the retention policy of the SLA Domain assigned to an object. Examines the impact of retroactive and non-retroactive retention changes on local, archived, and replicated snapshots. </p></div></div></div></li><li role="treeitem"><div data-tocid="workload_specific_settings_sla_domains-d39307e7377" class="topicref" data-id="workload_specific_settings_sla_domains" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/workload_specific_settings_sla_domains.html" id="workload_specific_settings_sla_domains-d39307e7377-link">Workload-specific settings for SLA Domains</a><div class="wh-tooltip"><p class="shortdesc">Information about workload-specific settings configured when creating or editing SLA         Domains for continuous data protection and backups for supported workloads.</p></div></div></div></li><li role="treeitem"><div data-tocid="supported_features_for_workloads-d39307e7389" class="topicref" data-id="supported_features_for_workloads" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/supported_features_for_workloads.html" id="supported_features_for_workloads-d39307e7389-link">Supported features for <span class="ph">RSC</span> workloads</a><div class="wh-tooltip"><p class="shortdesc">Supported features for specific <span class="ph">RSC</span> workloads when creating or         modifying an SLA Domain.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="vs_application_consistency-d39307e7406" class="topicref" data-id="vs_application_consistency" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action vs_application_consistency-d39307e7406-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/vs_application_consistency.html" id="vs_application_consistency-d39307e7406-link">Application consistency</a><div class="wh-tooltip"><p class="shortdesc">The Rubrik cluster supports application-consistent snapshots for many guest OS types         and application types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="sla_domain_sync_rubrik_cluster-d39307e7442" class="topicref" data-id="sla_domain_sync_rubrik_cluster" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action sla_domain_sync_rubrik_cluster-d39307e7442-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domain_sync_rubrik_cluster.html" id="sla_domain_sync_rubrik_cluster-d39307e7442-link">SLA Domain synchronization with a Rubrik cluster</a><div class="wh-tooltip"><p class="shortdesc">By synchronizing the SLA Domains from <span class="ph">Rubrik Security Cloud</span> with a Rubrik cluster,         you can take on-demand snapshots from the CDM web UI and the CDM REST APIs without assigning         the SLA Domains to any object.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="sla_domains_switching-d39307e7470" class="topicref" data-id="sla_domains_switching" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action sla_domains_switching-d39307e7470-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains_switching.html" id="sla_domains_switching-d39307e7470-link">SLA Domains switching</a><div class="wh-tooltip"><p class="shortdesc">By switching Rubrik cluster SLA Domains to<span class="ph">Rubrik Security Cloud</span>, you can centrally         manage and protect multiple objects across Rubrik clusters.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="snapshot_management-d39307e7590" class="topicref" data-id="snapshot_management" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action snapshot_management-d39307e7590-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/snapshot_management.html" id="snapshot_management-d39307e7590-link"><span class="ph">Snapshots</span></a><div class="wh-tooltip"><p class="shortdesc">Snapshots and backup information for relic objects and protected objects appear on         the          <span class="ph">Snapshots</span> page.</p></div></div></div></li><li role="treeitem"><div data-tocid="snapshot_retention_management-d39307e7898" class="topicref" data-id="snapshot_retention_management" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../saas/snapshot_retention_management.html" id="snapshot_retention_management-d39307e7898-link">Snapshot retention management</a><div class="wh-tooltip"><p class="shortdesc">Rubrik implements a concept of buckets to manage snapshot expiration based on an SLA         Domain.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="arch_dc_archival_locations-d39307e7909" class="topicref" data-id="arch_dc_archival_locations" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action arch_dc_archival_locations-d39307e7909-link" class="wh-expand-btn"></span><div class="title"><a href="../archival/arch_dc_archival_locations.html" id="arch_dc_archival_locations-d39307e7909-link">Data center archival locations</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> supports archiving backed-up data from data center workloads to         external storage destinations, including cloud storage providers, NFS shares, S3-compatible         object stores, and tape.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="rcv_rubrik_cloud_vault-d39307e10399" class="topicref" data-id="rcv_rubrik_cloud_vault" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action rcv_rubrik_cloud_vault-d39307e10399-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rcv_rubrik_cloud_vault.html" id="rcv_rubrik_cloud_vault-d39307e10399-link">Rubrik Cloud Vault</a><div class="wh-tooltip"><p class="shortdesc">Rubrik Cloud Vault is a Rubrik-managed cloud service that provides isolated and         immutable copies of protected data, enhancing cyber resiliency.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="cascading_archival-d39307e11357" class="topicref" data-id="cascading_archival" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action cascading_archival-d39307e11357-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/cascading_archival.html" id="cascading_archival-d39307e11357-link">Cascading archival</a><div class="wh-tooltip"><p class="shortdesc">Using cascading archival, you can increase replicated data redundancy and decrease         data storage costs by archiving replicated snapshots from a replication target Rubrik         cluster to a remote archival location.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="replication-d39307e11412" class="topicref" data-id="replication" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action replication-d39307e11412-link" class="wh-expand-btn"></span><div class="title"><a href="../replication/replication.html" id="replication-d39307e11412-link">Replication</a><div class="wh-tooltip"><p class="shortdesc">The replication feature directs the Rubrik cluster to send replicas of source       snapshots or backups to a target Rubrik cluster and defines the maximum time to keep the       replica on each cluster.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic task/task topic task" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Configuring replication policy</h1>
+    
+    <div class="- topic/body task/taskbody body taskbody"><p class="- topic/shortdesc shortdesc">Configure the replication policy for an SLA Domain when creating a custom SLA Domain
+        or when editing any SLA Domain.</p>
+        <section class="- topic/section task/prereq section prereq" id="d1228084e77"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Do the following:<ul class="- topic/ul ul">
+                <li class="- topic/li li">Review the supported replication policy configurations listed in <a class="- topic/xref xref" href="supported_features_for_workloads.html" title="Supported features for specific RSC workloads when creating or modifying an SLA Domain.">Supported features for RSC workloads</a>.</li>
+                <li class="- topic/li li">Select the workload types that support replication.</li>
+            </ul></section>
+        <section class="- topic/section task/context section context" id="d1228084e94"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>
+            <p class="- topic/p p"><img class="- topic/image image" src="../reuse/conrefs/../../saas/images/hourglass.svg" width="20" alt=""/><cite class="- topic/cite cite">This topic describes a feature or features that Rubrik is gradually
+                rolling out to customers.</cite></p>
+            <p class="- topic/p p">Configuring a replication policy for an SLA Domain sets the retention period for
+                replication snapshots or backups on a target cluster. This configuration also
+                defines which replication snapshots or backups  automatically expire based on the
+                retention policy.</p>
+        </section>
+        <section class="- topic/ol task/steps ol steps" id="d1228084e108"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="- topic/ol task/steps ol steps"><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Log in to <span class="- topic/ph ph">RSC</span>.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <img class="- topic/image image" height="16" width="NaN" src="../reuse/conrefs/../../images/ui-icons/AppTray.svg" alt="Applications"/> and select
+                        <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Data Protection</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Data Protection dashboard appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">On the navigation bar, click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">SLA Domains</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The SLA Domains page appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Create an SLA Domain or edit an existing SLA Domain.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">For creating SLA Domain,  select the workload types and click
+                        <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Next</span>.</span>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">Turn on <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Retention Lock</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">Selecting this option applies retention lock, preventing data deletion outside
+                    the retention policy.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Enter a snapshot frequency and a corresponding retention period.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">The snapshot frequency categories are optional, but at least one category must
+                    have a value.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Next</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Archival and Replication page appears.</div>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">Select <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Archival</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">Selecting this option configures archival locations for disaster recovery and
+                    long-term retention of data center workloads.<p class="- topic/p p">Click Learn more to explore
+                        configuring archival locations for disaster recovery and long-term
+                        retention.</p></div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Select <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Replication</span>.</span>
+                <div class="simpletable-container"><table class="- topic/simpletable task/choicetable simpletable choicetable choicetableborder"><colgroup><col style="width:50%"/><col style="width:50%"/></colgroup><thead><tr class="- topic/sthead task/chhead sthead chhead"><th scope="col" class="- topic/stentry task/choptionhd stentry choptionhd">Option</th><th scope="col" class="- topic/stentry task/chdeschd stentry chdeschd">Description</th></tr></thead><tbody><tr class="- topic/strow task/chrow strow chrow">
+                        <th scope="row" class="- topic/stentry task/choption stentry choption">Many-to-one</th>
+                        <td class="- topic/stentry task/chdesc stentry chdesc">Consolidates data from multiple source clusters to replicate data
+                            into a single target cluster.</td>
+                    </tr><tr class="- topic/strow task/chrow strow chrow">
+                        <th scope="row" class="- topic/stentry task/choption stentry choption">One-to-one</th>
+                        <td class="- topic/stentry task/chdesc stentry chdesc">Involves direct replication between a single source and a single
+                            target cluster.<p class="- topic/p p">Selecting this option requires you to select the
+                                source clusters.</p></td>
+                    </tr></tbody></table></div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Next</span>.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Replication Parameters page appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">For Many-to-one, from <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Replication Policy 1</span>, select the
+                    target clusters.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">You can select a target cluster only when it is part of an existing
+                    replication pairing, when the cluster is connected, and you have permission to
+                    use the cluster as a replication target.<p class="- topic/p p">When no target cluster exists in the
+                        Select Target Cluster dropdown, click Replication Pairings to create a
+                        replication pair.</p><p class="- topic/p p">You can add a maximum of two replication
+                        policies.</p></div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Replication Retention</span>, enter the number of days for
+                    which you want to retain the replicated snapshots.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">Alternatively, you can use the slider to adjust the retention period within
+                    the available range.</div>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">Select <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Enable Cascading Archival</span>.</span>
+                <div class="- topic/itemgroup task/info itemgroup info">Selecting this option enables the target cluster to transfer replicated data
+                    to an archival location.<p class="- topic/p p">When selected, target clusters for the cascading
+                        archival policy are required. You can add a maximum of two cascading
+                        archival policies.</p></div>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">When editing an SLA Domain, on the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Confirmation</span> page, select
+                    an option for <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Apply to existing snapshots</span>.</span>
+                <ul class="- topic/ul task/choices ul choices">
+                    <li class="- topic/li task/choice li choice">Accept the default setting to apply changes to the existing
+                        snapshots.</li>
+                    <li class="- topic/li task/choice li choice">Clear the setting to leave the retention policy of existing snapshots
+                        unchanged.</li>
+                </ul>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">When you select Apply to existing snapshots, <span class="- topic/ph ph">RSC</span> applies
+                    the retention period to existing snapshots of the selected
+                    workloads.</div>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">When editing an SLA Domain and applying changes to existing snapshots, select
+                        <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Include on-demand and downloaded snapshots</span>.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Next</span> and configure the remaining SLA Domain
+                    settings.</span>
+                <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Confirmation page appears.</div>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">SLA Domain name</span>, enter a name for the SLA
+                    Domain.</span>
+            </li><li class="- topic/li task/step li step"><strong>Optional: </strong>
+                <span class="- topic/ph task/cmd ph cmd">In <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Add Description</span>, enter a descriptive identification
+                    for the SLA Domain.</span>
+            </li><li class="- topic/li task/step li step">
+                <span class="- topic/ph task/cmd ph cmd">Review the summary information and click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Create</span> or
+                        <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Save</span>.</span>
+            </li></ol></section>
+        <section class="- topic/section task/result section result" id="d1228084e370"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><span class="- topic/ph ph">RSC</span> adds or modifies the replication policy for the SLA Domain and
+            applies it to subsequent snapshots for workloads assigned to the SLA Domain. </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="replication_config_types_sla_domain.html" title="You can configure replication types, such as many-to-one and one-to-one, and configure replication between multiple source and target clusters using a single SLA Domain to maintain consistent backup and disaster recovery.">Replication configuration types in SLA Domain</a><div class="- topic/desc ">You can configure replication types, such as many-to-one and one-to-one, and         configure replication between multiple source and target clusters using a single SLA Domain         to maintain consistent backup and disaster recovery.</div></li></ul></div><div class="- topic/linklist linklist reltasks"><strong>Related tasks</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="rsc_creating_sla_domains_manytoone_rep.html" title="Create an SLA Domain for many-to-one replication, the traditional replication mode supported by RSC SLA Domains. This method consolidates data protection from multiple source clusters onto a single target cluster, ensuring centralized recovery and protection.">Creating SLA Domains for many-to-one replication</a><div class="- topic/desc ">Create an SLA Domain for many-to-one replication, the traditional replication mode         supported by RSC SLA Domains. This method consolidates data protection from         multiple source clusters onto a single target cluster, ensuring centralized recovery and         protection.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="rsc_creating_sla_domains_onetoone_rep.html" title="Create an SLA Domain for one-to-one replication when there are more than two replication targets and the source and replication clusters are in a dedicated replication configuration. With one-to-one replication, you can configure multiple replication pairs, but a source cluster can replicate to a maximum of two target clusters.">Creating SLA Domains for one-to-one replication</a><div class="- topic/desc ">Create an SLA Domain for one-to-one replication when there are more than two         replication targets and the source and replication clusters are in a dedicated replication         configuration. With one-to-one replication, you can configure multiple replication pairs,         but a source cluster can replicate to a maximum of two target clusters.</div></li></ul></div><div class="- topic/linklist linklist relref"><strong>Related reference</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="limitations_replication_config.html" title="Configuring replication as part of the SLA Domain creation process has specific limitations that require consideration.">Limitations in replication configuration</a><div class="- topic/desc ">Configuring replication as part of the SLA Domain creation process has specific         limitations that require consideration.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

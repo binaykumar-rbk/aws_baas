@@ -1,0 +1,407 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="reference"/><meta name="description" content="Review the known limitations for Azure DevOps backup and recovery before configuring protection for your organization."/><meta name="DC.relation" content="../azure_devops/azr_devops_plan_protection.html"/><meta name="DC.relation" content="../azure_devops/azr_devops_req_rsc_perms.html"/><meta name="DC.relation" content="../azure_devops/azr_devops_add_orgs.html"/><meta name="DC.relation" content="azr_devops_managing_granular_permissions.html"/><meta name="DC.relation" content="azr_devops_recovering_dev_collab.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="azr_devops_limitations"/>        
+      <title>Limitations for Azure DevOps protection</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="azr_devops_limitations-d39307e41831"/><meta name="wh-source-relpath" content="azure_devops/azr_devops_limitations.dita"/><meta name="wh-out-relpath" content="azure_devops/azr_devops_limitations.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="azr_devops_limitations" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../rubrik/supported_workloads.html">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li><div class="topicref"><div class="title"><a href="../azure_devops/azr_devops.html">DevOps workloads</a></div></div></li><li><div class="topicref"><div class="title"><a href="../azure_devops/azr_devops.html">Azure DevOps</a></div></div></li><li><div class="topicref" data-id="azr_devops_plan_protection"><div class="title"><a href="../azure_devops/azr_devops_plan_protection.html">Plan your Azure DevOps protection</a><div class="wh-tooltip"><p class="shortdesc">Before setting up an Azure DevOps organization in <span class="ph">RSC</span>, you are         required to plan the user and access management for designated <span class="ph">RSC</span> users.         This planning also involves reviewing the permissions that <span class="ph">RSC</span> requires in         your Azure environment to protect your Azure DevOps organizations.</p></div></div></div></li><li class="active"><div class="topicref" data-id="azr_devops_limitations"><div class="title"><a href="../azure_devops/azr_devops_limitations.html">Limitations for Azure DevOps protection</a><div class="wh-tooltip"><p class="shortdesc">Review the known limitations for Azure DevOps backup and recovery before configuring         protection for your organization.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../azure_devops/azr_devops_req_rsc_perms.html" title="Required RSC permissions for Azure DevOps" aria-label="Previous topic: Required RSC permissions for Azure DevOps" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../azure_devops/azr_devops_add_orgs.html" title="Add Azure DevOps organizations to RSC" aria-label="Next topic: Add Azure DevOps organizations to RSC" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="supported_workloads-d39307e15533" class="topicref" data-id="supported_workloads" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="supported_workloads-d39307e15533-link"><span class="ph">Rubrik Security Cloud</span> workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> securely manages and protects data from a wide variety of         workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e15548" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e15548-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/aws_workloads.html" id="tocId-d39307e15548-link">Cloud workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e26419" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e26419-link" class="wh-expand-btn"></span><div class="title"><a href="../kubernetes/k8s_workload_protection.html" id="tocId-d39307e26419-link">Container workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e28108" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e28108-link" class="wh-expand-btn"></span><div class="title"><a href="../nutanix_ahv/ahv_virtual_machines.html" id="tocId-d39307e28108-link">Data center workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e34019" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e34019-link" class="wh-expand-btn"></span><div class="title"><a href="../db2/ibm_db2.html" id="tocId-d39307e34019-link">Database workloads</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e41666" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e41666-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops.html" id="tocId-d39307e41666-link">DevOps workloads</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e41667" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e41667-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops.html" id="tocId-d39307e41667-link">Azure DevOps</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="azr_devops-d39307e41668" class="topicref" data-id="azr_devops" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops.html" id="azr_devops-d39307e41668-link">Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protects the data and resources of Azure DevOps projects,         repositories, and Developer Collaboration tools within the Azure DevOps         organization.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e41681" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e41681-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_protection_key_features.html" id="tocId-d39307e41681-link">Introduction to Azure DevOps</a></div></div></li><li role="treeitem"><div data-tocid="azr_devops_high_level_implement_workflow-d39307e41743" class="topicref" data-id="azr_devops_high_level_implement_workflow" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_high_level_implement_workflow.html" id="azr_devops_high_level_implement_workflow-d39307e41743-link">High-level implementation workflow for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">The Azure DevOps protection implementation workflow involves a structured approach to         secure data management, starting with planning and preparation, followed by Azure DevOps         organization setup, Azure DevOps protection, continuous management and optimization, and         repository recovery.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_quick_links-d39307e41754" class="topicref" data-id="azr_devops_quick_links" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_quick_links.html" id="azr_devops_quick_links-d39307e41754-link">Quick links for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">Immediate access to important tasks and information, enabling quick setup, daily         operations, and critical recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="azr_devops_plan_protection-d39307e41765" class="topicref" data-id="azr_devops_plan_protection" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action azr_devops_plan_protection-d39307e41765-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_plan_protection.html" id="azr_devops_plan_protection-d39307e41765-link">Plan your Azure DevOps protection</a><div class="wh-tooltip"><p class="shortdesc">Before setting up an Azure DevOps organization in <span class="ph">RSC</span>, you are         required to plan the user and access management for designated <span class="ph">RSC</span> users.         This planning also involves reviewing the permissions that <span class="ph">RSC</span> requires in         your Azure environment to protect your Azure DevOps organizations.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_user_management-d39307e41785" class="topicref" data-id="azr_devops_user_management" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_user_management-d39307e41785-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_user_management.html" id="azr_devops_user_management-d39307e41785-link"><span class="ph">RSC</span> user management for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">Designating specific users with appropriate privileges and roles in <span class="ph">RSC</span> enhances security for managing Azure DevOps organization.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_req_rsc_perms-d39307e41815" class="topicref" data-id="azr_devops_req_rsc_perms" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_req_rsc_perms.html" id="azr_devops_req_rsc_perms-d39307e41815-link">Required <span class="ph">RSC</span> permissions for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> requires certain permissions to protect Azure DevOps         organization, configure an Exocompute instance, store data, and manage encryption of the         stored data.</p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="azr_devops_limitations-d39307e41831" class="topicref" data-id="azr_devops_limitations" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_limitations.html" id="azr_devops_limitations-d39307e41831-link">Limitations for Azure DevOps protection</a><div class="wh-tooltip"><p class="shortdesc">Review the known limitations for Azure DevOps backup and recovery before configuring         protection for your organization.</p></div></div></div></li></ul></li><li role="treeitem"><div data-tocid="azr_devops_add_orgs-d39307e41842" class="topicref" data-id="azr_devops_add_orgs" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_add_orgs.html" id="azr_devops_add_orgs-d39307e41842-link">Add Azure DevOps organizations to <span class="ph">RSC</span></a><div class="wh-tooltip"><p class="shortdesc">Adding Azure DevOps organizations to <span class="ph">RSC</span> involves completing         prerequisite planning tasks and choosing an onboarding method that fits the authentication         model and infrastructure requirements of your organization.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_evaluate_setup_options-d39307e41858" class="topicref" data-id="azr_devops_evaluate_setup_options" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_evaluate_setup_options.html" id="azr_devops_evaluate_setup_options-d39307e41858-link">Evaluate Azure DevOps setup options</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides three methods for adding Azure DevOps organizations:         Configure with OAuth, Configure without OAuth, and Rubrik-hosted Exocompute. Compare these         methods to choose the approach that best fits the authentication requirements of your         organization, infrastructure model, and onboarding scale.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_permission_categories-d39307e41871" class="topicref" data-id="azr_devops_permission_categories" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_permission_categories-d39307e41871-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_permission_categories.html" id="azr_devops_permission_categories-d39307e41871-link">Permission categories for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">For the backup and recovery tasks associated with Azure DevOps organizations,         projects, and repositories, <span class="ph">RSC</span> requires specific permissions. <span class="ph">RSC</span> groups these permissions into categories for granular management so that         you can include or exclude these categories as required.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_set_up_exocompute-d39307e41912" class="topicref" data-id="azr_devops_set_up_exocompute" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_set_up_exocompute.html" id="azr_devops_set_up_exocompute-d39307e41912-link">Set up Exocompute for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">With the Exocompute on Azure feature, <span class="ph">RSC</span> launches an Azure         Kubernetes Service cluster to perform backup and recovery  operations to protect Azure         DevOps organizations. <span class="ph">RSC</span> uses the Azure Kubernetes Service cluster to serve         as a compute resource in your Azure DevOps organization.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_set_up_backup_loc-d39307e41929" class="topicref" data-id="azr_devops_set_up_backup_loc" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_set_up_backup_loc-d39307e41929-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_set_up_backup_loc.html" id="azr_devops_set_up_backup_loc-d39307e41929-link">Set up backup location for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protects your Azure DevOps organizations, projects, and         repositories. You can set up a backup location in Azure for storing the snapshots of Azure         DevOps organizations, projects, and repositories.</p></div></div></div></li><li role="treeitem"><div data-tocid="azure_devops_adding_orgs_oauth-d39307e42038" class="topicref" data-id="azure_devops_adding_orgs_oauth" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azure_devops_adding_orgs_oauth.html" id="azure_devops_adding_orgs_oauth-d39307e42038-link">Adding Azure DevOps organizations with OAuth</a><div class="wh-tooltip"><p class="shortdesc">Add one or more Azure DevOps organizations to <span class="ph">RSC</span> using the Configure         with OAuth method to protect repositories and enable backup and recovery.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_granting_basic_access-d39307e42053" class="topicref" data-id="azr_devops_granting_basic_access" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_granting_basic_access.html" id="azr_devops_granting_basic_access-d39307e42053-link">Granting Basic access level in Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">Grant Basic access level to a user in an Azure DevOps organization to enable         onboarding and protection operations with <span class="ph">RSC</span>.</p></div></div></div></li><li role="treeitem"><div data-tocid="azure_devops_adding_orgs_without_oauth-d39307e42067" class="topicref" data-id="azure_devops_adding_orgs_without_oauth" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azure_devops_adding_orgs_without_oauth.html" id="azure_devops_adding_orgs_without_oauth-d39307e42067-link">Adding Azure DevOps organization without OAuth</a><div class="wh-tooltip"><p class="shortdesc">Add an Azure DevOps organization to <span class="ph">RSC</span> using the Configure without OAuth method to retain full         control over your Service Principal lifecycle and permission setup.</p></div></div></div></li><li role="treeitem"><div data-tocid="azure_devops_adding_orgs_rubrik_hosted-d39307e42081" class="topicref" data-id="azure_devops_adding_orgs_rubrik_hosted" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azure_devops_adding_orgs_rubrik_hosted.html" id="azure_devops_adding_orgs_rubrik_hosted-d39307e42081-link">Adding Azure DevOps organization using Rubrik-hosted Exocompute</a><div class="wh-tooltip"><p class="shortdesc">Add an Azure DevOps organization using rubrik-hosted Exocompute with <span class="ph">RSC</span> to back up and recover repositories, manage organizations, and minimize         downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e42095" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e42095-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azure_devops_edit_org.html" id="tocId-d39307e42095-link">Manage Azure DevOps organization</a></div></div></li><li role="treeitem"><div data-tocid="azr_devops_set_up_protection-d39307e42135" class="topicref" data-id="azr_devops_set_up_protection" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_set_up_protection.html" id="azr_devops_set_up_protection-d39307e42135-link">Set up protection for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">You can set up SLA Domains to apply data protection policies, ensuring automatic and         hierarchical protection of Azure DevOps organizations, projects, repositories, and Developer         Collaboration tools with granular control overriding higher-level assignments.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_sla_assignment_hierarchy-d39307e42146" class="topicref" data-id="azr_devops_sla_assignment_hierarchy" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_sla_assignment_hierarchy.html" id="azr_devops_sla_assignment_hierarchy-d39307e42146-link">SLA Domain assignment hierarchy for Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides hierarchy-based, automatic protection for Azure DevOps         organizations, simplifying the assignment of SLA domains across organizations, projects, and         repositories.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_best_practices_sla_assign-d39307e42159" class="topicref" data-id="azr_devops_best_practices_sla_assign" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_best_practices_sla_assign.html" id="azr_devops_best_practices_sla_assign-d39307e42159-link">Best practices for Azure DevOps SLA Domain assignment</a><div class="wh-tooltip"><p class="shortdesc">Information about the best practices for assigning SLA Domains to Azure DevOps         organizations, ensuring effective data protection and compliance.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_evaluate_protection_options-d39307e42170" class="topicref" data-id="azr_devops_evaluate_protection_options" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_evaluate_protection_options-d39307e42170-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_evaluate_protection_options.html" id="azr_devops_evaluate_protection_options-d39307e42170-link">Evaluate Azure DevOps protection options</a><div class="wh-tooltip"><p class="shortdesc">Understanding the various protection options is important when creating an SLA Domain         for your Azure DevOps organization. This ensures alignment with organizational needs.         Thoroughly evaluating these options enables making informed decisions and providing         effective protection for the workloads.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_configure_protection-d39307e42206" class="topicref" data-id="azr_devops_configure_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_configure_protection-d39307e42206-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_configure_protection.html" id="azr_devops_configure_protection-d39307e42206-link">Configure Azure DevOps protection</a><div class="wh-tooltip"><p class="shortdesc">After you have decided on the protection policies you want to configure, you can         begin the protection setup by creating an SLA Domain and assigning protection to Azure         DevOps organizations, projects, and repositories.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_manage_organizations-d39307e42261" class="topicref" data-id="azr_devops_manage_organizations" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_manage_organizations-d39307e42261-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_manage_organizations.html" id="azr_devops_manage_organizations-d39307e42261-link">Manage Azure DevOps organizations</a><div class="wh-tooltip"><p class="shortdesc">After completing the protection setup for Azure DevOps organizations, projects, and         repos, <span class="ph">RSC</span> takes automated snapshots of those repos based on the configured         policies in SLA Domains. You can also take on-demand snapshots and refresh Azure DevOps         organizations for better resource management.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_recover-d39307e42346" class="topicref" data-id="azr_devops_recover" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_recover.html" id="azr_devops_recover-d39307e42346-link">Recover Azure DevOps</a><div class="wh-tooltip"><p class="shortdesc">After <span class="ph">RSC</span> takes snapshots of your Azure DevOps repositories and         Developer Collaboration tools, you can recover them using individual repository recovery or         one-stop project recovery.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_privilege_elevation-d39307e42361" class="topicref" data-id="azr_devops_privilege_elevation" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_privilege_elevation.html" id="azr_devops_privilege_elevation-d39307e42361-link">Privilege elevation for Azure DevOps recovery</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> enhances the security of your Azure DevOps environment by         employing a least privilege model that limits the access granted to the minimal necessary         roles and resources for both repository and Developer Collaboration recovery.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_settings_backup_recovery-d39307e42374" class="topicref" data-id="azr_devops_settings_backup_recovery" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_settings_backup_recovery.html" id="azr_devops_settings_backup_recovery-d39307e42374-link">Azure DevOps repository settings backup and recovery</a><div class="wh-tooltip"><p class="shortdesc">In addition to repository contents, <span class="ph">RSC</span> backs up a set of Azure         DevOps repository-level settings and the branch policies of the repository as part of every         repository snapshot. During recovery, <span class="ph">RSC</span> re-applies the settings and         recreates the branch policies on the destination repository.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_evaluate_recovery_options-d39307e42391" class="topicref" data-id="azr_devops_evaluate_recovery_options" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_evaluate_recovery_options-d39307e42391-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_evaluate_recovery_options.html" id="azr_devops_evaluate_recovery_options-d39307e42391-link">Evaluate Azure DevOps recovery options</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides two options for recovering Azure DevOps repositories:         individual repository recovery and project-level bulk recovery. Compare these options to         choose the approach that best fits the scope and requirements of your recovery         scenario.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_recovering_proj_repos-d39307e42415" class="topicref" data-id="azr_devops_recovering_proj_repos" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_recovering_proj_repos.html" id="azr_devops_recovering_proj_repos-d39307e42415-link">Recovering individual Azure DevOps repositories</a><div class="wh-tooltip"><p class="shortdesc">Recover a single Azure DevOps repository from a protected snapshot.</p></div></div></div></li><li role="treeitem"><div data-tocid="azr_devops_recovering_project-d39307e42426" class="topicref" data-id="azr_devops_recovering_project" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_recovering_project.html" id="azr_devops_recovering_project-d39307e42426-link">Recovering all repositories in an Azure DevOps project</a><div class="wh-tooltip"><p class="shortdesc">Recover some or all repositories within an Azure DevOps project to a new target         project in a single bulk restore operation.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_recovering_dev_collab-d39307e42437" class="topicref" data-id="azr_devops_recovering_dev_collab" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_recovering_dev_collab-d39307e42437-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_recovering_dev_collab.html" id="azr_devops_recovering_dev_collab-d39307e42437-link">Recovering a project</a><div class="wh-tooltip"><p class="shortdesc">Recover an Azure DevOps project by restoring Developer Collaboration tools and         repositories into a new project within the same organization.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="azr_devops_access_reports-d39307e42462" class="topicref" data-id="azr_devops_access_reports" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action azr_devops_access_reports-d39307e42462-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops_access_reports.html" id="azr_devops_access_reports-d39307e42462-link">Access Azure DevOps reports</a><div class="wh-tooltip"><p class="shortdesc">With <span class="ph">RSC</span>, you can create and download reports based on templates to         monitor the protection status of your Azure DevOps organizations, projects, and         repositories.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="github-d39307e42487" class="topicref" data-id="github" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action github-d39307e42487-link" class="wh-expand-btn"></span><div class="title"><a href="../github/github.html" id="github-d39307e42487-link">GitHub</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides data protection for GitHub organizations and         repositories.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="saas_workloads-d39307e43266" class="topicref" data-id="saas_workloads" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action saas_workloads-d39307e43266-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/saas_workloads.html" id="saas_workloads-d39307e43266-link">SaaS workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protection for SaaS workloads simplifies protecting and managing         backups for SaaS application instances.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e49125" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e49125-link" class="wh-expand-btn"></span><div class="title"><a href="../managedvolumes/mv_managed_volumes_sla_managed_volumes.html" id="tocId-d39307e49125-link">Storage workloads</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic       reference/reference topic reference" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Limitations for Azure DevOps protection</h1>
+    
+    <div class="- topic/body reference/refbody body refbody"><p class="- topic/shortdesc shortdesc">Review the known limitations for Azure DevOps backup and recovery before configuring
+        protection for your organization.</p>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">General limitations</h2>
+            
+            <p class="- topic/p p">The following general limitations apply to Azure DevOps protection:</p>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li">Supported organization URL format: <span class="- topic/ph ph">RSC</span> supports only Azure
+                    DevOps organization URLs that start with
+                    <code class="+ topic/ph pr-d/codeph ph codeph">https://dev.azure.com/</code>. <span class="- topic/ph ph">RSC</span> does not support
+                    legacy URLs using the <code class="+ topic/ph pr-d/codeph ph codeph">visualstudio.com</code> format.</li>
+                <li class="- topic/li li">Minimum SLA frequency: The minimum backup frequency for Azure DevOps objects is
+                    8 hours. <span class="- topic/ph ph">RSC</span> does not support SLA Domains with a frequency of
+                    less than 8 hours for Azure DevOps.</li>
+                <li class="- topic/li li">New projects added after initial onboarding: <span class="- topic/ph ph">RSC</span> may not back up
+                    projects added to an organization after the initial onboarding until you assign
+                    permissions to them. During a metadata refresh, <span class="- topic/ph ph">RSC</span> displays a
+                    Missing Permissions warning for affected projects. To resolve this, use the
+                        <code class="+ topic/ph pr-d/codeph ph codeph">Manage Granular Permissions</code> flow from the inventory page of
+                    the organization to assign permissions to the new projects. This limitation does
+                    not affect projects that were present at the time of initial onboarding.</li>
+            </ul>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Developer Collaboration limitations</h2>
+            
+            <p class="- topic/p p">The following limitations apply to Developer Collaboration protection:</p>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li">Board process template mismatch: If the source project and the target project
+                    use different Azure DevOps process templates, board columns may not match by
+                    name during recovery. When <span class="- topic/ph ph">RSC</span> detects a mismatch, it skips the
+                    board restore and displays a warning. Ensure that the target project uses the
+                    same process template as the source project before you perform a recovery that
+                    includes boards.</li>
+                <li class="- topic/li li">Work item relations across organizations: Work items can have relations, that
+                    is, links to work items in other Azure DevOps organizations. <span class="- topic/ph ph">RSC</span>
+                    cannot remap cross-organization relation IDs during recovery. <span class="- topic/ph ph">RSC</span> correctly restores work item relations within the same organization.</li>
+                <li class="- topic/li li">Cross-organization recovery not supported: <span class="- topic/ph ph">RSC</span> can only recover
+                    Developer Collaboration tools within the same Azure DevOps organization. <span class="- topic/ph ph">RSC</span> does not support recovery to a different organization,
+                    because <span class="- topic/ph ph">RSC</span> does not back up organization-level settings such as
+                    work item type definitions and process templates. Recovery creates a new project
+                    within the same organization, which inherits these settings automatically.</li>
+                <li class="- topic/li li">Taskboard card settings not backed up: <span class="- topic/ph ph">RSC</span> does not include
+                    taskboard card settings in Developer Collaboration backups.<div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body"><span class="- topic/ph ph">RSC</span> backs up and restores board card settings and board card
+                        rule settings correctly. <span class="- topic/ph ph">RSC</span> excludes only taskboard card
+                        settings.</div></div></li>
+            </ul>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist reltasks"><strong>Related tasks</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="azr_devops_managing_granular_permissions.html" title="Update granular permissions for an Azure DevOps organization to enable or modify backup and recovery for repositories and Developer Collaboration tools.">Managing granular permissions for Azure DevOps organization</a><div class="- topic/desc ">Update granular permissions for an Azure DevOps organization to enable or modify         backup and recovery for repositories and Developer Collaboration tools.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="azr_devops_recovering_dev_collab.html" title="Recover an Azure DevOps project by restoring Developer Collaboration tools and repositories into a new project within the same organization.">Recovering a project</a><div class="- topic/desc ">Recover an Azure DevOps project by restoring Developer Collaboration tools and         repositories into a new project within the same organization.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

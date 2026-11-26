@@ -1,0 +1,425 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="concept"/><meta name="description" content="You can manage protection and recover data associated with Microsoft 365 applications protected using Microsoft 365 Backup Storage by completing a series of tasks."/><meta name="DC.relation" content="../m365_backup_storage/m365_backup_storage.html"/><meta name="DC.relation" content="../saas/saas_workloads.html"/><meta name="DC.relation" content="../m365_backup_storage/m365_backup_storage.html"/><meta name="DC.relation" content="../m365_backup_storage/m365_b_s_deployment_reqs.html"/><meta name="DC.relation" content="m365_b_s_deployment_reqs.html"/><meta name="DC.relation" content="m365_b_s_permissions.html"/><meta name="DC.relation" content="m365_b_s_adding_subscriptions.html"/><meta name="DC.relation" content="m365_b_s_rbac.html"/><meta name="DC.relation" content="m365_b_s_dashboard.html"/><meta name="DC.relation" content="m365_b_s_protection.html"/><meta name="DC.relation" content="m365_b_s_data_recovery.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="m365_b_s_get_start_protecting_apps"/>        
+      <title>Get started with protecting M365 applications</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="m365_b_s_get_start_protecting_apps-d39307e48251"/><meta name="wh-source-relpath" content="m365_backup_storage/m365_b_s_get_start_protecting_apps.dita"/><meta name="wh-out-relpath" content="m365_backup_storage/m365_b_s_get_start_protecting_apps.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="m365_b_s_get_start_protecting_apps" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../rubrik/supported_workloads.html">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li><div class="topicref" data-id="saas_workloads"><div class="title"><a href="../saas/saas_workloads.html">SaaS workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protection for SaaS workloads simplifies protecting and managing         backups for SaaS application instances.</p></div></div></div></li><li><div class="topicref" data-id="m365_backup_storage"><div class="title"><a href="../m365_backup_storage/m365_backup_storage.html">Microsoft 365 Backup Storage</a><div class="wh-tooltip"><p class="shortdesc">With the Microsoft 365 Backup Storage feature, you can back up Microsoft 365         applications such as SharePoint sites, OneDrive user accounts, and Exchange mailboxes. You         can also restore large volumes of data during ransomware attacks, accidental deletion, or         malicious data deletion and overwrite events.</p></div></div></div></li><li class="active"><div class="topicref" data-id="m365_b_s_get_start_protecting_apps"><div class="title"><a href="../m365_backup_storage/m365_b_s_get_start_protecting_apps.html">Get started with protecting M365 applications</a><div class="wh-tooltip"><p class="shortdesc">You can manage protection and recover data associated with Microsoft 365 applications         protected using Microsoft 365 Backup Storage by completing a series of tasks.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../m365_backup_storage/m365_backup_storage.html" title="Microsoft 365 Backup Storage" aria-label="Previous topic: Microsoft 365 Backup Storage" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../m365_backup_storage/m365_b_s_deployment_reqs.html" title="Microsoft 365 Backup Storage deployment requirements" aria-label="Next topic: Microsoft 365 Backup Storage deployment requirements" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="supported_workloads-d39307e15533" class="topicref" data-id="supported_workloads" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="supported_workloads-d39307e15533-link"><span class="ph">Rubrik Security Cloud</span> workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> securely manages and protects data from a wide variety of         workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e15548" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e15548-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/aws_workloads.html" id="tocId-d39307e15548-link">Cloud workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e26419" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e26419-link" class="wh-expand-btn"></span><div class="title"><a href="../kubernetes/k8s_workload_protection.html" id="tocId-d39307e26419-link">Container workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e28108" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e28108-link" class="wh-expand-btn"></span><div class="title"><a href="../nutanix_ahv/ahv_virtual_machines.html" id="tocId-d39307e28108-link">Data center workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e34019" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e34019-link" class="wh-expand-btn"></span><div class="title"><a href="../db2/ibm_db2.html" id="tocId-d39307e34019-link">Database workloads</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e41666" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e41666-link" class="wh-expand-btn"></span><div class="title"><a href="../azure_devops/azr_devops.html" id="tocId-d39307e41666-link">DevOps workloads</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="saas_workloads-d39307e43266" class="topicref" data-id="saas_workloads" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action saas_workloads-d39307e43266-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/saas_workloads.html" id="saas_workloads-d39307e43266-link">SaaS workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protection for SaaS workloads simplifies protecting and managing         backups for SaaS application instances.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="jira-d39307e43279" class="topicref" data-id="jira" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action jira-d39307e43279-link" class="wh-expand-btn"></span><div class="title"><a href="../jira/jira.html" id="jira-d39307e43279-link">Atlassian Jira</a><div class="wh-tooltip"><p class="shortdesc">To protect your Atlassian Jira data, you can back up and restore data, such as         projects, settings, workflows, and issues, in your Jira site.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="confluence-d39307e43512" class="topicref" data-id="confluence" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action confluence-d39307e43512-link" class="wh-expand-btn"></span><div class="title"><a href="../confluence/confluence.html" id="confluence-d39307e43512-link">Atlassian Confluence protection</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> backs up your Atlassian Confluence Cloud data so that you can         restore pages when content is deleted, corrupted, or compromised.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="google_workspace-d39307e43878" class="topicref" data-id="google_workspace" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action google_workspace-d39307e43878-link" class="wh-expand-btn"></span><div class="title"><a href="../gws/google_workspace.html" id="google_workspace-d39307e43878-link">Google Workspace</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud</span> protects your Google Workspace workloads, such as Google         Drive and Gmail data, for your organization.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="salesforce_data_protection-d39307e44816" class="topicref" data-id="salesforce_data_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action salesforce_data_protection-d39307e44816-link" class="wh-expand-btn"></span><div class="title"><a href="../salesforce/salesforce_data_protection.html" id="salesforce_data_protection-d39307e44816-link">Salesforce Data Protection</a><div class="wh-tooltip"><p class="shortdesc">Salesforce Data Protection is a Rubrik-hosted SaaS service that extends <span class="ph">RSC</span> by securely backing up your critical Salesforce data and metadata for         standard and custom objects.</p></div></div></div></li><li role="treeitem"><div data-tocid="saas_managing_protection-d39307e45937" class="topicref" data-id="saas_managing_protection" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../common/saas_managing_protection_2.html" id="saas_managing_protection-d39307e45937-link">Managing protection for SaaS applications</a><div class="wh-tooltip"><p class="shortdesc">Protect SaaS applications, such as Atlassian Jira and Salesforce, by assigning them         to an SLA Domain. This protects the instance by applying backup frequency and retention         policies.</p></div></div></div></li><li role="treeitem"><div data-tocid="saas_creating_sla_domains-d39307e45948" class="topicref" data-id="saas_creating_sla_domains" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../common/saas_creating_sla_domains_2.html" id="saas_creating_sla_domains-d39307e45948-link">Creating an SLA Domain for SaaS applications</a><div class="wh-tooltip"><p class="shortdesc">Create an SLA Domain with custom backup frequency and retention policies to retain         snapshot data beyond a year.</p></div></div></div></li><li role="treeitem"><div data-tocid="saas_deleting_sla_domain-d39307e45959" class="topicref" data-id="saas_deleting_sla_domain" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../common/saas_deleting_sla_domain_2.html" id="saas_deleting_sla_domain-d39307e45959-link">Deleting an SLA Domain for SaaS applications</a><div class="wh-tooltip"><p class="shortdesc">Delete an SLA Domain you created for SaaS applications from <span class="ph">RSC</span> when         it is no longer needed.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="saas_events-d39307e45973" class="topicref" data-id="saas_events" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action saas_events-d39307e45973-link" class="wh-expand-btn"></span><div class="title"><a href="../common/saas_events_2.html" id="saas_events-d39307e45973-link">SaaS application events</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> tracks, monitors, and displays all SaaS application events in a         unified view for all connected instances. For example, you can view backup and recovery         events and statuses, such as succeeded or failed.</p></div></div></div></li><li role="treeitem"><div data-tocid="sass_reporting-d39307e46065" class="topicref" data-id="sass_reporting" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../common/sass_reporting_2.html" id="sass_reporting-d39307e46065-link">SaaS application reporting</a><div class="wh-tooltip"><p class="shortdesc">You can create reports about SaaS application data protection to view status         information about an instance. You can use the provided report type templates and customize         the default templates as needed. </p></div></div></div></li><li role="treeitem"><div data-tocid="saas_creating_reports_instances-d39307e46076" class="topicref" data-id="saas_creating_reports_instances" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../common/saas_creating_reports_instances_2.html" id="saas_creating_reports_instances-d39307e46076-link">Creating reports for SaaS applications</a><div class="wh-tooltip"><p class="shortdesc">Create reports for SaaS applications to view information in your application, such as         compliance status and protection status, using the available templates, which you can         customize for each report type. You can use the data gathered in the reports to perform         audits and data management planning.</p></div></div></div></li><li role="treeitem"><div data-tocid="saas_report_templates-d39307e46088" class="topicref" data-id="saas_report_templates" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../common/saas_report_templates_2.html" id="saas_report_templates-d39307e46088-link">SaaS application report templates table</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span>provides a template for each report category. You can use default         reports as basic templates and modify them to create new reports. The following table         describes the available report template types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="m365-d39307e46101" class="topicref" data-id="m365" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action m365-d39307e46101-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/m365.html" id="m365-d39307e46101-link">Microsoft 365</a><div class="wh-tooltip"><p class="shortdesc">Using the data management and protection services offered by <span class="ph">Rubrik Security Cloud</span>, you can protect Microsoft 365 data operations.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="m365_backup_storage-d39307e48240" class="topicref" data-id="m365_backup_storage" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action m365_backup_storage-d39307e48240-link" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_backup_storage.html" id="m365_backup_storage-d39307e48240-link">Microsoft 365 Backup Storage</a><div class="wh-tooltip"><p class="shortdesc">With the Microsoft 365 Backup Storage feature, you can back up Microsoft 365         applications such as SharePoint sites, OneDrive user accounts, and Exchange mailboxes. You         can also restore large volumes of data during ransomware attacks, accidental deletion, or         malicious data deletion and overwrite events.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" class="active"><div data-tocid="m365_b_s_get_start_protecting_apps-d39307e48251" class="topicref" data-id="m365_b_s_get_start_protecting_apps" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_get_start_protecting_apps.html" id="m365_b_s_get_start_protecting_apps-d39307e48251-link">Get started with protecting M365 applications</a><div class="wh-tooltip"><p class="shortdesc">You can manage protection and recover data associated with Microsoft 365 applications         protected using Microsoft 365 Backup Storage by completing a series of tasks.</p></div></div></div></li><li role="treeitem"><div data-tocid="m365_b_s_deployment_reqs-d39307e48262" class="topicref" data-id="m365_b_s_deployment_reqs" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_deployment_reqs.html" id="m365_b_s_deployment_reqs-d39307e48262-link">Microsoft 365 Backup Storage deployment requirements</a><div class="wh-tooltip"><p class="shortdesc">Information about requirements for the Rubrik-hosted deployment mode for Microsoft         365 Backup Storage.</p></div></div></div></li><li role="treeitem"><div data-tocid="m365_b_s_permissions-d39307e48273" class="topicref" data-id="m365_b_s_permissions" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_permissions.html" id="m365_b_s_permissions-d39307e48273-link">Microsoft 365 Backup Storage permissions</a><div class="wh-tooltip"><p class="shortdesc">Information about the permissions that <span class="ph">RSC</span> requires to protect your         Microsoft 365 applications using Microsoft 365 Backup Storage.</p></div></div></div></li><li role="treeitem"><div data-tocid="m365_b_s_adding_subscriptions-d39307e48287" class="topicref" data-id="m365_b_s_adding_subscriptions" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_adding_subscriptions.html" id="m365_b_s_adding_subscriptions-d39307e48287-link">Adding Microsoft 365 Backup Storage subscriptions</a><div class="wh-tooltip"><p class="shortdesc">Add a Microsoft 365 subscription to back up and restore data associated with         Microsoft 365 applications such as SharePoint sites, OneDrive user accounts, and Exchange         mailboxes using Microsoft 365 Backup Storage.</p></div></div></div></li><li role="treeitem"><div data-tocid="m365_b_s_removing_subscriptions-d39307e48298" class="topicref" data-id="m365_b_s_removing_subscriptions" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_removing_subscriptions.html" id="m365_b_s_removing_subscriptions-d39307e48298-link">Removing Microsoft 365 Backup Storage subscriptions</a><div class="wh-tooltip"><p class="shortdesc">Remove a Microsoft 365 subscription associated with Microsoft 365 applications using         Microsoft 365 Backup Storage when no longer needed.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="m365_b_s_rbac-d39307e48309" class="topicref" data-id="m365_b_s_rbac" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action m365_b_s_rbac-d39307e48309-link" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_rbac.html" id="m365_b_s_rbac-d39307e48309-link">RBAC for Microsoft 365 Backup Storage in <span class="ph">RSC</span>  </a><div class="wh-tooltip"><p class="shortdesc">Role-Based Access Control and implicit permissions in <span class="ph">RSC</span> streamline         the management and security of Microsoft 365 Backup Storage, enhancing efficient navigation         and access control for essential data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="m365_b_s_dashboard-d39307e48337" class="topicref" data-id="m365_b_s_dashboard" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action m365_b_s_dashboard-d39307e48337-link" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_dashboard.html" id="m365_b_s_dashboard-d39307e48337-link">Microsoft 365 Backup Storage dashboard</a><div class="wh-tooltip"><p class="shortdesc">The Microsoft 365 Backup Storage dashboard provides details about the status,         protection policy, and number of protected objects.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="m365_b_s_protection-d39307e48370" class="topicref" data-id="m365_b_s_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action m365_b_s_protection-d39307e48370-link" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_protection.html" id="m365_b_s_protection-d39307e48370-link">Microsoft 365 Backup Storage protection</a><div class="wh-tooltip"><p class="shortdesc">You can use the SLA Domain predefined by Microsoft to apply the data protection and         management policies to protect Microsoft 365 applications such as SharePoint sites, OneDrive         user accounts, and Exchange mailboxes using Microsoft 365 Backup Storage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="m365_b_s_data_recovery-d39307e48416" class="topicref" data-id="m365_b_s_data_recovery" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action m365_b_s_data_recovery-d39307e48416-link" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_data_recovery.html" id="m365_b_s_data_recovery-d39307e48416-link">Data Recovery using Microsoft 365 Backup Storage</a><div class="wh-tooltip"><p class="shortdesc">Using Microsoft 365 Backup Storage, you can recover data associated with Microsoft         365 applications, such as SharePoint sites, OneDrive user accounts, and Exchange         mailboxes.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="m365_b_s_groups-d39307e48471" class="topicref" data-id="m365_b_s_groups" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action m365_b_s_groups-d39307e48471-link" class="wh-expand-btn"></span><div class="title"><a href="../m365_backup_storage/m365_b_s_groups.html" id="m365_b_s_groups-d39307e48471-link">Microsoft 365 Backup Storage groups</a><div class="wh-tooltip"><p class="shortdesc">You can use groups in <span class="ph">RSC</span> to assign data protection policies         uniformly to Microsoft 365 Backup Storage objects, such as user Exchange mailboxes, OneDrive         accounts, and SharePoint sites.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="microsoft_dynamics_365-d39307e48632" class="topicref" data-id="microsoft_dynamics_365" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action microsoft_dynamics_365-d39307e48632-link" class="wh-expand-btn"></span><div class="title"><a href="../microsoft_dynamics_365/microsoft_dynamics_365.html" id="microsoft_dynamics_365-d39307e48632-link">Microsoft Dynamics 365</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> protects the tables and metadata in your Microsoft Dynamics 365         subscription.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e49125" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e49125-link" class="wh-expand-btn"></span><div class="title"><a href="../managedvolumes/mv_managed_volumes_sla_managed_volumes.html" id="tocId-d39307e49125-link">Storage workloads</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic concept/concept topic concept" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Get started with protecting M365 applications</h1>
+    
+    <div class="- topic/body concept/conbody body conbody"><p class="- topic/shortdesc shortdesc">You can manage protection and recover data associated with Microsoft 365 applications
+        protected using Microsoft 365 Backup Storage by completing a series of tasks.</p>
+        <div class="- topic/p p">To begin protecting Microsoft 365 applications such as SharePoint sites, OneDrive user
+            accounts, and Exchange mailboxes with Microsoft 365 Backup Storage, it is necessary to
+            follow these tasks in a logical sequence:<ul class="- topic/ul ul">
+                <li class="- topic/li li">Requirements and permissions review</li>
+                <li class="- topic/li li">Microsoft 365 subscription addition</li>
+                <li class="- topic/li li">Discovered applications review</li>
+                <li class="- topic/li li">Administrator user account creation</li>
+                <li class="- topic/li li">Additional requirement-based tasks completion</li>
+            </ul></div>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Requirements and permissions review</h2>
+            
+            <p class="- topic/p p">First, it is essential to review the necessary requirements and permissions for the
+                Rubrik-hosted deployment mode. You must complete this task to add a subscription to
+                    <span class="- topic/ph ph">RSC</span> and ensure that <span class="- topic/ph ph">RSC</span> can seamlessly protect
+                your Microsoft 365 applications.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Microsoft 365 subscription addition</h2>
+            
+            <p class="- topic/p p">The next step is adding the subscription to enable <span class="- topic/ph ph">RSC</span> to access the
+                resources associated with Microsoft 365 applications. During this process, you have
+                the choice to assign the SLA Domain predefined by Microsoft at either the
+                subscription level or the object level. If you select the subscription-level option,
+                    <span class="- topic/ph ph">RSC</span> applies the SLA Domain policies to all objects within the
+                subscription. If you select the object-level option, <span class="- topic/ph ph">RSC</span> does not
+                apply the SLA Domain policies to objects by default. However, after you finish
+                adding the subscription, you can manually assign the SLA Domain to specific objects
+                to apply the policies.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Discovered applications review</h2>
+            
+            <p class="- topic/p p">After you have added the Microsoft 365 subscription, <span class="- topic/ph ph">RSC</span> displays the
+                Microsoft 365 applications on the SaaS App Protection dashboard. You can track and
+                review all applications in one place. It is important that you check the discovered
+                applications and ensure that the applications you want to protect are available in
+                    <span class="- topic/ph ph">RSC</span>.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Administrator user account creation</h2>
+            
+            <p class="- topic/p p">Next, you must create an <span class="- topic/ph ph">RSC</span> user account with an administrator role,
+                which includes the necessary Role-Based Access Control (RBAC) privileges to perform
+                actions on specific objects.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Additional requirement-based tasks completion</h2>
+            
+            <div class="- topic/p p">After adding the Microsoft 365 subscription to <span class="- topic/ph ph">RSC</span>, you can perform
+                the following additional tasks based on your requirements:<ul class="- topic/ul ul">
+                    <li class="- topic/li li">Manually updating data protection policies: If you assigned the SLA Domain
+                        at the subscription level when adding the subscription, the policies are
+                        applied to all objects within the subscription. You can use the Manage
+                        Protection option in <span class="- topic/ph ph">RSC</span> to update policies for specific
+                        objects. For example, if the subscription has 10 objects, you can exclude
+                        certain objects from the assignment.<p class="- topic/p p">If you assigned the SLA Domain at the
+                            object level when adding the subscription, <span class="- topic/ph ph">RSC</span> does not
+                            apply the policies by default. You can now use the Manage Protection
+                            option to manually assign the SLA Domain to specific objects of your
+                            choice.</p></li>
+                    <li class="- topic/li li">Restoring Data: When you need to restore the Microsoft 365 applications
+                        data, you can use Microsoft 365 Backup Storage for in-place recovery to the
+                        original location. After restoring the data, you can monitor events from the
+                        Events page of <span class="- topic/ph ph">RSC</span> to verify the status of backup jobs.</li>
+                </ul></div>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="m365_b_s_rbac.html" title="Role-Based Access Control and implicit permissions in RSC streamline the management and security of Microsoft 365 Backup Storage, enhancing efficient navigation and access control for essential data.">RBAC for Microsoft 365 Backup Storage in RSC</a><div class="- topic/desc ">Role-Based Access Control and implicit permissions in RSC streamline         the management and security of Microsoft 365 Backup Storage, enhancing efficient navigation         and access control for essential data.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="m365_b_s_dashboard.html" title="The Microsoft 365 Backup Storage dashboard provides details about the status, protection policy, and number of protected objects.">Microsoft 365 Backup Storage dashboard</a><div class="- topic/desc ">The Microsoft 365 Backup Storage dashboard provides details about the status,         protection policy, and number of protected objects.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="m365_b_s_protection.html" title="You can use the SLA Domain predefined by Microsoft to apply the data protection and management policies to protect Microsoft 365 applications such as SharePoint sites, OneDrive user accounts, and Exchange mailboxes using Microsoft 365 Backup Storage.">Microsoft 365 Backup Storage protection</a><div class="- topic/desc ">You can use the SLA Domain predefined by Microsoft to apply the data protection and         management policies to protect Microsoft 365 applications such as SharePoint sites, OneDrive         user accounts, and Exchange mailboxes using Microsoft 365 Backup Storage.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="m365_b_s_data_recovery.html" title="Using Microsoft 365 Backup Storage, you can recover data associated with Microsoft 365 applications, such as SharePoint sites, OneDrive user accounts, and Exchange mailboxes.">Data Recovery using Microsoft 365 Backup Storage</a><div class="- topic/desc ">Using Microsoft 365 Backup Storage, you can recover data associated with Microsoft         365 applications, such as SharePoint sites, OneDrive user accounts, and Exchange         mailboxes.</div></li></ul></div><div class="- topic/linklist linklist reltasks"><strong>Related tasks</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="m365_b_s_adding_subscriptions.html" title="Add a Microsoft 365 subscription to back up and restore data associated with Microsoft 365 applications such as SharePoint sites, OneDrive user accounts, and Exchange mailboxes using Microsoft 365 Backup Storage.">Adding Microsoft 365 Backup Storage subscriptions</a><div class="- topic/desc ">Add a Microsoft 365 subscription to back up and restore data associated with         Microsoft 365 applications such as SharePoint sites, OneDrive user accounts, and Exchange         mailboxes using Microsoft 365 Backup Storage.</div></li></ul></div><div class="- topic/linklist linklist relref"><strong>Related reference</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="m365_b_s_deployment_reqs.html" title="Information about requirements for the Rubrik-hosted deployment mode for Microsoft 365 Backup Storage.">Microsoft 365 Backup Storage deployment requirements</a><div class="- topic/desc ">Information about requirements for the Rubrik-hosted deployment mode for Microsoft         365 Backup Storage.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="m365_b_s_permissions.html" title="Information about the permissions that RSC requires to protect your Microsoft 365 applications using Microsoft 365 Backup Storage.">Microsoft 365 Backup Storage permissions</a><div class="- topic/desc ">Information about the permissions that RSC requires to protect your         Microsoft 365 applications using Microsoft 365 Backup Storage.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

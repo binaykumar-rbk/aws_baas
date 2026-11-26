@@ -1,0 +1,495 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="concept"/><meta name="description" content="Information about how to handle conflicts for multi-valued data, both attributes and relationships, during recovery. RSC provides two options, overwrite or merge values, enabling you to select the option that best meets your organizational requirements for data consistency."/><meta name="DC.relation" content="../okta/recover_okta_objects.html"/><meta name="DC.relation" content="../okta/okta_idp.html"/><meta name="DC.relation" content="../okta/recreate_objects_restore_relationships.html"/><meta name="DC.relation" content="../okta/okta_authentication_settings_recovery.html"/><meta name="DC.relation" content="recovering_okta_objects.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="multivalued_data_recovery_rules"/>        
+      <title>Multi-valued data recovery rules</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="multivalued_data_recovery_rules-d39307e60373"/><meta name="wh-source-relpath" content="okta/multivalued_data_recovery_rules.dita"/><meta name="wh-out-relpath" content="okta/multivalued_data_recovery_rules.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="multivalued_data_recovery_rules" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../identity_resilience/identity_resilience.html">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li><div class="topicref"><div class="title"><a href="../adds/ad_protection.html">Identity workloads</a></div></div></li><li><div class="topicref" data-id="okta_idp"><div class="title"><a href="../okta/okta_idp.html">Okta IdP</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud</span> provides protection and recovery for Okta Identity Provider         objects. By integrating your Okta tenant with Rubrik, you can leverage a comprehensive set         of data protection features designed for security, simplicity, and reliability.</p></div></div></div></li><li><div class="topicref" data-id="recover_okta_objects"><div class="title"><a href="../okta/recover_okta_objects.html">Recover Okta objects</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> recovers individual Okta objects, along with their related         objects and relationships, from automated or on-demand snapshots. You can recover objects to         the same tenant or to a different onboarded tenant.</p></div></div></div></li><li class="active"><div class="topicref" data-id="multivalued_data_recovery_rules"><div class="title"><a href="../okta/multivalued_data_recovery_rules.html">Multi-valued data recovery rules</a><div class="wh-tooltip"><p class="shortdesc">Information about how to handle conflicts for multi-valued data, both attributes and         relationships, during recovery. <span class="ph">RSC</span> provides two options, overwrite or merge         values, enabling you to select the option that best meets your organizational requirements         for data consistency.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../okta/recreate_objects_restore_relationships.html" title="Recreate objects and restore relationships" aria-label="Previous topic: Recreate objects and restore relationships" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../okta/okta_authentication_settings_recovery.html" title="Authentication settings recovery for Okta objects" aria-label="Next topic: Authentication settings recovery for Okta objects" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="identity_resilience-d39307e56759" class="topicref" data-id="identity_resilience" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action identity_resilience-d39307e56759-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="identity_resilience-d39307e56759-link"><span class="ph">Identity Resilience</span></a><div class="wh-tooltip"><p class="shortdesc">Rubrik <span class="ph">Identity Resilience</span> secures, monitors, and recovers the         Identity Providers.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e58242" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e58242-link" class="wh-expand-btn"></span><div class="title"><a href="../adds/ad_protection.html" id="tocId-d39307e58242-link">Identity workloads</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="ad_protection-d39307e58243" class="topicref" data-id="ad_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ad_protection-d39307e58243-link" class="wh-expand-btn"></span><div class="title"><a href="../adds/ad_protection.html" id="ad_protection-d39307e58243-link">Active Directory protection</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud</span> offers capabilities for protecting Active Directory,         including features for backing up and recovering individual domain controllers and entire         Active Directory forests, designed to enhance the identity resilience of an         organization.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="ms_entra_id-d39307e59096" class="topicref" data-id="ms_entra_id" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action ms_entra_id-d39307e59096-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ms_entra_id.html" id="ms_entra_id-d39307e59096-link">Microsoft Entra ID</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> supports backup and recovery of Microsoft Entra ID.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="okta_idp-d39307e60105" class="topicref" data-id="okta_idp" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action okta_idp-d39307e60105-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_idp.html" id="okta_idp-d39307e60105-link">Okta IdP</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud</span> provides protection and recovery for Okta Identity Provider         objects. By integrating your Okta tenant with Rubrik, you can leverage a comprehensive set         of data protection features designed for security, simplicity, and reliability.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60118" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60118-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_key_features_protection.html" id="tocId-d39307e60118-link">Introduction to Okta protection</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="plan_okta_idp_protection-d39307e60143" class="topicref" data-id="plan_okta_idp_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action plan_okta_idp_protection-d39307e60143-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/plan_okta_idp_protection.html" id="plan_okta_idp_protection-d39307e60143-link">Plan your Okta IdP protection</a><div class="wh-tooltip"><p class="shortdesc">Before integrating Okta IdP with <span class="ph">RSC</span>, you must meet certain         requirements to start protecting your critical Okta objects.</p></div></div></div></li><li role="treeitem"><div data-tocid="evaluate_okta_configuration_options-d39307e60194" class="topicref" data-id="evaluate_okta_configuration_options" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/evaluate_okta_configuration_options.html" id="evaluate_okta_configuration_options-d39307e60194-link">Evaluate Okta configuration options</a><div class="wh-tooltip"><p class="shortdesc">You can add Okta tenants to <span class="ph">RSC</span> using the Identity Resilience         inventory, Data Protection inventory, or Settings menu.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="configure_okta_idp-d39307e60208" class="topicref" data-id="configure_okta_idp" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action configure_okta_idp-d39307e60208-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/configure_okta_idp.html" id="configure_okta_idp-d39307e60208-link">Configure Okta IdP</a><div class="wh-tooltip"><p class="shortdesc">Configure your Okta Identity Provider by adding Okta tenants to <span class="ph">RSC</span>         and perform other maintenance operations, such as editing and removing the Okta         tenants.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="manage_protection_okta_idp-d39307e60286" class="topicref" data-id="manage_protection_okta_idp" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action manage_protection_okta_idp-d39307e60286-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/manage_protection_okta_idp.html" id="manage_protection_okta_idp-d39307e60286-link">Manage protection for Okta IdP</a><div class="wh-tooltip"><p class="shortdesc">You can use SLA Domains to apply data protection and management policies to Okta         tenants for optimal protection.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="recover_okta_objects-d39307e60333" class="topicref" data-id="recover_okta_objects" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action recover_okta_objects-d39307e60333-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/recover_okta_objects.html" id="recover_okta_objects-d39307e60333-link">Recover Okta objects</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> recovers individual Okta objects, along with their related         objects and relationships, from automated or on-demand snapshots. You can recover objects to         the same tenant or to a different onboarded tenant.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="relationship_restore_scope-d39307e60346" class="topicref" data-id="relationship_restore_scope" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/relationship_restore_scope.html" id="relationship_restore_scope-d39307e60346-link">Relationship restore scope</a><div class="wh-tooltip"><p class="shortdesc">Granular recovery for Okta objects enables you to restore selected objects along with         their dependencies. <span class="ph">RSC</span> provides options to recover selected objects,         interconnected objects, and their relationships. This feature enables you to re-establish         broken links and corrupted relationships, such as those between users and         groups.</p></div></div></div></li><li role="treeitem"><div data-tocid="recreate_objects_restore_relationships-d39307e60360" class="topicref" data-id="recreate_objects_restore_relationships" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/recreate_objects_restore_relationships.html" id="recreate_objects_restore_relationships-d39307e60360-link">Recreate objects and restore relationships</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> enhances granular recovery of critical Okta objects by         discovering, displaying, and simplifying the complex, interlinked object structure and         dependencies in Okta. This enables you to precisely select and manage the recovery of         critical Okta objects and their associated dependencies.</p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="multivalued_data_recovery_rules-d39307e60373" class="topicref" data-id="multivalued_data_recovery_rules" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/multivalued_data_recovery_rules.html" id="multivalued_data_recovery_rules-d39307e60373-link">Multi-valued data recovery rules</a><div class="wh-tooltip"><p class="shortdesc">Information about how to handle conflicts for multi-valued data, both attributes and         relationships, during recovery. <span class="ph">RSC</span> provides two options, overwrite or merge         values, enabling you to select the option that best meets your organizational requirements         for data consistency.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_authentication_settings_recovery-d39307e60387" class="topicref" data-id="okta_authentication_settings_recovery" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_authentication_settings_recovery.html" id="okta_authentication_settings_recovery-d39307e60387-link">Authentication settings recovery for Okta objects</a><div class="wh-tooltip"><p class="shortdesc">When you recover Okta Identity Providers or Applications, <span class="ph">RSC</span>         restores the client secrets and public trust configuration that Okta exposes, so recovered         objects can authenticate without manual reconfiguration.</p></div></div></div></li><li role="treeitem"><div data-tocid="auth_server_recovery_considerations-d39307e60401" class="topicref" data-id="auth_server_recovery_considerations" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/auth_server_recovery_considerations.html" id="auth_server_recovery_considerations-d39307e60401-link">Considerations for recovering authorization servers</a><div class="wh-tooltip"><p class="shortdesc">Information about the limitations and post-recovery steps to consider when you         recover an Okta authorization server, because Okta cannot back up or regenerate certain         configurations.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_hooks_recovery_considerations-d39307e60412" class="topicref" data-id="okta_hooks_recovery_considerations" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_hooks_recovery_considerations.html" id="okta_hooks_recovery_considerations-d39307e60412-link">Considerations for recovering Okta hooks</a><div class="wh-tooltip"><p class="shortdesc">Information about backup and recovery behavior for Okta event hooks and inline hooks,         including limitations that require manual steps after recovery.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_authenticator_recovery_considerations-d39307e60423" class="topicref" data-id="okta_authenticator_recovery_considerations" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_authenticator_recovery_considerations.html" id="okta_authenticator_recovery_considerations-d39307e60423-link">Considerations for recovering Okta authenticators</a><div class="wh-tooltip"><p class="shortdesc">Information about prerequisites for capturing authenticators in backups, limitations         for authenticators that hold secrets, and authenticator-specific behavior during         recovery.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_hooks_recovery_post_req-d39307e60434" class="topicref" data-id="okta_hooks_recovery_post_req" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_hooks_recovery_post_req.html" id="okta_hooks_recovery_post_req-d39307e60434-link">Post-recovery steps for Okta hooks</a><div class="wh-tooltip"><p class="shortdesc">Manual steps required after recovering Okta event hooks or inline hooks to restore         full functionality.</p></div></div></div></li><li role="treeitem"><div data-tocid="user_status_recovery_rules-d39307e60445" class="topicref" data-id="user_status_recovery_rules" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/user_status_recovery_rules.html" id="user_status_recovery_rules-d39307e60445-link">User status recovery rules</a><div class="wh-tooltip"><p class="shortdesc">Information about how <span class="ph">RSC</span> recovers users that were in a Staged or         Locked Out status when the snapshot was taken. Okta does not support reverting user         statuses, so <span class="ph">RSC</span> provides settings to control how it restores user         statuses.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_group_rules_recovery-d39307e60462" class="topicref" data-id="okta_group_rules_recovery" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_group_rules_recovery.html" id="okta_group_rules_recovery-d39307e60462-link">Okta group rules recovery</a><div class="wh-tooltip"><p class="shortdesc">To recover a group rule, it is important to understand that an Okta group rule cannot         exist without its target groups. <span class="ph">RSC</span> applies dependency-aware behavior when         recovering group rules.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="okta_cross_tenant_recovery-d39307e60477" class="topicref" data-id="okta_cross_tenant_recovery" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action okta_cross_tenant_recovery-d39307e60477-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_cross_tenant_recovery.html" id="okta_cross_tenant_recovery-d39307e60477-link">Okta cross-tenant recovery</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> cross-tenant recovery for Okta restores directory objects from a         source tenant snapshot to a different onboarded target tenant.</p></div></div></div></li><li role="treeitem"><div data-tocid="recovering_okta_objects-d39307e60515" class="topicref" data-id="recovering_okta_objects" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/recovering_okta_objects.html" id="recovering_okta_objects-d39307e60515-link">Recovering Okta objects</a><div class="wh-tooltip"><p class="shortdesc">Recover required Okta objects using automated or on-demand snapshots of your Okta         tenant when a critical object is accidentally deleted or changed.</p></div></div></div></li><li role="treeitem"><div data-tocid="recovering_okta_objects_cross_tenant-d39307e60526" class="topicref" data-id="recovering_okta_objects_cross_tenant" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/recovering_okta_objects_cross_tenant.html" id="recovering_okta_objects_cross_tenant-d39307e60526-link">Recovering Okta directory objects to a different tenant</a><div class="wh-tooltip"><p class="shortdesc">Recover Okta directory objects from a source tenant snapshot to a different onboarded         target tenant.</p></div></div></div></li><li role="treeitem"><div data-tocid="recovering_okta_workflows-d39307e60537" class="topicref" data-id="recovering_okta_workflows" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/recovering_okta_workflows.html" id="recovering_okta_workflows-d39307e60537-link">Recovering Okta workflows</a><div class="wh-tooltip"><p class="shortdesc">Recover specific Okta workflow automations from a snapshot when workflows are         accidentally deleted, misconfigured, or corrupted.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_app_recovery_post_req-d39307e60548" class="topicref" data-id="okta_app_recovery_post_req" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_app_recovery_post_req.html" id="okta_app_recovery_post_req-d39307e60548-link">Okta application recovery requirements</a><div class="wh-tooltip"><p class="shortdesc">Recovering an Okta application may require manual action to restore         credentials, certificates, and provisioning configuration that <span class="ph">RSC</span> cannot         automatically recover.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_idp_recovery_post_req-d39307e60562" class="topicref" data-id="okta_idp_recovery_post_req" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_idp_recovery_post_req.html" id="okta_idp_recovery_post_req-d39307e60562-link">Okta identity provider recovery requirements</a><div class="wh-tooltip"><p class="shortdesc">Recovering an Okta identity provider can require manual steps, such as re-entering a         credential or updating a certificate that <span class="ph">RSC</span> cannot complete         automatically.</p></div></div></div></li><li role="treeitem"><div data-tocid="okta_authenticator_recovery_post_req-d39307e60576" class="topicref" data-id="okta_authenticator_recovery_post_req" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../okta/okta_authenticator_recovery_post_req.html" id="okta_authenticator_recovery_post_req-d39307e60576-link">Okta authenticator post-recovery requirements</a><div class="wh-tooltip"><p class="shortdesc">Information about failure scenarios, remediation steps, and post-recovery validation         checks for Okta authenticator recovery.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="manage_okta_tenants-d39307e60587" class="topicref" data-id="manage_okta_tenants" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action manage_okta_tenants-d39307e60587-link" class="wh-expand-btn"></span><div class="title"><a href="../okta/manage_okta_tenants.html" id="manage_okta_tenants-d39307e60587-link">Manage Okta tenants</a><div class="wh-tooltip"><p class="shortdesc">Viewing and analyzing detailed information about your protected Okta IdP from the         Inventory page enables you to make informed decisions. Key aspects include viewing tenants,         checking protection status, reviewing detailed object attributes, browsing the snapshot         calendar, viewing events log for audit and compliance, and performing maintenance such as         deleting snapshots.</p></div></div></div></li></ul></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="identity_recovery-d39307e60648" class="topicref" data-id="identity_recovery" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action identity_recovery-d39307e60648-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_recovery/identity_recovery.html" id="identity_recovery-d39307e60648-link"><span class="ph">Identity Recovery</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Identity Recovery</span> orchestrates the recovery of identity         infrastructure, including Active Directory forests and Microsoft Entra ID tenants, from         accidental deletion, misconfiguration, account compromise, or catastrophic         failure.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic concept/concept topic concept" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Multi-valued data recovery rules</h1>
+    
+    
+    
+    <div class="- topic/body concept/conbody body conbody"><p class="- topic/shortdesc shortdesc">Information about how to handle conflicts for multi-valued data, both attributes and
+        relationships, during recovery. <span class="- topic/ph ph">RSC</span> provides two options, overwrite or merge
+        values, enabling you to select the option that best meets your organizational requirements
+        for data consistency.</p>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Multi-valued data</h2>
+            
+            <p class="- topic/p p">During recovery, a conflict can arise when a recovered Okta object has multi-valued
+                data, which is the data where an object can hold more than one value for a specific
+                field.</p>
+            <div class="- topic/p p">Each Okta object has two types of values associated with it:<ul class="- topic/ul ul">
+                    <li class="- topic/li li">Relationships with other objects: For example, a user being a member of
+                        multiple groups.</li>
+                    <li class="- topic/li li">The attributes associated with objects: For example, a custom attribute on a
+                        user profile that enables multiple entries, such as multiple addresses or
+                        phone numbers.</li>
+                </ul></div>
+            <p class="- topic/p p">You must select how <span class="- topic/ph ph">RSC</span> resolves these conflicts for both
+                relationships and attributes when the data in the live tenant differs from the data
+                in the snapshot. You can select from the recovery options to handle the
+                relationships of an object and the attributes associated with the selected objects
+                that best suit your organizational needs.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Recovery options for conflict resolution</h2>
+            
+            <div class="- topic/p p">
+                <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc"><span class="- topic/ph ph">RSC</span> provides the following options to handle recovery for
+                        objects that have multiple values.</span></caption><colgroup><col style="width:50%"/><col style="width:50%"/></colgroup><thead class="- topic/thead thead">
+                            <tr class="- topic/row">
+                                <th class="- topic/entry entry colsep-1 rowsep-1" id="multivalued_data_recovery_rules__entry__1">Option</th>
+                                <th class="- topic/entry entry colsep-0 rowsep-1" id="multivalued_data_recovery_rules__entry__2">Description</th>
+                            </tr>
+                        </thead><tbody class="- topic/tbody tbody">
+                            <tr class="- topic/row">
+                                <td class="- topic/entry entry colsep-1 rowsep-1" headers="multivalued_data_recovery_rules__entry__1">Overwrite live values</td>
+                                <td class="- topic/entry entry colsep-0 rowsep-1" headers="multivalued_data_recovery_rules__entry__2">Recovers the object values from the backup copy and
+                                    overwrites the live copy with the object values in the backup
+                                        copy.<p class="- topic/p p">Effect on live data: <span class="- topic/ph ph">RSC</span> removes any
+                                        new values that were added after the snapshot was taken. The
+                                        object returns to the exact state it was in at the time of
+                                        the backup.</p></td>
+                            </tr>
+                            <tr class="- topic/row">
+                                <td class="- topic/entry entry colsep-1 rowsep-0" headers="multivalued_data_recovery_rules__entry__1">Merge with live values</td>
+                                <td class="- topic/entry entry colsep-0 rowsep-0" headers="multivalued_data_recovery_rules__entry__2">Recovers the object values from the backup copy and merges
+                                    them with the existing values of the live copy.<p class="- topic/p p">Effect on live
+                                        data: <span class="- topic/ph ph">RSC</span> retains the object values that
+                                        were added after the snapshot was taken, combining the
+                                        historical state with the current state.</p></td>
+                            </tr>
+                        </tbody></table></div>
+            </div>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Conflict resolution for authorization servers</h2>
+            
+            <p class="- topic/p p">The overwrite and merge options do not apply to Okta authorization servers. <span class="- topic/ph ph">RSC</span> always overwrites the live authorization server and its
+                sub-objects, such as scopes, claims, access policies, and policy rules, to match the
+                backup. This behavior prevents a merge from leaving outdated scopes or policies
+                active alongside the recovered configuration, which could create an unintended
+                access path.</p>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Policy and policy rule recovery</h2>
+            
+            <p class="- topic/p p">In Okta, every policy and policy rule has a priority that determines the order in
+                which Okta evaluates it. During recovery, <span class="- topic/ph ph">RSC</span> restores policies and
+                policy rules in their backed-up priority order, from the highest priority to the
+                lowest priority.</p>
+            <p class="- topic/p p">When <span class="- topic/ph ph">RSC</span> restores a policy or policy rule to its backed-up priority
+                and a live policy or policy rule already occupies that priority, Okta shifts the
+                live policy or policy rule down to the next position. For example, if a backed-up
+                authentication policy has priority 2 and a live authentication policy already
+                occupies priority 2, <span class="- topic/ph ph">RSC</span> restores the backed-up policy to priority 2
+                and Okta moves the live policy to priority 3.</p>
+            <div class="- topic/p p">
+                <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc">The following table describes the recovery options and how restoring a
+                        snapshot affects your existing policies and policy rules.</span></caption><colgroup><col style="width:50%"/><col style="width:50%"/></colgroup><thead class="- topic/thead thead">
+                            <tr class="- topic/row">
+                                <th class="- topic/entry entry colsep-1 rowsep-1" id="multivalued_data_recovery_rules__entry__7">Option</th>
+                                <th class="- topic/entry entry colsep-0 rowsep-1" id="multivalued_data_recovery_rules__entry__8">Effect on policies and policy rules</th>
+                            </tr>
+                        </thead><tbody class="- topic/tbody tbody">
+                            <tr class="- topic/row">
+                                <td class="- topic/entry entry colsep-1 rowsep-1" headers="multivalued_data_recovery_rules__entry__7">Overwrite live values</td>
+                                <td class="- topic/entry entry colsep-0 rowsep-1" headers="multivalued_data_recovery_rules__entry__8">Restores the backed-up policies and their rules to the state
+                                    in the snapshot. <span class="- topic/ph ph">RSC</span> retains live policies that
+                                    are not in the snapshot, but Okta shifts their priority down as
+                                    the backed-up policies reclaim their original priorities. Within
+                                    each restored policy, <span class="- topic/ph ph">RSC</span> synchronizes the rules
+                                    to the snapshot, so any rule that is not in the snapshot is
+                                    removed. <span class="- topic/ph ph">RSC</span> does not remove the default
+                                    catch-all rule that Okta includes in each policy.</td>
+                            </tr>
+                            <tr class="- topic/row">
+                                <td class="- topic/entry entry colsep-1 rowsep-0" headers="multivalued_data_recovery_rules__entry__7">Merge with live values</td>
+                                <td class="- topic/entry entry colsep-0 rowsep-0" headers="multivalued_data_recovery_rules__entry__8">Restores only the policies that you select. Unselected
+                                    policies and their rules remain unchanged. Within each selected
+                                    policy, <span class="- topic/ph ph">RSC</span> synchronizes all of the rules to the
+                                    snapshot. You cannot restore individual rules within a
+                                    policy.</td>
+                            </tr>
+                        </tbody></table></div>
+            </div>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Example use case</h2>
+            
+            <div class="- topic/p p">To illustrate the difference between the Overwrite live values and Merge with live
+                values recovery options, consider a scenario involving user group membership:<ul class="- topic/ul ul">
+                    <li class="- topic/li li">At snapshot time: At the time when <span class="- topic/ph ph">RSC</span> took a scheduled
+                        snapshot according to the assigned SLA Domain, the user is a member of Group
+                        1 and Group 2.</li>
+                    <li class="- topic/li li">In live tenant now: The user was removed from Group 1 and Group 2, but was
+                        newly added to Group 3 and Group 4.</li>
+                </ul><div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption></caption><colgroup><col style="width:50%"/><col style="width:50%"/></colgroup><thead class="- topic/thead thead">
+                            <tr class="- topic/row">
+                                <th class="- topic/entry entry colsep-1 rowsep-1" id="multivalued_data_recovery_rules__entry__13">Recovery option</th>
+                                <th class="- topic/entry entry colsep-0 rowsep-1" id="multivalued_data_recovery_rules__entry__14">Result on user membership in the live tenant</th>
+                            </tr>
+                        </thead><tbody class="- topic/tbody tbody">
+                            <tr class="- topic/row">
+                                <td class="- topic/entry entry colsep-1 rowsep-1" headers="multivalued_data_recovery_rules__entry__13">Overwrite live values</td>
+                                <td class="- topic/entry entry colsep-0 rowsep-1" headers="multivalued_data_recovery_rules__entry__14"><span class="- topic/ph ph">RSC</span> recovers the user to the exact state of
+                                    the snapshot. The user is a member of Group 1 and Group 2.
+                                    Membership in Group 3 and Group 4 is removed from the live
+                                    tenant.</td>
+                            </tr>
+                            <tr class="- topic/row">
+                                <td class="- topic/entry entry colsep-1 rowsep-0" headers="multivalued_data_recovery_rules__entry__13">Merge with live values</td>
+                                <td class="- topic/entry entry colsep-0 rowsep-0" headers="multivalued_data_recovery_rules__entry__14"><span class="- topic/ph ph">RSC</span> recovers and merges the values. The user
+                                    is a member of Group 1, Group 2, Group 3, and Group 4. The
+                                    historical and new memberships are retained.</td>
+                            </tr>
+                        </tbody></table></div></div>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist reltasks"><strong>Related tasks</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="recovering_okta_objects.html" title="Recover required Okta objects using automated or on-demand snapshots of your Okta tenant when a critical object is accidentally deleted or changed.">Recovering Okta objects</a><div class="- topic/desc ">Recover required Okta objects using automated or on-demand snapshots of your Okta         tenant when a critical object is accidentally deleted or changed.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

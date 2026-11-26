@@ -1,0 +1,598 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="concept"/><meta name="description" content="The inventory lists everything that Agent Cloud has discovered across your connections: agents, tools, identities, models, and MCP servers."/><meta name="DC.relation" content="discover_observe_agent_cloud.html"/><meta name="DC.relation" content="sessions_actions_agent_cloud_all.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="ai_inventory_agent_cloud"/>        
+      <title>AI inventory</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content=""/><meta name="wh-source-relpath" content="agent_cloud/ai_inventory_agent_cloud.dita"/><meta name="wh-out-relpath" content="agent_cloud/ai_inventory_agent_cloud.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="ai_inventory_agent_cloud" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                    
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic concept/concept topic concept" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">AI inventory</h1>
+    
+    <div class="- topic/body concept/conbody body conbody"><p class="- topic/shortdesc shortdesc">The inventory lists everything that <span class="- topic/ph ph">Agent Cloud</span> has discovered across your
+        connections: agents, tools, identities, models, and MCP servers.</p>
+        <p class="- topic/p p">Open the inventory from the <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Inventory</span> menu. Which connections
+            populate each inventory, and how much detail they provide, differs by connection. For
+            example, API integrations report agents and tools, while endpoint detection also reports
+            the MCP servers, skills, and plugins that Claude Code uses. For details, see <a class="- topic/xref xref" href="../compat_matrix/rac_support_matrix.html" title="Agent Cloud supports multiple platform integrations, each with varying capabilities for AI agent discovery, session activity monitoring, policy enforcement, configuration violations, monitoring alerts, blocking, and ask enforcement.">Agent Cloud support matrix</a>.</p>
+        <section class="- topic/section section" id="ai_inventory_agent_cloud__sec_agents" data-ofbid="ai_inventory_agent_cloud__sec_agents"><h2 class="- topic/title title sectiontitle">Agents</h2>
+            
+            <p class="- topic/p p">The Agents inventory lists every discovered agent with its connection type, the date
+                it was first discovered, its active violations and alerts, and its agent status. The
+                status of an agent is authorized or unauthorized. A system policy handles
+                unauthorized agents, and whether <span class="- topic/ph ph">Agent Cloud</span> can block them depends on
+                whether the connection supports blocking. The Discovered tab lists the agents that
+                    <span class="- topic/ph ph">Agent Cloud</span> has found. The page also shows how many agents are high
+                risk and how many are inactive.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc">The following table describes the filters available on the Agent Inventory
+                    page.</span></caption><colgroup><col style="width:35.97122302158273%"/><col style="width:64.02877697841726%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="ai_inventory_agent_cloud__sec_agents__entry__1">Filter</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="ai_inventory_agent_cloud__sec_agents__entry__2">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__1">Applications Accessible</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__2">Applications accessible by the AI agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="ai_inventory_agent_cloud__sec_agents__entry__1">Agent Risk</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="ai_inventory_agent_cloud__sec_agents__entry__2">Level of risk the action performed by the AI agent poses for your
+                                data or configuration.</td>
+                        </tr>
+                    </tbody></table></div>
+            <p class="- topic/p p">The thumbtack icon pins AI agents to the top of the list. Pinned AI agents remain at
+                the top of the list when you scroll.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc">The following table describes the columns displayed on the Agent Inventory
+                    page.</span></caption><colgroup><col style="width:36.496350364963504%"/><col style="width:63.503649635036496%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="ai_inventory_agent_cloud__sec_agents__entry__7">Column</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="ai_inventory_agent_cloud__sec_agents__entry__8">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__7">Name</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__8">Name of the discovered AI agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__7">Agent Risk</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__8">Current risk level <span class="- topic/ph ph">Agent Cloud</span> assigns to the AI
+                                agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__7">Active Violations</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__8">Number of active violations for each AI agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__7">Active Alerts</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__8">Number of active alerts for each AI agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__7">Apps Accessible</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__8">Applications the AI agent can access.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__7">Connection Type</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__8">Connection from which the AI agents originate. For example,
+                                Microsoft Copilot Studio, LiteLLM, or Rubrik Gateway.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="ai_inventory_agent_cloud__sec_agents__entry__7">First Discovered</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="ai_inventory_agent_cloud__sec_agents__entry__8">Initial date and time <span class="- topic/ph ph">Agent Cloud</span> discovered the AI
+                                agent.</td>
+                        </tr>
+                    </tbody></table></div>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc">You can select an agent to open its details. The following table describes the
+                    tabs.</span></caption><colgroup><col style="width:36.36363636363637%"/><col style="width:63.63636363636363%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="ai_inventory_agent_cloud__sec_agents__entry__23">Tab</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="ai_inventory_agent_cloud__sec_agents__entry__24">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__23">Overview</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__24">A summary of the agent and its connection.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__23">Usage</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__24">Token usage and estimated cost, broken down by model, with the
+                                top identities and sessions by spend, for connections that report
+                                usage.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__23">Violations and Alerts</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__24">The configuration violations and the alerts raised for the
+                                agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__23">Actions and Sessions</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__24">The agent's recorded actions and sessions.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__23">Identities</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_agents__entry__24">The people and service accounts that use the agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="ai_inventory_agent_cloud__sec_agents__entry__23">Capabilities</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="ai_inventory_agent_cloud__sec_agents__entry__24">The skills, MCP servers, and plugins that the agent uses.
+                                Endpoint detection reports these for Claude Code.</td>
+                        </tr>
+                    </tbody></table></div>
+        </section>
+        <section class="- topic/section section" id="ai_inventory_agent_cloud__sec_tools" data-ofbid="ai_inventory_agent_cloud__sec_tools"><h2 class="- topic/title title sectiontitle">Tools</h2>
+            
+            <p class="- topic/p p">The Tools inventory lists the functions and APIs that agents can call. Each tool is
+                classified by what it can do:</p>
+            <ul class="- topic/ul ul">
+                <li class="- topic/li li">Read: reads, retrieves, or views information.</li>
+                <li class="- topic/li li">Create, Update, Delete: changes resources or data.</li>
+                <li class="- topic/li li">Planning: plans or prepares operations.</li>
+                <li class="- topic/li li">Agent to Agent: coordinates work across agents.</li>
+            </ul>
+            <p class="- topic/p p">A tool shows Pending Analysis while <span class="- topic/ph ph">Agent Cloud</span> is classifying it. Select
+                a tool to view its overview, violations, alerts, sessions, and actions. To exclude a
+                tool from a policy, add a policy exception. For more information, see <a class="- topic/xref xref" href="ai_inventory_agent_cloud_all.html#creating_tool_exception" title="Edit the configuration of a tool to create exceptions for policies.">Creating tool policy exceptions</a>.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc">The following table describes the columns displayed on the Tools Inventory
+                    page.</span></caption><colgroup><col style="width:36.76470588235294%"/><col style="width:63.235294117647065%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="ai_inventory_agent_cloud__sec_tools__entry__1">Column</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="ai_inventory_agent_cloud__sec_tools__entry__2">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Tools</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Name of the tool <span class="- topic/ph ph">Agent Cloud</span> found running on the
+                                workload.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Capabilities</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">The capabilities of the tool. Each tool can have one or more of
+                                the following capability types:<ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Read: Reading, retrieving, or viewing information</li>
+                                    <li class="- topic/li li">Update: Modifying existing resources or data</li>
+                                    <li class="- topic/li li">Create: Creating new resources, files, or data</li>
+                                    <li class="- topic/li li">Delete: Removing or destroying resources or data</li>
+                                    <li class="- topic/li li">Planning: Planning or preparing operations</li>
+                                    <li class="- topic/li li">Agent to Agent: Coordinating or orchestrating across
+                                        agents</li>
+                                </ul><p class="- topic/p p">Tools may show <samp class="+ topic/ph sw-d/msgph ph msgph">Pending Analysis</samp> while
+                                    classification is in progress.</p></td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Application</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Application that provides the tool.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Agents with Access</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Names of the agents with permission to access the tool.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Active Violations</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Number of active violations for this tool.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Active Alerts</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Number of active alerts associated with this tool.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Approval Status</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Whether the tool is Authorized or Unauthorized.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__1">Last Used</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Last time this tool was invoked by an agent.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="ai_inventory_agent_cloud__sec_tools__entry__1">First Discovered</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="ai_inventory_agent_cloud__sec_tools__entry__2">Date and time <span class="- topic/ph ph">Agent Cloud</span> first discovered this
+                                tool.</td>
+                        </tr>
+                    </tbody></table></div>
+            <p class="- topic/p p"><span class="- topic/ph ph">Agent Cloud</span> generates alerts when it detects a policy violation at
+                runtime, whether triggered by a tool call, a user prompt, or an agent response. For
+                the rules that determine which events trigger violations and alerts, see <a class="- topic/xref xref" href="how_policies_work_agent_cloud_all.html" title="A policy is a named rule with a severity that Agent Cloud evaluates against your agents, tools, and sessions. When agent activity breaks a policy, Agent Cloud records a violation or an alert and, depending on the policy's enforcement mode, can stop the action.">How policies work</a>.</p>
+        </section>
+        <section class="- topic/section section" id="ai_inventory_agent_cloud__sec_identities" data-ofbid="ai_inventory_agent_cloud__sec_identities"><h2 class="- topic/title title sectiontitle">Identities</h2>
+            
+            <p class="- topic/p p">The Identities inventory lists the people and service accounts that use your agents.
+                For each identity, it shows the source connection, the agents used, the hosts where
+                the identity runs agents, and when it was last active. Select an identity to view
+                its overview, violations, alerts, and actions. This shows everything one person or
+                service account has done across all of their agents.</p>
+        </section>
+        <section class="- topic/section section" id="ai_inventory_agent_cloud__sec_models" data-ofbid="ai_inventory_agent_cloud__sec_models"><h2 class="- topic/title title sectiontitle">Models</h2>
+            
+            <p class="- topic/p p">The Models inventory lists the AI models discovered across all connections, including
+                models used through native integrations such as Microsoft Copilot.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc">The following table describes the columns displayed on the Models Inventory
+                    page.</span></caption><colgroup><col style="width:38.02281368821293%"/><col style="width:61.97718631178707%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="ai_inventory_agent_cloud__sec_models__entry__1">Column</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="ai_inventory_agent_cloud__sec_models__entry__2">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_models__entry__1">Name</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_models__entry__2">Name of the model specified by the provider.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_models__entry__1">Model Group</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_models__entry__2">Name of the group to which the model belongs.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_models__entry__1">First Discovered</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_models__entry__2">Date and time <span class="- topic/ph ph">Agent Cloud</span> discovered this
+                                model.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="ai_inventory_agent_cloud__sec_models__entry__1">Approval Status</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="ai_inventory_agent_cloud__sec_models__entry__2">Whether the model is Authorized or Unauthorized.</td>
+                        </tr>
+                    </tbody></table></div>
+        </section>
+        <section class="- topic/section section" id="ai_inventory_agent_cloud__sec_mcp_servers" data-ofbid="ai_inventory_agent_cloud__sec_mcp_servers"><h2 class="- topic/title title sectiontitle">MCP servers</h2>
+            
+            <p class="- topic/p p">The Discovered tab of the MCP Servers inventory lists the MCP servers that endpoint
+                detection found configured on devices. For each server, you can view its
+                configuration and transport, the identities that have it configured, and the
+                endpoints where it is installed. <span class="- topic/ph ph">Agent Cloud</span> collects MCP server
+                configuration data through Mobile Device Management (MDM).</p>
+            
+            <div class="- topic/note note important note_important"><span class="note__title">Important:</span> <div class="note__body"><span class="- topic/ph ph">Agent Cloud</span> never collects secret values, such as
+                environment variable values and HTTP header values. <span class="- topic/ph ph">Agent Cloud</span> collects
+                only the names of environment variables and HTTP headers that an MCP server
+                uses.</div></div>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption><span class="- topic/desc desc tabledesc">The following table describes the columns displayed on the MCP Servers
+                    Inventory page.</span></caption><colgroup><col style="width:40%"/><col style="width:60%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="ai_inventory_agent_cloud__sec_mcp_servers__entry__1">Column</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="ai_inventory_agent_cloud__sec_mcp_servers__entry__2">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__1">Name</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__2">The name of the MCP server. The tooltip displays the server
+                                source, transport type, and connection configuration.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__1">Agents with Access</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__2">The AI agents that use this MCP server.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__1">Identities with Access</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__2">The number of distinct identities that have this MCP server
+                                configured.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__1">Last Used</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="ai_inventory_agent_cloud__sec_mcp_servers__entry__2">The date and time <span class="- topic/ph ph">Agent Cloud</span> last detected this MCP
+                                server on an endpoint.</td>
+                        </tr>
+                    </tbody></table></div>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="discover_observe_agent_cloud.html" title="Agent Cloud builds an inventory of the agents, tools, identities, models, and MCP servers in your environment, and records what each agent does, session by session.">Discover and observe</a><div class="- topic/desc ">Agent Cloud builds an inventory of the agents, tools, identities, models,         and MCP servers in your environment, and records what each agent does, session by         session.</div></li><li class="linklist"><a class="- topic/link link navheader_parent_path" href="sessions_actions_agent_cloud_all.html" title="Agent Cloud records what your agents do as sessions, each with a timeline of prompts, responses, and tool calls, and as actions, the individual tool calls within them.">Sessions and actions</a><div class="- topic/desc ">Agent Cloud records what your agents do as sessions, each with a timeline         of prompts, responses, and tool calls, and as actions, the individual tool calls within         them.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                        <nav role="navigation" id="wh_topic_toc" aria-label="On this page" class="col-lg-2 d-none d-lg-block navbar d-print-none"> 
+                            <div id="wh_topic_toc_content">
+              	                <button id="wh_close_topic_toc_button" class="close-toc-button d-none" aria-label="Toggle topic table of content" aria-controls="wh_topic_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+	                            <div class=" wh_topic_toc "><div class="wh_topic_label">On this page</div><ul><li class="section-item"><div class="section-title"><a href="#ai_inventory_agent_cloud__sec_agents" data-tocid="ai_inventory_agent_cloud__sec_agents">Agents</a></div></li><li class="section-item"><div class="section-title"><a href="#ai_inventory_agent_cloud__sec_tools" data-tocid="ai_inventory_agent_cloud__sec_tools">Tools</a></div></li><li class="section-item"><div class="section-title"><a href="#ai_inventory_agent_cloud__sec_identities" data-tocid="ai_inventory_agent_cloud__sec_identities">Identities</a></div></li><li class="section-item"><div class="section-title"><a href="#ai_inventory_agent_cloud__sec_models" data-tocid="ai_inventory_agent_cloud__sec_models">Models</a></div></li><li class="section-item"><div class="section-title"><a href="#ai_inventory_agent_cloud__sec_mcp_servers" data-tocid="ai_inventory_agent_cloud__sec_mcp_servers">MCP servers</a></div></li></ul></div>
+	                        	
+                        	</div>
+                        </nav>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

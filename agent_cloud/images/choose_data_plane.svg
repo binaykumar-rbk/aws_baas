@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="560" viewBox="0 0 840 560" font-family="Segoe UI, Calibri, Arial, sans-serif">
+<rect width="840" height="560" fill="#F4F7FA" rx="12"/>
+<rect x="0" y="0" width="840" height="72" fill="#0A2347" rx="12"/><rect x="0" y="60" width="840" height="12" fill="#0A2347"/><rect x="0" y="69" width="840" height="3" fill="#09A8B8"/>
+<text x="24" y="32" font-size="18" font-weight="bold" fill="#FFFFFF" letter-spacing="0.3">Deploy Your Data Plane</text>
+<text x="24" y="52" font-size="11" fill="#8AACCC">Where agent content is processed, and who runs the infrastructure</text>
+<text x="420" y="104" font-size="13" fill="#0A2347" text-anchor="middle" font-weight="bold">Must agent prompts and responses stay inside your own cloud account?</text>
+<line x1="420" y1="110" x2="420" y2="126" stroke="#B0C8E0" stroke-width="2.5"/>
+<line x1="200" y1="126" x2="640" y2="126" stroke="#B0C8E0" stroke-width="2.5"/>
+<line x1="200" y1="126" x2="200" y2="152" stroke="#B0C8E0" stroke-width="2.5"/>
+<polygon points="200,160 196.1,152 203.9,152" fill="#B0C8E0"/>
+<line x1="640" y1="126" x2="640" y2="152" stroke="#B0C8E0" stroke-width="2.5"/>
+<polygon points="640,160 636.1,152 643.9,152" fill="#B0C8E0"/>
+<text x="192" y="148" font-size="11" fill="#4A6A8A" text-anchor="end" font-weight="bold">No</text>
+<text x="648" y="148" font-size="11" fill="#4A6A8A" text-anchor="start" font-weight="bold">Yes</text>
+<rect x="24" y="162" width="352" height="150" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="24" y="162" width="352" height="30" rx="8" fill="#075F68"/><rect x="24" y="182" width="352" height="10" fill="#075F68"/>
+<text x="200.0" y="181.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">SaaS</text>
+<text x="200" y="214" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Rubrik operates the data plane</text>
+<text x="200" y="231" font-size="10.5" fill="#1A2A3A" text-anchor="middle">in a dedicated tenant in Rubrik Security Cloud.</text>
+<text x="200" y="248" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Fastest path to onboarding.</text>
+<text x="200" y="265" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Infrastructure cost is paid by Rubrik.</text>
+<text x="420" y="336" font-size="10" fill="#1A2A3A" text-anchor="middle"></text>
+<rect x="464" y="162" width="352" height="150" rx="8" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+<text x="640" y="186" font-size="12" fill="#0A2347" text-anchor="middle" font-weight="bold">Which cloud do your custom agents run in?</text>
+<text x="640" y="212" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Content stays in your account,</text>
+<text x="640" y="229" font-size="10.5" fill="#1A2A3A" text-anchor="middle">stored in a private bucket or container.</text>
+<text x="640" y="246" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Choose the cloud that hosts your agents</text>
+<text x="640" y="263" font-size="10.5" fill="#1A2A3A" text-anchor="middle">for lower latency.</text>
+<rect x="464" y="350" width="172" height="150" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="464" y="350" width="172" height="30" rx="8" fill="#0C3460"/><rect x="464" y="370" width="172" height="10" fill="#0C3460"/>
+<text x="550.0" y="369.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">AWS VPC</text>
+<text x="550" y="402" font-size="10" fill="#1A2A3A" text-anchor="middle">Runs in your AWS account.</text>
+<text x="550" y="418" font-size="10" fill="#1A2A3A" text-anchor="middle">Content in a private</text>
+<text x="550" y="434" font-size="10" fill="#1A2A3A" text-anchor="middle">Amazon S3 bucket.</text>
+<text x="550" y="450" font-size="10" fill="#1A2A3A" text-anchor="middle">Optional: PrivateLink.</text>
+<rect x="644" y="350" width="172" height="150" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+<rect x="644" y="350" width="172" height="30" rx="8" fill="#0C3460"/><rect x="644" y="370" width="172" height="10" fill="#0C3460"/>
+<text x="730.0" y="369.0" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Azure VNet</text>
+<text x="730" y="402" font-size="10" fill="#1A2A3A" text-anchor="middle">Runs in your Azure</text>
+<text x="730" y="418" font-size="10" fill="#1A2A3A" text-anchor="middle">subscription. Content in a</text>
+<text x="730" y="434" font-size="10" fill="#1A2A3A" text-anchor="middle">private Blob container.</text>
+<text x="730" y="450" font-size="10" fill="#1A2A3A" text-anchor="middle">Optional: Private Link.</text>
+<line x1="550" y1="316" x2="550" y2="348" stroke="#B0C8E0" stroke-width="2"/>
+<polygon points="550.0,348.0 546.1,339.9 553.9,339.9" fill="#B0C8E0"/>
+<line x1="730" y1="316" x2="730" y2="348" stroke="#B0C8E0" stroke-width="2"/>
+<polygon points="730.0,348.0 726.1,339.9 733.9,339.9" fill="#B0C8E0"/>
+<rect x="24" y="350" width="420" height="150" rx="8" fill="#F4F7FA" stroke="#C8D8E8" stroke-width="1"/>
+<text x="234" y="376" font-size="12" fill="#0A2347" text-anchor="middle" font-weight="bold">In every model</text>
+<text x="234" y="400" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Rubrik operates the data plane software.</text>
+<text x="234" y="417" font-size="10.5" fill="#1A2A3A" text-anchor="middle">Only one data plane location at a time.</text>
+<text x="234" y="434" font-size="10.5" fill="#1A2A3A" text-anchor="middle">The control plane receives only metadata and</text>
+<text x="234" y="451" font-size="10.5" fill="#1A2A3A" text-anchor="middle">policy results. Billing differs: you pay for AWS or Azure.</text>
+<rect x="0" y="538" width="840" height="22" fill="#0A2347"/><rect x="0" y="538" width="840" height="22" fill="#0A2347" rx="12"/><rect x="0" y="538" width="840" height="12" fill="#0A2347"/>
+<text x="24" y="552" font-size="9" fill="#8AACCC">Rubrik Security Cloud — Agent Cloud data plane decision</text>
+<rect width="840" height="560" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/></svg>

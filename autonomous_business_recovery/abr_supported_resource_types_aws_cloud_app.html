@@ -1,0 +1,1037 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="27.1">
+    <head><link rel="shortcut icon" href="../favicon.ico"/><link rel="icon" href="../favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="DC.rights.owner" content="(C) Copyright 2026"/><meta name="copyright" content="(C) Copyright 2026"/><meta name="generator" content="DITA-OT"/><meta name="DC.type" content="reference"/><meta name="description" content="Information about the AWS resource types that RSC supports for cloud application protection and recovery."/><meta name="DC.relation" content="../autonomous_business_recovery/abr_plan_protection.html"/><meta name="DC.relation" content="../autonomous_business_recovery/abr_aws_cloud_applications.html"/><meta name="DC.relation" content="../autonomous_business_recovery/cloud_app_aws_iam_permissions.html"/><meta name="DC.relation" content="../autonomous_business_recovery/abr_limitations.html"/><meta name="DC.relation" content="abr_plan_protection.html"/><meta name="DC.format" content="HTML5"/><meta name="DC.identifier" content="abr_supported_resource_types_aws_cloud_app"/>        
+      <title>Supported resource types for AWS cloud applications</title><!--  Generated with Oxygen version 27.1, build number 2025032023.  --><meta name="wh-path2root" content="../"/><meta name="wh-toc-id" content="abr_supported_resource_types_aws_cloud_app-d39307e61058"/><meta name="wh-source-relpath" content="autonomous_business_recovery/abr_supported_resource_types_aws_cloud_app.dita"/><meta name="wh-out-relpath" content="autonomous_business_recovery/abr_supported_resource_types_aws_cloud_app.html"/>
+
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
+    <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
+
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
+    <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
+<link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
+    <script>
+    window.addEventListener("load", myInit, true); function myInit(){  addTargetBlank() };
+    </script>
+        
+    <script>
+    function addTargetBlank() {
+    const links = document.querySelectorAll('.open-in-tab');
+    links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+    });
+    }
+    </script>
+    
+    <!-- OneTrust Cookies Consent Notice start for docs.rubrik.com -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="48df0b20-13be-42ae-a47f-8fda7fae9dc7"></script>
+        <script type="text/javascript">
+            function OptanonWrapper() {
+            }</script>
+        <!-- OneTrust Cookies Consent Notice end for docs.rubrik.com -->
+    <link rel="stylesheet" href="../oxygen-webhelp/template/resources/fonts/rubrik-sans/fonts.css"/>
+    <script defer="true" src="../oxygen-webhelp/template/js/custom-collapsed-sections.js"></script>
+    <script defer="true" src="../oxygen-webhelp/template/js/breadcrumb-title.js"></script>
+</head>
+
+    <body id="abr_supported_resource_types_aws_cloud_app" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="visually-hidden visually-hidden-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid navbar-expand-md">
+        <div class="wh_header_flex_container navbar-nav navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="https://www.rubrik.com/" class=" wh_logo d-none d-sm-block "><img src="../oxygen-webhelp/template/resources/images/rubrik-logo-mark.svg" alt="Rubrik Security Cloud"/></a>
+                    <div class=" wh_publication_title "><a href="../index.html"><span class="title">Rubrik Security Cloud</span></a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+        <div class="rubrik-header-icons">
+            <button type="button" class="rubrik-icon-btn rubrik-search-btn" id="rubrik-search-btn" aria-label="Search" data-tooltip="Search" aria-expanded="false" aria-controls="searchForm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="SearchIcon">
+<path id="Icon" d="M11.4363 4.23444C13.2918 4.28886 15.0494 5.07842 16.3231 6.42878C17.5969 7.77933 18.2816 9.58088 18.2274 11.4366C18.1819 12.9883 17.6209 14.4701 16.6492 15.6592L20.4949 19.5049C20.7683 19.7783 20.7683 20.2218 20.4949 20.4952C20.2216 20.7685 19.7781 20.7685 19.5047 20.4952L15.659 16.6495C14.3587 17.7121 12.7157 18.278 11.0262 18.2286C9.17064 18.1742 7.41223 17.3847 6.13849 16.0342C4.86489 14.6837 4.17995 12.882 4.23419 11.0264C4.28858 9.17093 5.07717 7.41244 6.42755 6.13874C7.77811 4.86491 9.58062 4.18019 11.4363 4.23444ZM11.3914 5.73346C9.9336 5.69096 8.51885 6.22989 7.45783 7.23053C6.39668 8.2314 5.77584 9.61329 5.73322 11.0714C5.69075 12.5291 6.22966 13.944 7.23029 15.0049C8.23115 16.066 9.6131 16.6869 11.0711 16.7296C12.5288 16.772 13.9437 16.2331 15.0047 15.2325C16.0658 14.2316 16.6867 12.8497 16.7293 11.3917C16.7718 9.9339 16.2329 8.51906 15.2322 7.45807C14.2314 6.39692 12.8495 5.77609 11.3914 5.73346Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+</g>
+</svg>
+            </button>
+            <span class="rubrik-divider" aria-hidden="true"></span>
+            <div class="rubrik-icon-group">
+                <a class="rubrik-icon-btn rubrik-home-link" id="rubrik-home-link" href="#" aria-label="Home" data-tooltip="Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="HomeIcon">
+<path id="Vector" d="M10.8 3.9L5.6 7.8C4.59278 8.55542 4 9.74097 4 11V19C4 19.8284 4.67157 20.5 5.5 20.5H8C8.82843 20.5 9.5 19.8284 9.5 19V15.5C9.5 14.6716 10.1716 14 11 14H13C13.8284 14 14.5 14.6716 14.5 15.5V19C14.5 19.8284 15.1716 20.5 16 20.5H18.5C19.3284 20.5 20 19.8284 20 19V11C20 9.74097 19.4072 8.55542 18.4 7.8L13.2 3.9C12.4889 3.36667 11.5111 3.36667 10.8 3.9Z" stroke-width="1.5" stroke="currentColor"></path>
+</g>
+</svg>
+                </a>
+                <button type="button" class="rubrik-icon-btn rubrik-theme-btn" id="rubrik-theme-btn" aria-label="Switch theme" data-tooltip="Switch theme" onclick="toggleTheme()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-sun" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeBrightIcon">
+<g id="Icon">
+<path d="M12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z" fill="currentColor"></path>
+<path d="M5.8125 17.127C6.1054 16.8342 6.5802 16.8341 6.87305 17.127C7.16575 17.4198 7.16575 17.8946 6.87305 18.1875L5.45898 19.6016C5.16609 19.8945 4.69035 19.8945 4.39746 19.6016C4.10498 19.3087 4.10488 18.8338 4.39746 18.541L5.8125 17.127Z" fill="currentColor"></path>
+<path d="M17.127 17.127C17.4199 16.8343 17.8947 16.8341 18.1875 17.127L19.6016 18.541C19.8944 18.8338 19.8943 19.3087 19.6016 19.6016C19.3087 19.8945 18.8339 19.8945 18.541 19.6016L17.127 18.1875C16.8341 17.8946 16.8341 17.4198 17.127 17.127Z" fill="currentColor"></path>
+<path d="M7.93457 7.93457C10.1801 5.68911 13.8199 5.68908 16.0654 7.93457L16.2695 8.14844C18.3091 10.4056 18.2408 13.89 16.0654 16.0654C13.8199 18.3109 10.1801 18.3109 7.93457 16.0654C5.68906 13.8199 5.68906 10.1801 7.93457 7.93457ZM14.8467 8.84375C13.1783 7.33652 10.6029 7.38735 8.99512 8.99512C7.33539 10.6548 7.3354 13.3452 8.99512 15.0049C10.6548 16.6646 13.3452 16.6646 15.0049 15.0049C16.6127 13.3971 16.6635 10.8217 15.1562 9.15332L15.0049 8.99512L14.8467 8.84375Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
+<path d="M4 11.25C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4Z" fill="currentColor"></path>
+<path d="M22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22Z" fill="currentColor"></path>
+<path d="M18.541 4.39941C18.8339 4.10654 19.3087 4.10653 19.6016 4.39941C19.8944 4.6923 19.8944 5.16707 19.6016 5.45996L18.1875 6.87402C17.8946 7.16691 17.4198 7.1669 17.127 6.87402C16.8341 6.58113 16.8341 6.10637 17.127 5.81348L18.541 4.39941Z" fill="currentColor"></path>
+<path d="M4.39844 4.39844C4.69127 4.1056 5.16608 4.10571 5.45898 4.39844L6.87305 5.8125C7.16594 6.10539 7.16594 6.58015 6.87305 6.87305C6.58015 7.16589 6.10538 7.16592 5.8125 6.87305L4.39844 5.45898C4.10573 5.1661 4.10565 4.69128 4.39844 4.39844Z" fill="currentColor"></path>
+<path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="currentColor"></path>
+</g>
+</g>
+</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="rubrik-ico rubrik-ico-moon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g id="ThemeDarkIcon">
+<path d="M11.227 3.254a.75.75 0 0 1 .683 1.182c-1.798 2.517-1.607 6.107.62 8.334 1.78 1.779 4.378 2.24 6.642 1.516a.75.75 0 0 1 .92 1.001C18.784 18.451 15.62 20.75 12 20.75c-4.814 0-8.75-3.936-8.75-8.75 0-4.596 3.504-8.31 7.977-8.746ZM4.75 12c0 3.986 3.264 7.25 7.25 7.25 2.44 0 4.65-1.276 5.97-3.186-2.3.247-4.717-.45-6.5-2.234-2.35-2.35-2.858-5.874-1.62-8.77-2.963.938-5.1 3.673-5.1 6.94Z" fill="currentColor"></path>
+</g>
+</svg>
+                </button>
+            </div>
+        </div>
+        <script>
+            // function to set a given theme/color-scheme
+            function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                var themeBtn = document.getElementById('rubrik-theme-btn');
+                if (themeBtn) {
+                    var themeLabel = themeName === 'theme-dark' ? 'Switch to bright theme' : 'Switch to dark theme';
+                    themeBtn.setAttribute('aria-label', themeLabel);
+                    themeBtn.setAttribute('data-tooltip', themeLabel);
+                }
+            }
+
+            // function to toggle between light and dark theme
+            function toggleTheme() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            }
+
+            // Immediately invoked function to set the theme on initial load
+            (function () {
+                if (localStorage.getItem('theme') === 'theme-light') {
+                    setTheme('theme-light');
+                } else {
+                    setTheme('theme-dark');
+                }
+            })();
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var title = document.querySelector('.wh_publication_title a');
+                // Header layout. false: full header with logo, site name, and icons, as in the design.
+                // true: slim row. The header bar collapses to a thin strip and the icons (and the optional CDM
+                // version label) move into the breadcrumb row. The slim row CSS is still in the stylesheet
+                // under "Slim row", so setting this to true brings it back.
+                var SLIM_ROW = false;
+                // Home goes to the primary landing page, /en-us/index.html on the same host, on docs.rubrik.com
+                // and stage-docs.rubrik.com. Anywhere else, such as a local build, it takes the href from the
+                // title link, which is relative, so it still works from topic pages in subfolders. This runs
+                // before the index page changes the title link below.
+                var home = document.getElementById('rubrik-home-link');
+                if (home) {
+                    var siteHost = window.location.hostname;
+                    if (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com') {
+                        home.setAttribute('href', window.location.origin + '/en-us/index.html');
+                    } else if (title) {
+                        home.setAttribute('href', title.getAttribute('href'));
+                    }
+                }
+
+                // Index page only: breadcrumb to match the design. The first step links to the docs home.
+                var content = document.getElementById('content');
+                var crumb = null;
+                if (title) {
+                    if (document.body.classList.contains('wh_main_page')) {
+                        if (content) {
+                            crumb = document.createElement('nav');
+                            crumb.className = 'rubrik-index-breadcrumb';
+                            crumb.setAttribute('aria-label', 'Breadcrumb');
+                            var root = document.createElement('a');
+                            root.href = (siteHost === 'docs.rubrik.com' || siteHost === 'stage-docs.rubrik.com')
+                                ? window.location.origin + '/en-us/index.html'
+                                : 'https://docs.rubrik.com/en-us/index.html';
+                            root.textContent = 'Rubrik Documentation';
+                            var here = document.createElement('span');
+                            here.textContent = title.textContent;
+                            crumb.appendChild(root);
+                            crumb.appendChild(here);
+                            content.parentNode.insertBefore(crumb, content);
+                            if (!SLIM_ROW) {
+                                // The header carries the site name; the breadcrumb above carries the publication name.
+                                var headerTitle = title.querySelector('.title') || title;
+                                headerTitle.textContent = 'Rubrik Documentation';
+                                title.setAttribute('href', root.href);
+                            }
+                        }
+                    }
+                }
+
+                // Slim row (only when SLIM_ROW is true): the icons (and the optional CDM version label) move into the
+                // breadcrumb row, so no header bar stacks under the support portal.
+                if (SLIM_ROW) {
+                    var icons = document.querySelector('.rubrik-header-icons');
+                    var rightTools = document.querySelector('.wh_right_tools');
+                    var host = crumb || rightTools;
+                    if (icons) {
+                        if (host) {
+                            icons.classList.add('rubrik-icons-in-row');
+                            // The CDM version label comes from the scenario's webhelp.fragment.before.top_menu parameter.
+                            var version = document.querySelector('.rubrik-version');
+                            if (version) {
+                                icons.insertBefore(version, icons.firstChild);
+                            }
+                            host.insertBefore(icons, host.firstChild);
+                            document.body.classList.add('rubrik-slim-row');
+                        }
+                    }
+                }
+
+                // The logo and the header title do not link anywhere. This runs after Home and the index-page
+                // breadcrumb have read or set the title link, because both use its href.
+                ['.wh_header .wh_logo', '.wh_header .wh_publication_title a'].forEach(function (selector) {
+                    var el = document.querySelector(selector);
+                    if (el) {
+                        el.removeAttribute('href');
+                    }
+                });
+
+                // The search band stays hidden until the magnifier is selected (CSS keys off this body class).
+                var searchBtn = document.getElementById('rubrik-search-btn');
+                if (searchBtn) {
+                    searchBtn.addEventListener('click', function () {
+                        var open = document.body.classList.toggle('rubrik-search-open');
+                        searchBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                        if (open) {
+                            // The search band opens in the page flow and pushes the content down, so it covers nothing.
+                            window.scrollTo(0, 0);
+                            var field = document.getElementById('textToSearch');
+                            if (field) {
+                                field.focus({ preventScroll: true });
+                            }
+                        }
+                    });
+                }
+            });</script>
+    
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="../search.html"><div><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div></form>
+            
+            
+            
+        </div>
+        
+        <div class="container-fluid navbar-expand-md" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="../index.html"><span>Home</span></a></span></li><li><div class="topicref"><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div></li><li><div class="topicref" data-id="abr_aws_cloud_applications"><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html"><span class="ph">Autonomous Business Recovery for Cloud Applications</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides <span class="ph">Autonomous Business Recovery for Cloud Applications</span> (<span class="ph">ABR</span>) to protect         and recover complete AWS cloud applications, including workloads such as EC2 instances, RDS         databases, and S3 buckets, along with the configuration resources that define your         application infrastructure.</p></div></div></div></li><li><div class="topicref" data-id="abr_plan_protection"><div class="title"><a href="../autonomous_business_recovery/abr_plan_protection.html">Plan for <span class="ph">Autonomous Business Recovery for Cloud Applications</span></a><div class="wh-tooltip"><p class="shortdesc">Before deploying <span class="ph">Autonomous Business Recovery for Cloud Applications</span> in <span class="ph">RSC</span>, plan the user and         access management for <span class="ph">RSC</span> users who will manage cloud applications. Planning         also involves reviewing the permissions, supported resource types, and limitations of <span class="ph">Autonomous Business Recovery</span>.</p></div></div></div></li><li class="active"><div class="topicref" data-id="abr_supported_resource_types_aws_cloud_app"><div class="title"><a href="../autonomous_business_recovery/abr_supported_resource_types_aws_cloud_app.html">Supported resource types for AWS cloud applications</a><div class="wh-tooltip"><p class="shortdesc">Information about the AWS resource types that <span class="ph">RSC</span> supports for cloud         application protection and recovery.</p></div></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        <div class=" wh_navigation_links "><span id="topic_navigation_links" class="navheader">
+  
+<span class="navprev"><a class="- topic/link link" href="../autonomous_business_recovery/cloud_app_aws_iam_permissions.html" title="Required RSC permissions for AWS cloud application" aria-label="Previous topic: Required RSC permissions for AWS cloud application" rel="prev"></a></span>  
+<span class="navnext"><a class="- topic/link link" href="../autonomous_business_recovery/abr_limitations.html" title="Autonomous Business Recovery limitations" aria-label="Next topic: Autonomous Business Recovery limitations" rel="next"></a></span>  </span></div>
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+	                            <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+		                            <span class="close-toc-icon-container">
+		                                <span class="close-toc-icon"></span>     
+		                            </span>
+		                        </button>
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e1447" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e1447-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/getting_started_with_rsc.html" id="tocId-d39307e1447-link">Getting Started with RSC</a><div class="wh-tooltip"><p class="shortdesc">Set up initial configuration, network prerequisites, and primary
+                accounts.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e2209" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e2209-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/rubrik_clusters_2.html" id="tocId-d39307e2209-link">Rubrik Clusters</a><div class="wh-tooltip"><p class="shortdesc">Manage on-premises infrastructure, including cluster registration, CDM
+                upgrades, and hardware configuration.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6339" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6339-link" class="wh-expand-btn"></span><div class="title"><a href="../hadr/hadr_overview.html" id="tocId-d39307e6339-link">High Availability</a><div class="wh-tooltip"><p class="shortdesc">Configure High Availability to enable manual failover of Rubrik
+                cluster workloads for business continuity.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e6477" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e6477-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/sla_domains.html" id="tocId-d39307e6477-link">Protection Policies</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to define backup frequency, retention, archiving, and
+                replication schedules.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e12054" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e12054-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/users_access.html" id="tocId-d39307e12054-link">Security</a><div class="wh-tooltip"><p class="shortdesc">Configure and manage RSC security features, including user access, SSO,
+                Quorum Authorization, and data encryption.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e15525" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e15525-link" class="wh-expand-btn"></span><div class="title"><a href="../rubrik/supported_workloads.html" id="tocId-d39307e15525-link">Workloads</a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">Rubrik Security Cloud - Data Protection</span> securely manages and protects data from a
+                wide variety of workload types.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e52478" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e52478-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/ri_ransomware_monitoring.html" id="tocId-d39307e52478-link">Cyber Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Detect and govern risk using Threat Analytics and Data Security Posture.
+                Prepare for automated Orchestrated Application Recovery.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e56750" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e56750-link" class="wh-expand-btn"></span><div class="title"><a href="../identity_resilience/identity_resilience.html" id="tocId-d39307e56750-link">Identity Resiliency</a><div class="wh-tooltip"><p class="shortdesc">Secure, monitor, and recover hybrid identity providers, including Active
+                Directory<span class="ph">, Microsoft Entra ID, and Okta</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="tocId-d39307e60839" class="topicref" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action tocId-d39307e60839-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="tocId-d39307e60839-link">Autonomous Business Recovery</a><div class="wh-tooltip"><p class="shortdesc">Protect and recover AWS cloud applications, including EC2 instances, RDS
+                databases, S3 buckets, and the configuration resources that define them.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true"><div data-tocid="abr_aws_cloud_applications-d39307e60845" class="topicref" data-id="abr_aws_cloud_applications" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action abr_aws_cloud_applications-d39307e60845-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_aws_cloud_applications.html" id="abr_aws_cloud_applications-d39307e60845-link"><span class="ph">Autonomous Business Recovery for Cloud Applications</span></a><div class="wh-tooltip"><p class="shortdesc"><span class="ph">RSC</span> provides <span class="ph">Autonomous Business Recovery for Cloud Applications</span> (<span class="ph">ABR</span>) to protect         and recover complete AWS cloud applications, including workloads such as EC2 instances, RDS         databases, and S3 buckets, along with the configuration resources that define your         application infrastructure.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e60865" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e60865-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_cloud_apps_overview.html" id="tocId-d39307e60865-link">Introduction to <span class="ph">Autonomous Business Recovery for Cloud Applications</span></a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="abr_plan_protection-d39307e60969" class="topicref" data-id="abr_plan_protection" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action abr_plan_protection-d39307e60969-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_plan_protection.html" id="abr_plan_protection-d39307e60969-link">Plan for <span class="ph">Autonomous Business Recovery for Cloud Applications</span></a><div class="wh-tooltip"><p class="shortdesc">Before deploying <span class="ph">Autonomous Business Recovery for Cloud Applications</span> in <span class="ph">RSC</span>, plan the user and         access management for <span class="ph">RSC</span> users who will manage cloud applications. Planning         also involves reviewing the permissions, supported resource types, and limitations of <span class="ph">Autonomous Business Recovery</span>.</p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="abr_user_management_aws_cloud_app-d39307e60994" class="topicref" data-id="abr_user_management_aws_cloud_app" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action abr_user_management_aws_cloud_app-d39307e60994-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_user_management_aws_cloud_app.html" id="abr_user_management_aws_cloud_app-d39307e60994-link">User management for AWS cloud application</a><div class="wh-tooltip"><p class="shortdesc">You must set up user roles and access permissions for <span class="ph">Autonomous Business Recovery</span> in             <span class="ph">RSC</span> to manage the protection and recovery of AWS cloud         applications.</p></div></div></div></li><li role="treeitem"><div data-tocid="cloud_app_aws_iam_permissions-d39307e61041" class="topicref" data-id="cloud_app_aws_iam_permissions" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/cloud_app_aws_iam_permissions.html" id="cloud_app_aws_iam_permissions-d39307e61041-link">Required <span class="ph">RSC</span> permissions for AWS cloud application</a><div class="wh-tooltip"><p class="shortdesc">Information about the specific AWS permissions that <span class="ph">RSC</span> requires for         discovery, backup, and recovery of AWS cloud applications.</p></div></div></div></li><li role="treeitem" class="active"><div data-tocid="abr_supported_resource_types_aws_cloud_app-d39307e61058" class="topicref" data-id="abr_supported_resource_types_aws_cloud_app" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_supported_resource_types_aws_cloud_app.html" id="abr_supported_resource_types_aws_cloud_app-d39307e61058-link">Supported resource types for AWS cloud applications</a><div class="wh-tooltip"><p class="shortdesc">Information about the AWS resource types that <span class="ph">RSC</span> supports for cloud         application protection and recovery.</p></div></div></div></li><li role="treeitem"><div data-tocid="abr_limitations-d39307e61072" class="topicref" data-id="abr_limitations" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_limitations.html" id="abr_limitations-d39307e61072-link"><span class="ph">Autonomous Business Recovery</span> limitations</a><div class="wh-tooltip"><p class="shortdesc">Information about the known limitations that apply to <span class="ph">Autonomous Business Recovery for Cloud Applications</span>, that         is, protection and recovery of AWS cloud application with <span class="ph">RSC</span>.</p></div></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="abr_add_cloud_app-d39307e61091" class="topicref" data-id="abr_add_cloud_app" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action abr_add_cloud_app-d39307e61091-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_add_cloud_app.html" id="abr_add_cloud_app-d39307e61091-link">Add AWS cloud application to <span class="ph">RSC</span></a><div class="wh-tooltip"><p class="shortdesc">Add your AWS cloud account to <span class="ph">RSC</span>, configure a recovery account, and         create a cloud application by specifying tags or by manually selecting your AWS         resources.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="abr_set_up_protection-d39307e61329" class="topicref" data-id="abr_set_up_protection" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action abr_set_up_protection-d39307e61329-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_set_up_protection.html" id="abr_set_up_protection-d39307e61329-link">Set up protection for AWS cloud applications</a><div class="wh-tooltip"><p class="shortdesc">Configure SLA Domains to protect the configuration resources and workloads in your         AWS cloud application using <span class="ph">RSC</span>.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="abr_recover-d39307e61434" class="topicref" data-id="abr_recover" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action abr_recover-d39307e61434-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_recover.html" id="abr_recover-d39307e61434-link">Recover an AWS cloud application</a><div class="wh-tooltip"><p class="shortdesc">Recover your AWS cloud application to a separate recovery AWS cloud account by using             <span class="ph">RSC</span> to restore the workloads and configuration resources from a selected         recovery point.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="abr_manage_cloud_apps-d39307e61546" class="topicref" data-id="abr_manage_cloud_apps" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action abr_manage_cloud_apps-d39307e61546-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_manage_cloud_apps.html" id="abr_manage_cloud_apps-d39307e61546-link">Manage AWS cloud application data</a><div class="wh-tooltip"><p class="shortdesc">Monitor and manage your AWS cloud applications in <span class="ph">RSC</span>, including         viewing inventory, refreshing applications, reviewing snapshots, and monitoring         events.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="abr_access_reports-d39307e61669" class="topicref" data-id="abr_access_reports" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action abr_access_reports-d39307e61669-link" class="wh-expand-btn"></span><div class="title"><a href="../autonomous_business_recovery/abr_access_reports.html" id="abr_access_reports-d39307e61669-link">Manage reports for AWS cloud applications</a><div class="wh-tooltip"><p class="shortdesc">You can create and manage reports in <span class="ph">RSC</span> to review protection         compliance, recovery readiness, and operational status for your AWS cloud         applications.</p></div></div></div></li></ul></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e61697" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e61697-link" class="wh-expand-btn"></span><div class="title"><a href="../agent_cloud/agent_cloud_RSC.html" id="tocId-d39307e61697-link">Agent Cloud</a><div class="wh-tooltip"><p class="shortdesc">Detect risky actions by autonomous AI agents, and rewind them to repair data
+                and configurations without downtime.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e63872" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e63872-link" class="wh-expand-btn"></span><div class="title"><a href="../saas-ai/rubrik_ai_overview.html" id="tocId-d39307e63872-link">AI and Automation</a><div class="wh-tooltip"><p class="shortdesc">Ask <span class="ph">Rubrik AI</span> and Annapurna questions about your environment,
+                connect AI agents through MCP, and run GraphQL operations.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e64190" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e64190-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/integration_third_party_apps_in_rsc.html" id="tocId-d39307e64190-link">Integrations and License Usage</a><div class="wh-tooltip"><p class="shortdesc">Connect external systems, such as Zscaler and Okta ITP. Monitor consumption,
+                entitlements, and license usage.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e65140" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e65140-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/common/events.html" id="tocId-d39307e65140-link">Monitoring and Reporting</a><div class="wh-tooltip"><p class="shortdesc">Monitor live events, generate reports, check real-time system health using
+                dashboards, and configure notifications.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e66997" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e66997-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/rsc_insights.html" id="tocId-d39307e66997-link">Diagnostic Tools</a><div class="wh-tooltip"><p class="shortdesc">Access diagnostic solutions, such as Network Diagnostics, for operational
+                issues.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e67112" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e67112-link" class="wh-expand-btn"></span><div class="title"><a href="../saas/mt_multitenancy.html" id="tocId-d39307e67112-link">Multitenancy</a><div class="wh-tooltip"><p class="shortdesc">Logically isolate shared resources to ensure organizations can only access
+                their specific data.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68294" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68294-link" class="wh-expand-btn"></span><div class="title"><a href="../rsc_ports/port_specs.html" id="tocId-d39307e68294-link">Port Specifications</a><div class="wh-tooltip"><p class="shortdesc">Port requirements for <span class="ph">RSC</span> deployments, organized by workload
+                type, Envoy organization network ports, and Rubrik cluster administration
+                ports.</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="tocId-d39307e68392" class="topicref" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action tocId-d39307e68392-link" class="wh-expand-btn"></span><div class="title"><a href="../reuse/notices.html" id="tocId-d39307e68392-link">Additional Resources</a><div class="wh-tooltip"><p class="shortdesc">Access Rubrik legal notices and send comments and suggestions about
+                        this documentation.</p></div></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-9 col-md-9 col-sm-12" id="wh_topic_body">
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article class="- topic/topic       reference/reference topic reference" role="article" aria-labelledby="ariaid-title1">
+    <h1 class="- topic/title title topictitle1" id="ariaid-title1">Supported resource types for AWS cloud applications</h1>
+    
+    <div class="- topic/body reference/refbody body refbody"><p class="- topic/shortdesc shortdesc">Information about the AWS resource types that <span class="- topic/ph ph">RSC</span> supports for cloud
+        application protection and recovery.</p>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Workload resources</h2>
+            
+            <p class="- topic/p p"><span class="- topic/ph ph">RSC</span> takes snapshots of workload resources to protect their data. Each
+                workload has its own SLA Domain for protection. The SLA Domain associated with the
+                cloud application does not govern these backups.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="2"><caption></caption><colgroup><col style="width:40%"/><col style="width:60%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__1">Resource type</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__2">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__1">EC2 instances</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__2">EC2 instances and all attached EBS volumes. <span class="- topic/ph ph">RSC</span>
+                                creates AMIs for backup and replicates them to the recovery
+                                account.
+                                Instances that an Auto Scaling group manages are not backed up as
+                                workloads. <span class="- topic/ph ph">RSC</span> protects the launch template instead.<div class="- topic/p p">
+                                    <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">Standalone EBS volumes, also referred to
+                                        as EBS workloads, are not in scope for this feature. Only
+                                        EBS volumes attached to EC2 instances are protected as part
+                                        of the EC2 backup.</div></div>
+                                </div></td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__1">RDS databases</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__2">RDS Database instances. <span class="- topic/ph ph">RSC</span> takes native engine
+                                snapshots for backup.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__1">Aurora databases</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__2">Aurora DB clusters. <span class="- topic/ph ph">RSC</span> takes native cluster
+                                snapshots for backup.</td>
+                        </tr>
+                        
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__1">S3 buckets</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__2">S3 buckets and their objects. You can recover a bucket to a new
+                                bucket or to an existing bucket, and use prioritized recovery to
+                                recover specific files first or only. For more information, see
+                                    <a class="- topic/xref xref" href="abr_recovering_cloud_app.html" title="Recover an AWS cloud application to a recovery AWS account by using the recovery wizard in RSC.">Recovering an AWS cloud application to a recovery account</a>.</td>
+                        </tr>
+                    </tbody></table></div>
+            
+            <p class="- topic/p p">The
+                following table lists the workload settings that <span class="- topic/ph ph">RSC</span> captures at
+                backup and recreates at recovery, and the configuration resources that each workload
+                integrates with.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="3"><caption></caption><colgroup><col style="width:28.57142857142857%"/><col style="width:42.857142857142854%"/><col style="width:28.57142857142857%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__11">Workload</th>
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__12">Details</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__13">Supported integrations</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__11">EC2 instances</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__12">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Instance profile</li>
+                                    <li class="- topic/li li">SSH key pair</li>
+                                    <li class="- topic/li li">Network interface details, such as subnet, security groups,
+                                        private IP addresses, description, type, device index, and
+                                        Elastic IP association</li>
+                                    <li class="- topic/li li">Instance type</li>
+                                    <li class="- topic/li li">Availability Zone</li>
+                                    <li class="- topic/li li">CPU, boot, and metadata options</li>
+                                    <li class="- topic/li li">EBS volume snapshots, including type, size, IOPS, KMS key,
+                                        and tags</li>
+                                    <li class="- topic/li li">AMI metadata</li>
+                                    <li class="- topic/li li">Elastic IP addresses</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__13">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">EC2 instance profiles</li>
+                                    <li class="- topic/li li">Load balancers, that is IP targets</li>
+                                    <li class="- topic/li li">Route 53 hosted zones, that is, DNS records</li>
+                                    <li class="- topic/li li">VPC endpoint routes</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__11">RDS instances and Aurora clusters</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__12">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">DB instance class</li>
+                                    <li class="- topic/li li">Storage type</li>
+                                    <li class="- topic/li li">IOPS</li>
+                                    <li class="- topic/li li">Allocated storage</li>
+                                    <li class="- topic/li li">Port</li>
+                                    <li class="- topic/li li">Multi-AZ</li>
+                                    <li class="- topic/li li">Public access</li>
+                                    <li class="- topic/li li">DB subnet group</li>
+                                    <li class="- topic/li li">VPC security groups</li>
+                                    <li class="- topic/li li">Parameter group</li>
+                                    <li class="- topic/li li">Option group</li>
+                                    <li class="- topic/li li">KMS key</li>
+                                    <li class="- topic/li li">Active Directory domain</li>
+                                    <li class="- topic/li li">Deletion protection</li>
+                                    <li class="- topic/li li">IAM database authentication</li>
+                                    <li class="- topic/li li">Backup retention period, backup window, and maintenance
+                                        window</li>
+                                </ul>
+                                <p class="- topic/p p">Additionally, for Aurora clusters:</p>
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Serverless v2 scaling</li>
+                                    <li class="- topic/li li">Source Availability Zone set</li>
+                                    <li class="- topic/li li">Writer instance settings, such as instance class, writer
+                                        parameter group, Availability Zone, and public access</li>
+                                    <li class="- topic/li li">HTTP endpoint (Data API)</li>
+                                    <li class="- topic/li li">Reader instances</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__13">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">RDS subnet groups</li>
+                                    <li class="- topic/li li">Option groups</li>
+                                    <li class="- topic/li li">Parameter groups</li>
+                                    <li class="- topic/li li">Load balancers</li>
+                                    <li class="- topic/li li">Route 53 hosted zone entries</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__11">S3 buckets</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__12">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Versioning</li>
+                                    <li class="- topic/li li">KMS key remapping at the bucket and object level</li>
+                                    <li class="- topic/li li">Object ownership</li>
+                                    <li class="- topic/li li">Bucket-level ACL</li>
+                                    <li class="- topic/li li">Public access block</li>
+                                    <li class="- topic/li li">Bucket lifecycle policy</li>
+                                    <li class="- topic/li li">CORS</li>
+                                    <li class="- topic/li li">Website</li>
+                                    <li class="- topic/li li">EventBridge</li>
+                                    <li class="- topic/li li">Transfer acceleration</li>
+                                    <li class="- topic/li li">Logging</li>
+                                    <li class="- topic/li li">Analytics</li>
+                                    <li class="- topic/li li">Intelligent-Tiering</li>
+                                    <li class="- topic/li li">Bucket policy</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__13">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">EventBridge notifications, that is, Lambda targets only</li>
+                                    <li class="- topic/li li">S3 website remapped in the Route 53 hosted zone</li>
+                                    <li class="- topic/li li">S3 access points</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody></table></div>
+        </section>
+        <section class="- topic/section section"><h2 class="- topic/title title sectiontitle">Configuration
+                resources</h2>
+            
+            
+            <p class="- topic/p p">Configuration resources are the configuration-only AWS resources that surround the
+                workloads and that the workloads depend on, such as VPCs, subnets, security groups,
+                IAM roles, load balancers, Lambda functions, EKS and ECS clusters, ElastiCache, ECR
+                repositories, and Secrets Manager secrets. <span class="- topic/ph ph">RSC</span> captures metadata for
+                these resources and stores it in a secure Rubrik-managed cloud storage bucket. The
+                following resource types need an additional backup mechanism for their payloads:
+                AMIs and EBS snapshots that launch templates reference and ECR images are replicated
+                to the recovery account, and Lambda code, Lambda layers, and Secrets Manager secret
+                values are stored in the backup location of the SLA Domain.</p>
+            <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">IPv6 and all IPv6-related settings are not supported. Cloud applications that use
+                IPv6 networking cannot be protected or recovered using this feature.</div></div>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="3"><caption></caption><colgroup><col style="width:28.57142857142857%"/><col style="width:28.57142857142857%"/><col style="width:42.857142857142854%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__23">Backup group</th>
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__24">Resource type</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__25">Description</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="6">VPC</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">VPCs</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Virtual Private Clouds that define the network boundary for your
+                                application.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Subnets</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Subdivisions of a VPC that provide network segmentation.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Security groups</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Virtual firewalls that control inbound and outbound traffic for
+                                AWS resources.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">VPC endpoints</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Endpoints that enable private connectivity to supported AWS
+                                services without requiring internet access.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">VPC endpoint services</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Services hosted in a VPC that other AWS accounts can access
+                                through VPC endpoints.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Prefix lists</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Sets of CIDR blocks used to simplify security group and route
+                                table configuration.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="3">EC2</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">EC2 instance profiles</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">IAM instance profiles associated with EC2 instances.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">EC2 Instance Connect endpoints</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Endpoints that enable SSH connectivity to EC2 instances without
+                                public IP addresses.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">EC2 workload metadata</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Metadata associated with EC2 workloads within the
+                                application.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="4">RDS</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">RDS option groups</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Option groups associated with RDS database instances.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">RDS parameter groups</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Parameter groups (instance and cluster) associated with RDS and
+                                Aurora databases.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">RDS DB subnet groups</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Subnet groups that define which subnets RDS databases can
+                                use.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">RDS workload metadata</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Metadata associated with RDS workloads within the
+                                application.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="2">ELB</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Load balancers</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Application Load Balancers (ALB), Network Load Balancers
+                                (NLB).</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Target groups</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Groups of targets that receive traffic from a load
+                                balancer.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="2">Runtime</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Auto-scaling groups</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Groups that automatically adjust the number of EC2 instances
+                                based on demand.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Launch template versions</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Versions of EC2 launch templates that define instance
+                                configurations. Only launch template versions are backed up. The
+                                parent launch template object is recreated from a backed-up version
+                                during recovery. The following constraints apply: <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Launch Templates that reference an AMI through an AWS
+                                        Systems Manager (SSM) parameter are not recovered.</li>
+                                </ul></td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="4">Security</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">KMS keys</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">AWS Key Management Service (KMS) keys used for
+                                encryption.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">KMS aliases</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Aliases associated with KMS keys.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">IAM policies</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">AWS Identity and Access Management (IAM) policies associated with
+                                the cloud application resources.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">IAM roles</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">AWS IAM roles associated with the cloud application
+                                resources.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="2">Networking</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Route 53 hosted zones</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">DNS hosted zones that manage DNS records for your
+                                application.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Elastic IPs</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Static IPv4 addresses allocated for use with AWS
+                                resources.</td>
+                        </tr>
+                        
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="3">Containers</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Lambda functions</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">AWS Lambda functions. Backing up Lambda functions requires a
+                                backup location in the SLA Domain. For more information, see <a class="- topic/xref xref" href="abr_creating_sla_domain.html" title="Create an SLA Domain for AWS cloud applications using the Manage Protection wizard in Cloud Applications.">Creating an SLA Domain for AWS cloud applications</a>.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">EKS</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Amazon Elastic Kubernetes Service (EKS) resources associated with
+                                the application. <span class="- topic/ph ph">RSC</span> backs up only the cluster
+                                configuration metadata. It does not back up application data or the
+                                Kubernetes objects inside the cluster.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">ECR repositories</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Amazon Elastic Container Registry (ECR) repositories associated
+                                with the application. <span class="- topic/ph ph">RSC</span> replicates only the images
+                                that you push after it applies the replication policy.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23">Secrets</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">Secrets Manager secrets</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">AWS Secrets Manager secrets. Backing up secrets requires a backup
+                                location in the SLA Domain. <span class="- topic/ph ph">RSC</span> supports up to 1,000
+                                secrets for each cloud application. For more information, see <a class="- topic/xref xref" href="abr_creating_sla_domain.html" title="Create an SLA Domain for AWS cloud applications using the Manage Protection wizard in Cloud Applications.">Creating an SLA Domain for AWS cloud applications</a>.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__23">ElastiCache</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">ElastiCache resources</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Amazon ElastiCache resources associated with the
+                                application.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__23" rowspan="2">ECS</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__24">ECS clusters</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__25">Amazon Elastic Container Service (ECS) clusters associated with
+                                the application.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__24">ECS task definitions</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__25">ECS task definitions associated with the application.</td>
+                        </tr>
+                    </tbody></table></div>
+            <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">The following VPC-related resource types are not supported and are not backed up
+                or recovered: Route Server. Route Server resources are discovered as part of
+                application inventory but cannot be protected or restored using this feature.</div></div>
+            
+            <p class="- topic/p p">The
+                following table lists the settings that <span class="- topic/ph ph">RSC</span> captures for each
+                configuration service, and the services that each one integrates with.</p>
+            <div class="table-container"><table class="- topic/table table frame-all" data-cols="3"><caption></caption><colgroup><col style="width:27.027027027027025%"/><col style="width:40.54054054054054%"/><col style="width:32.43243243243243%"/></colgroup><thead class="- topic/thead thead">
+                        <tr class="- topic/row">
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__97">Service</th>
+                            <th class="- topic/entry entry colsep-1 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__98">Details</th>
+                            <th class="- topic/entry entry colsep-0 rowsep-1" id="abr_supported_resource_types_aws_cloud_app__entry__99">Supported integrations</th>
+                        </tr>
+                    </thead><tbody class="- topic/tbody tbody">
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">VPC</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Secondary CIDRs</li>
+                                    <li class="- topic/li li">Subnets</li>
+                                    <li class="- topic/li li">Internet gateways</li>
+                                    <li class="- topic/li li">Route tables</li>
+                                    <li class="- topic/li li">Network ACLs</li>
+                                    <li class="- topic/li li">NAT gateways</li>
+                                    <li class="- topic/li li">VPC attributes (DNS)</li>
+                                    <li class="- topic/li li">Peering connections and routes</li>
+                                    <li class="- topic/li li">IPAM pool ID</li>
+                                    <li class="- topic/li li">Security groups</li>
+                                    <li class="- topic/li li">Prefix lists</li>
+                                    <li class="- topic/li li">Elastic IP addresses</li>
+                                    <li class="- topic/li li">VPC endpoints: interface endpoints, gateway endpoints, and
+                                        EC2 Instance Connect endpoints</li>
+                                    <li class="- topic/li li">VPC endpoint services</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">Not applicable</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">Load balancers (ALB and NLB)</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Listeners, including SSL policy, default action types, and
+                                        attributes</li>
+                                    <li class="- topic/li li">Listener rules and listener certificates</li>
+                                    <li class="- topic/li li">Load balancer attributes</li>
+                                    <li class="- topic/li li">Target groups</li>
+                                    <li class="- topic/li li">NLB static addressing</li>
+                                    <li class="- topic/li li">NLB PrivateLink security group setting</li>
+                                    <li class="- topic/li li">Mutual TLS (mTLS)</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Elastic IP addresses</li>
+                                    <li class="- topic/li li">S3 access logging</li>
+                                    <li class="- topic/li li">S3 connection and health-check logging</li>
+                                    <li class="- topic/li li">Route 53 records</li>
+                                    <li class="- topic/li li">VPC endpoint services</li>
+                                    <li class="- topic/li li">Lambda targets, through a target group</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">Auto Scaling groups</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Scaling policies</li>
+                                    <li class="- topic/li li">Lifecycle hooks</li>
+                                    <li class="- topic/li li">Warm pool</li>
+                                    <li class="- topic/li li">Suspended processes</li>
+                                    <li class="- topic/li li">Mixed instances</li>
+                                    <li class="- topic/li li">Traffic sources</li>
+                                    <li class="- topic/li li">Termination and maintenance policies</li>
+                                    <li class="- topic/li li">Capacity reservation</li>
+                                    <li class="- topic/li li">Launch template</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Target groups</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">Launch templates</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Block devices and network interfaces</li>
+                                    <li class="- topic/li li">CPU</li>
+                                    <li class="- topic/li li">Placement</li>
+                                    <li class="- topic/li li">User data</li>
+                                </ul>
+                                <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">If the launch template uses an AWS Marketplace AMI, subscribe
+                                    the recovery account to that AMI. If it uses an AMI that is
+                                    shared from another account, share the AMI with the recovery
+                                    account. These are your responsibility.</div></div>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">EKS node groups</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">Lambda functions</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Latest version</li>
+                                    <li class="- topic/li li">Function scaling</li>
+                                    <li class="- topic/li li">VPC configuration</li>
+                                    <li class="- topic/li li">Runtime management configuration</li>
+                                    <li class="- topic/li li">Reserved and provisioned concurrency</li>
+                                    <li class="- topic/li li">Runtime upgrade</li>
+                                    <li class="- topic/li li">Layers, only the layers in the latest version</li>
+                                    <li class="- topic/li li">Code from ECR or S3</li>
+                                    <li class="- topic/li li">Logging configuration</li>
+                                    <li class="- topic/li li">Environment variables</li>
+                                    <li class="- topic/li li">Policies and permissions</li>
+                                    <li class="- topic/li li">Function URL</li>
+                                    <li class="- topic/li li">Event invoke configuration</li>
+                                    <li class="- topic/li li">Layer permissions</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Secrets Manager</li>
+                                    <li class="- topic/li li">Load balancers</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">Secrets Manager secrets</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Metadata</li>
+                                    <li class="- topic/li li">Resource policy</li>
+                                    <li class="- topic/li li">Secret string</li>
+                                </ul>
+                                <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body"><span class="- topic/ph ph">RSC</span> supports up to 1,000 secrets for each cloud
+                                    application.</div></div>
+                                
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">Lambda functions, ECS tasks, and ECS clusters use the recovered
+                                secret.</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">EKS clusters</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Cluster configuration</li>
+                                    <li class="- topic/li li">Managed node groups</li>
+                                    <li class="- topic/li li">Fargate profiles</li>
+                                    <li class="- topic/li li">Managed add-ons</li>
+                                    <li class="- topic/li li">Access entries and policies</li>
+                                    <li class="- topic/li li">EKS version upgrades</li>
+                                </ul>
+                                <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body"><span class="- topic/ph ph">RSC</span> does not back up application data.</div></div>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Pod Identity</li>
+                                    <li class="- topic/li li">IAM OIDC provider (IRSA)</li>
+                                    <li class="- topic/li li">Auto Scaling groups</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">ECS clusters</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Cluster settings</li>
+                                    <li class="- topic/li li">Capacity providers and services</li>
+                                    <li class="- topic/li li">Task sets</li>
+                                    <li class="- topic/li li">Container instances that are captured, but not
+                                        recreated</li>
+                                    <li class="- topic/li li">Fargate profiles</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Task definitions</li>
+                                    <li class="- topic/li li">Instance profiles</li>
+                                    <li class="- topic/li li">Load balancers</li>
+                                    <li class="- topic/li li">Auto Scaling groups and launch templates</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">ECS task definitions</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Family and revision</li>
+                                    <li class="- topic/li li">Container definitions</li>
+                                    <li class="- topic/li li">Task-level settings</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Secrets Manager</li>
+                                    <li class="- topic/li li">SSM Parameter Store</li>
+                                    <li class="- topic/li li">ECR (private)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">ACM certificates</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98"><span class="- topic/ph ph">RSC</span> never creates, imports, requests, or
+                                validates certificates. The recovery account must already hold an
+                                issued certificate with the same domain.</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">Supported services that use ACM certificates</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">IAM roles</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Trust policy</li>
+                                    <li class="- topic/li li">Inline policies</li>
+                                    <li class="- topic/li li">Attached policies</li>
+                                    <li class="- topic/li li">Managed policies</li>
+                                    <li class="- topic/li li">Path, description, and session duration</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Instance profiles</li>
+                                    <li class="- topic/li li">Supported services that use IAM roles: EC2, launch
+                                        templates, Auto Scaling groups, Lambda, ECS, EKS, and
+                                        Secrets Manager</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">KMS keys</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Metadata</li>
+                                    <li class="- topic/li li">Key policy</li>
+                                    <li class="- topic/li li">Aliases</li>
+                                </ul>
+                                
+                                <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">Recovery only validates that the key exists in the recovery
+                                    account. The KMS key policy is your responsibility.</div></div>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">Supported services that use KMS keys</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">EC2 instance profiles</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">Name, path, tags, and a single role</td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">EC2, launch templates, and ECS managed instances</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">RDS option groups and parameter groups</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Options and settings</li>
+                                    <li class="- topic/li li">Security group</li>
+                                    <li class="- topic/li li">Engine</li>
+                                    <li class="- topic/li li">Version</li>
+                                    <li class="- topic/li li">DB subnet groups</li>
+                                    <li class="- topic/li li">Instance and cluster groups</li>
+                                    <li class="- topic/li li">User-set modifiable parameters</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">S3 buckets (SQL Server audit and backup options)</li>
+                                    <li class="- topic/li li">RDS instances and clusters</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">ECR repositories</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">AWS native replication copies the repository. <span class="- topic/ph ph">RSC</span>
+                                creates the repository in the recovery account if it does not exist,
+                                and reuses it if it does. <div class="- topic/note note note note_note"><span class="note__title">Note:</span> <div class="note__body">Only images that you push after the
+                                    replication policy is applied are replicated.</div></div></td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">Lambda image functions and ECS task definitions</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">ElastiCache</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Cache clusters</li>
+                                    <li class="- topic/li li">Replication groups</li>
+                                    <li class="- topic/li li">Serverless caches</li>
+                                    <li class="- topic/li li">Parameter groups</li>
+                                    <li class="- topic/li li">Subnet groups</li>
+                                    <li class="- topic/li li">RBAC users and user groups</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">Not applicable</td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__97">Route 53 hosted zones</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Record sets, including alias records and routing
+                                        policies</li>
+                                    <li class="- topic/li li">Private-zone VPC associations</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-1" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Load balancers</li>
+                                    <li class="- topic/li li">EC2 endpoints</li>
+                                    <li class="- topic/li li">S3 website buckets</li>
+                                    <li class="- topic/li li">ElastiCache endpoints</li>
+                                    <li class="- topic/li li">Elastic IP addresses</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="- topic/row">
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__97">S3 access points</td>
+                            <td class="- topic/entry entry colsep-1 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__98">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">Network origin</li>
+                                    <li class="- topic/li li">VPC configuration</li>
+                                    <li class="- topic/li li">Public access block</li>
+                                    <li class="- topic/li li">Access policy</li>
+                                    <li class="- topic/li li">Tags</li>
+                                </ul>
+                            </td>
+                            <td class="- topic/entry entry colsep-0 rowsep-0" headers="abr_supported_resource_types_aws_cloud_app__entry__99">
+                                <ul class="- topic/ul ul">
+                                    <li class="- topic/li li">S3 buckets</li>
+                                    <li class="- topic/li li">VPCs</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody></table></div>
+        </section>
+    </div>
+    
+</article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relconcepts"><strong>Related concepts</strong><ul class="linklist related_link"><li class="linklist"><a class="- topic/link link navheader_parent_path" href="abr_plan_protection.html" title="Before deploying Autonomous Business Recovery for Cloud Applications in RSC, plan the user and access management for RSC users who will manage cloud applications. Planning also involves reviewing the permissions, supported resource types, and limitations of Autonomous Business Recovery.">Plan for Autonomous Business Recovery for Cloud Applications</a><div class="- topic/desc ">Before deploying Autonomous Business Recovery for Cloud Applications in RSC, plan the user and         access management for RSC users who will manage cloud applications. Planning         also involves reviewing the permissions, supported resource types, and limitations of Autonomous Business Recovery.</div></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="navbar navbar-default wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+  </div>
+</footer>
+        
+        <button id="go2top" class="d-print-none" title="Go to top">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </button>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

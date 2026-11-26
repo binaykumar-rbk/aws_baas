@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Azure Protection Implementation Workflow — RSC variant
+  Canvas: 840 x 928  |  Pattern 1: Vertical Workflow  |  6 phases
+
+  Height calculation:
+    72 (title bar) + 16 (top gap)
+    + 78 (Phase 1) + 24 (arrow)
+    + 78 (Phase 2) + 24 (arrow)
+    + 148 (Phase 3 — 2 sub-boxes) + 24 (arrow)
+    + 78 (Phase 4) + 24 (arrow)
+    + 214 (Phase 5 — 4 sub-boxes: VMs, Blob, SQL DB, SQL MI) + 24 (arrow)
+    + 78 (Phase 6) + 24 (bottom gap)
+    + 22 (footer)
+    = 928 px
+
+  Phase y-offsets:
+    Phase 1 (Plan):                y=88   ends=166
+    Phase 2 (Set up accounts):     y=190  ends=268
+    Phase 3 (Config infra):        y=292  ends=440
+    Phase 4 (Protect workloads):   y=464  ends=542
+    Phase 5 (Monitor and manage):  y=566  ends=780
+    Phase 6 (Recover):             y=804  ends=882
+    Footer:                        y=906
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="928"
+     viewBox="0 0 840 928"
+     font-family="Segoe UI, Calibri, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="840" height="928" fill="#F4F7FA" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="840" height="72" fill="#0A2347" rx="12"/>
+  <rect x="0" y="60" width="840" height="12" fill="#0A2347"/>
+  <rect x="0" y="69" width="840" height="3" fill="#09A8B8"/>
+  <text x="420" y="38" font-size="18" font-weight="bold" fill="#FFFFFF"
+        text-anchor="middle" letter-spacing="0.3">Azure Protection Implementation Workflow</text>
+  <text x="420" y="57" font-size="11" fill="#8AACCC"
+        text-anchor="middle">Select any phase to navigate to the corresponding documentation</text>
+
+  <!-- Vertical connector line -->
+  <line x1="60" y1="88" x2="60" y2="844" stroke="#B0C8E0" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- ===================== PHASE 1 — PLAN ===================== -->
+  <rect x="88" y="88" width="728" height="78" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="88" y="88" width="728" height="36" fill="#075F68" rx="8"/>
+  <rect x="88" y="112" width="728" height="12" fill="#075F68"/>
+  <circle cx="60" cy="106" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+  <text x="60" y="112" font-size="16" font-weight="bold" fill="#09A8B8" text-anchor="middle">1</text>
+  <text x="452" y="112" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Plan</text>
+  <text x="452" y="146" font-size="10" fill="#4A6A8A" text-anchor="middle">Define user roles and confirm Azure subscription permissions, Entra ID settings, and networking method</text>
+
+  <!-- Arrow 1 -->
+  <line x1="60" y1="166" x2="60" y2="182" stroke="#B0C8E0" stroke-width="2"/>
+  <polygon points="53,178 60,186 67,178" fill="#09A8B8"/>
+
+  <!-- ===================== PHASE 2 — SET UP ACCOUNTS ===================== -->
+  <rect x="88" y="190" width="728" height="78" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="88" y="190" width="728" height="36" fill="#0C3460" rx="8"/>
+  <rect x="88" y="214" width="728" height="12" fill="#0C3460"/>
+  <circle cx="60" cy="208" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+  <text x="60" y="214" font-size="16" font-weight="bold" fill="#09A8B8" text-anchor="middle">2</text>
+  <text x="452" y="214" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Set up accounts</text>
+  <text x="452" y="248" font-size="10" fill="#4A6A8A" text-anchor="middle">Add Azure subscriptions via OAuth or manual configuration to enable workload discovery and protection</text>
+
+  <!-- Arrow 2 -->
+  <line x1="60" y1="268" x2="60" y2="284" stroke="#B0C8E0" stroke-width="2"/>
+  <polygon points="53,280 60,288 67,280" fill="#09A8B8"/>
+
+  <!-- ===================== PHASE 3 — CONFIGURE INFRASTRUCTURE (2 sub-boxes) ===================== -->
+  <rect x="88" y="292" width="728" height="148" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="88" y="292" width="728" height="36" fill="#0B3A72" rx="8"/>
+  <rect x="88" y="316" width="728" height="12" fill="#0B3A72"/>
+  <circle cx="60" cy="310" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+  <text x="60" y="316" font-size="16" font-weight="bold" fill="#09A8B8" text-anchor="middle">3</text>
+  <text x="452" y="316" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Configure infrastructure</text>
+  <text x="452" y="350" font-size="10" fill="#4A6A8A" text-anchor="middle">Deploy core Rubrik components in Azure for indexing, file recovery, and storage tiering</text>
+  <rect x="108" y="366" width="700" height="28" rx="5" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+  <text x="458" y="384" font-size="10" fill="#1A2A3A" text-anchor="middle">Set up Exocompute on Azure</text>
+  <rect x="108" y="400" width="700" height="28" rx="5" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+  <text x="458" y="418" font-size="10" fill="#1A2A3A" text-anchor="middle">Set up Azure storage tiering</text>
+
+  <!-- Arrow 3 -->
+  <line x1="60" y1="440" x2="60" y2="456" stroke="#B0C8E0" stroke-width="2"/>
+  <polygon points="53,452 60,460 67,452" fill="#09A8B8"/>
+
+  <!-- ===================== PHASE 4 — PROTECT WORKLOADS ===================== -->
+  <rect x="88" y="464" width="728" height="78" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="88" y="464" width="728" height="36" fill="#0C3460" rx="8"/>
+  <rect x="88" y="488" width="728" height="12" fill="#0C3460"/>
+  <circle cx="60" cy="482" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+  <text x="60" y="488" font-size="16" font-weight="bold" fill="#09A8B8" text-anchor="middle">4</text>
+  <text x="452" y="488" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Protect workloads</text>
+  <text x="452" y="522" font-size="10" fill="#4A6A8A" text-anchor="middle">Create and assign SLA Domains to subscriptions, resource groups, and individual workloads</text>
+
+  <!-- Arrow 4 -->
+  <line x1="60" y1="542" x2="60" y2="558" stroke="#B0C8E0" stroke-width="2"/>
+  <polygon points="53,554 60,562 67,554" fill="#09A8B8"/>
+
+  <!-- ===================== PHASE 5 — MONITOR AND MANAGE (4 sub-boxes) ===================== -->
+  <rect x="88" y="566" width="728" height="214" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="88" y="566" width="728" height="36" fill="#075F68" rx="8"/>
+  <rect x="88" y="590" width="728" height="12" fill="#075F68"/>
+  <circle cx="60" cy="584" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+  <text x="60" y="590" font-size="16" font-weight="bold" fill="#09A8B8" text-anchor="middle">5</text>
+  <text x="452" y="590" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Monitor &amp; manage</text>
+  <text x="452" y="624" font-size="10" fill="#4A6A8A" text-anchor="middle">Monitor protection status and manage workload-specific settings</text>
+  <rect x="108" y="638" width="700" height="28" rx="5" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+  <text x="458" y="656" font-size="10" fill="#1A2A3A" text-anchor="middle">Manage Azure virtual machines</text>
+  <rect x="108" y="672" width="700" height="28" rx="5" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+  <text x="458" y="690" font-size="10" fill="#1A2A3A" text-anchor="middle">Manage Azure Blob Storage</text>
+  <rect x="108" y="706" width="700" height="28" rx="5" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+  <text x="458" y="724" font-size="10" fill="#1A2A3A" text-anchor="middle">Manage Azure SQL Database</text>
+  <rect x="108" y="740" width="700" height="28" rx="5" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+  <text x="458" y="758" font-size="10" fill="#1A2A3A" text-anchor="middle">Manage Azure SQL Managed Instance</text>
+
+  <!-- Arrow 5 — recovery teal -->
+  <line x1="60" y1="780" x2="60" y2="796" stroke="#B0C8E0" stroke-width="2"/>
+  <polygon points="53,792 60,800 67,792" fill="#21DDAA"/>
+
+  <!-- ===================== PHASE 6 — RECOVER ===================== -->
+  <rect x="88" y="804" width="728" height="78" rx="8" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+  <rect x="88" y="804" width="728" height="36" fill="#0A4030" rx="8"/>
+  <rect x="88" y="828" width="728" height="12" fill="#0A4030"/>
+  <circle cx="60" cy="822" r="22" fill="#F4F7FA" stroke="#21DDAA" stroke-width="2.5"/>
+  <text x="60" y="828" font-size="16" font-weight="bold" fill="#21DDAA" text-anchor="middle">6</text>
+  <text x="452" y="828" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Recover</text>
+  <text x="452" y="862" font-size="10" fill="#4A6A8A" text-anchor="middle">Restore Azure VMs, managed disks, Blob Storage, and SQL workloads</text>
+
+  <!-- Footer -->
+  <rect x="0" y="906" width="840" height="22" fill="#0A2347" rx="0"/>
+  <rect x="0" y="916" width="840" height="12" fill="#0A2347" rx="12"/>
+  <text x="420" y="920" font-size="9" fill="#4A7A9A"
+        text-anchor="middle">Rubrik Security Cloud · Azure Protection Implementation Workflow</text>
+
+  <!-- Perimeter border (drawn last) -->
+  <rect width="840" height="928" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/>
+
+</svg>

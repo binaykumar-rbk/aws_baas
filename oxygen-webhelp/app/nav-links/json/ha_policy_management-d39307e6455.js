@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"ha_policy_management-d39307e6455":{"topics":[{"title":"Deleting HA Policies","shortdesc":"<p class=\"shortdesc\">Delete HA Policies that are no longer needed.<\/p>","href":"hadr\/deleting_ha_policies.html","attributes":{"data-id":"deleting_ha_policies"},"menu":{"hasChildren":false},"tocID":"deleting_ha_policies-d39307e6466","topics":[]}]}};
