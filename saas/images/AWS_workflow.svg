@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Height calculation:
-     72 (title bar) + 16 (gap) +
-     78 (Phase 1) + 24 (arrow) + 78 (Phase 2) + 24 (arrow) +
-     140 (Phase 3, 2 sub-boxes) + 24 (arrow) + 78 (Phase 4) + 24 (arrow) +
-     264 (Phase 5, 6 sub-boxes) + 24 (arrow) + 78 (Phase 6) +
-     24 (gap after last) + 22 (footer) = 970px -->
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="970"
-     viewBox="0 0 840 970"
+<!-- Layout (Pattern 1, vertical workflow, 840 x 1134)
+     Phase card: x=88 w=728; phase height = 78 + 31 x (sub-box rows); arrows: 24px gap.
+     Sub-boxes: full width x=108 w=700; paired sub-boxes x=108 w=343 and x=465 w=343.
+     Phases (y, height): 1: (88, 78), 2: (190, 109), 3: (323, 140), 4: (487, 78), 5: (589, 78), 6: (691, 295), 7: (1010, 78)
+     Phase 3 applies to self-managed accounts only; RSC-managed accounts skip it. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="1134"
+     viewBox="0 0 840 1134"
      font-family="Segoe UI, Calibri, Arial, sans-serif">
-
     <!-- SVG background -->
-    <rect width="840" height="970" fill="#F4F7FA" rx="12"/>
-
+    <rect width="840" height="1134" fill="#F4F7FA" rx="12"/>
     <!-- Perimeter border -->
-    <rect width="840" height="970" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/>
-
+    <rect width="840" height="1134" fill="none" stroke="#09A8B8" stroke-width="5" rx="12"/>
     <!-- Title bar -->
     <rect x="0" y="0" width="840" height="72" fill="#0A2347" rx="12"/>
     <rect x="0" y="60" width="840" height="12" fill="#0A2347"/>
@@ -23,9 +19,8 @@
           text-anchor="middle" letter-spacing="0.3">AWS Protection Implementation Workflow</text>
     <text x="420" y="56" font-size="11" fill="#8AACCC"
           text-anchor="middle">RSC &#x2014; Amazon Web Services</text>
-
     <!-- Vertical connector line -->
-    <line x1="60" y1="88" x2="60" y2="864"
+    <line x1="60" y1="88" x2="60" y2="1028"
           stroke="#B0C8E0" stroke-width="2" stroke-dasharray="6,4"/>
 
     <!-- ============================================================ -->
@@ -37,7 +32,7 @@
     <rect x="88" y="112" width="728" height="12" fill="#075F68"/>
     <text x="452" y="112" font-size="13" font-weight="bold" fill="#FFFFFF"
           text-anchor="middle">Plan your AWS protection</text>
-    <text x="452" y="146" font-size="10" fill="#4A6A8A" text-anchor="middle">Understand RSC capabilities, plan user access management, and review required permissions.</text>
+    <text x="452" y="146" font-size="10" fill="#4A6A8A" text-anchor="middle">Choose a deployment model, understand cloud discovery, and confirm licenses and user access.</text>
     <circle cx="60" cy="106" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
     <text x="60" y="112" font-size="16" font-weight="bold" fill="#09A8B8"
           text-anchor="middle">1</text>
@@ -47,135 +42,168 @@
     <polygon points="53,175 60,183 67,175" fill="#09A8B8"/>
 
     <!-- ============================================================ -->
-    <!-- Phase 2: Set up AWS cloud accounts (y=190, height=78) -->
+    <!-- Phase 2: Set up AWS cloud accounts (y=190, height=109) -->
     <!-- ============================================================ -->
-    <rect x="88" y="190" width="728" height="78" rx="8"
+    <rect x="88" y="190" width="728" height="109" rx="8"
           fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
     <rect x="88" y="190" width="728" height="36" fill="#0C3460" rx="8"/>
     <rect x="88" y="214" width="728" height="12" fill="#0C3460"/>
     <text x="452" y="214" font-size="13" font-weight="bold" fill="#FFFFFF"
           text-anchor="middle">Set up AWS cloud accounts</text>
-    <text x="452" y="248" font-size="10" fill="#4A6A8A" text-anchor="middle">Connect RSC to your AWS account using CloudFormation template, manual setup, or Terraform.</text>
+    <text x="452" y="248" font-size="10" fill="#4A6A8A" text-anchor="middle">Plan, prepare, and connect the AWS account by using the steps for your deployment model.</text>
+    <!-- Sub-box: RSC-managed deployment -->
+    <rect x="108" y="260" width="343" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="279" y="279" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">RSC-managed deployment</text>
+    <!-- Sub-box: Self-managed deployment -->
+    <rect x="465" y="260" width="343" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="636" y="279" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Self-managed deployment</text>
     <circle cx="60" cy="208" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
     <text x="60" y="214" font-size="16" font-weight="bold" fill="#09A8B8"
           text-anchor="middle">2</text>
 
     <!-- Arrow 2 to 3 -->
-    <line x1="60" y1="268" x2="60" y2="277" stroke="#B0C8E0" stroke-width="2"/>
-    <polygon points="53,277 60,285 67,277" fill="#09A8B8"/>
+    <line x1="60" y1="299" x2="60" y2="308" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,308 60,316 67,308" fill="#09A8B8"/>
 
     <!-- ============================================================ -->
-    <!-- Phase 3: Set up core infrastructure (y=292, height=140, 2 sub-boxes) -->
+    <!-- Phase 3: Set up core infrastructure (self-managed accounts) (y=323, height=140) -->
     <!-- ============================================================ -->
-    <rect x="88" y="292" width="728" height="140" rx="8"
+    <rect x="88" y="323" width="728" height="140" rx="8"
           fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
-    <rect x="88" y="292" width="728" height="36" fill="#0B3A72" rx="8"/>
-    <rect x="88" y="316" width="728" height="12" fill="#0B3A72"/>
-    <text x="452" y="316" font-size="13" font-weight="bold" fill="#FFFFFF"
-          text-anchor="middle">Set up core infrastructure</text>
-    <text x="452" y="350" font-size="10" fill="#4A6A8A" text-anchor="middle">Configure Exocompute and storage tiering to support workload protection operations.</text>
-    <!-- Sub-box 1: Exocompute -->
-    <rect x="108" y="362" width="700" height="28" rx="5"
-          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="381" font-size="10" fill="#1A2A3A"
-          text-anchor="middle">Set up Exocompute on AWS</text>
-    <!-- Sub-box 2: Storage Tiering -->
+    <rect x="88" y="323" width="728" height="36" fill="#0B3A72" rx="8"/>
+    <rect x="88" y="347" width="728" height="12" fill="#0B3A72"/>
+    <text x="452" y="347" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Set up core infrastructure (self-managed accounts)</text>
+    <text x="452" y="381" font-size="10" fill="#4A6A8A" text-anchor="middle">Self-managed accounts only. RSC-managed accounts skip this phase because RSC provides the compute.</text>
+    <!-- Sub-box: Set up Exocompute on AWS -->
     <rect x="108" y="393" width="700" height="28" rx="5"
           fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="412" font-size="10" fill="#1A2A3A"
+    <text x="458" y="412" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Set up Exocompute on AWS</text>
+    <!-- Sub-box: Set up AWS storage tiering -->
+    <rect x="108" y="424" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="443" font-size="10" fill="#1A2A3A"
           text-anchor="middle">Set up AWS storage tiering</text>
-    <circle cx="60" cy="310" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
-    <text x="60" y="316" font-size="16" font-weight="bold" fill="#09A8B8"
+    <circle cx="60" cy="341" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="347" font-size="16" font-weight="bold" fill="#09A8B8"
           text-anchor="middle">3</text>
 
     <!-- Arrow 3 to 4 -->
-    <line x1="60" y1="432" x2="60" y2="441" stroke="#B0C8E0" stroke-width="2"/>
-    <polygon points="53,441 60,449 67,441" fill="#09A8B8"/>
+    <line x1="60" y1="463" x2="60" y2="472" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,472 60,480 67,472" fill="#09A8B8"/>
 
     <!-- ============================================================ -->
-    <!-- Phase 4: Set up AWS workloads protection (y=456, height=78) -->
+    <!-- Phase 4: Verify your account setup (y=487, height=78) -->
     <!-- ============================================================ -->
-    <rect x="88" y="456" width="728" height="78" rx="8"
+    <rect x="88" y="487" width="728" height="78" rx="8"
           fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
-    <rect x="88" y="456" width="728" height="36" fill="#0C3460" rx="8"/>
-    <rect x="88" y="480" width="728" height="12" fill="#0C3460"/>
-    <text x="452" y="480" font-size="13" font-weight="bold" fill="#FFFFFF"
-          text-anchor="middle">Set up AWS workloads protection</text>
-    <text x="452" y="514" font-size="10" fill="#4A6A8A" text-anchor="middle">Create SLA Domains and assign protection policies to EC2, RDS, S3, DynamoDB, AWS Glue Iceberg Tables, and AWS S3 Tables.</text>
-    <circle cx="60" cy="474" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
-    <text x="60" y="480" font-size="16" font-weight="bold" fill="#09A8B8"
+    <rect x="88" y="487" width="728" height="36" fill="#0C3460" rx="8"/>
+    <rect x="88" y="511" width="728" height="12" fill="#0C3460"/>
+    <text x="452" y="511" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Verify your account setup</text>
+    <text x="452" y="545" font-size="10" fill="#4A6A8A" text-anchor="middle">Confirm that the account is connected, that workloads are discovered, and that permissions are in place.</text>
+    <circle cx="60" cy="505" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="511" font-size="16" font-weight="bold" fill="#09A8B8"
           text-anchor="middle">4</text>
 
     <!-- Arrow 4 to 5 -->
-    <line x1="60" y1="534" x2="60" y2="543" stroke="#B0C8E0" stroke-width="2"/>
-    <polygon points="53,543 60,551 67,543" fill="#09A8B8"/>
+    <line x1="60" y1="565" x2="60" y2="574" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,574 60,582 67,574" fill="#09A8B8"/>
 
     <!-- ============================================================ -->
-    <!-- Phase 5: Manage AWS workloads (y=558, height=264, 6 sub-boxes) -->
+    <!-- Phase 5: Set up AWS workloads protection (y=589, height=78) -->
     <!-- ============================================================ -->
-    <rect x="88" y="558" width="728" height="264" rx="8"
+    <rect x="88" y="589" width="728" height="78" rx="8"
           fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
-    <rect x="88" y="558" width="728" height="36" fill="#075F68" rx="8"/>
-    <rect x="88" y="582" width="728" height="12" fill="#075F68"/>
-    <text x="452" y="582" font-size="13" font-weight="bold" fill="#FFFFFF"
-          text-anchor="middle">Manage AWS workloads</text>
-    <text x="452" y="616" font-size="10" fill="#4A6A8A" text-anchor="middle">Monitor inventory, manage snapshots, and optimize configuration for all AWS workloads.</text>
-    <!-- Sub-box 1: EC2/EBS -->
-    <rect x="108" y="628" width="700" height="28" rx="5"
-          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="647" font-size="10" fill="#1A2A3A"
-          text-anchor="middle">Manage Amazon EC2 instances and EBS volumes</text>
-    <!-- Sub-box 2: RDS -->
-    <rect x="108" y="659" width="700" height="28" rx="5"
-          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="678" font-size="10" fill="#1A2A3A"
-          text-anchor="middle">Manage Amazon RDS and Aurora databases</text>
-    <!-- Sub-box 3: S3 -->
-    <rect x="108" y="690" width="700" height="28" rx="5"
-          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="709" font-size="10" fill="#1A2A3A"
-          text-anchor="middle">Manage Amazon S3</text>
-    <!-- Sub-box 4: DynamoDB -->
-    <rect x="108" y="721" width="700" height="28" rx="5"
-          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="740" font-size="10" fill="#1A2A3A"
-          text-anchor="middle">Manage Amazon DynamoDB</text>
-    <!-- Sub-box 5: AWS Glue Iceberg Tables -->
-    <rect x="108" y="752" width="700" height="28" rx="5"
-          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="771" font-size="10" fill="#1A2A3A"
-          text-anchor="middle">Manage AWS Glue Iceberg Tables</text>
-    <!-- Sub-box 6: AWS S3 Tables -->
-    <rect x="108" y="783" width="700" height="28" rx="5"
-          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
-    <text x="452" y="802" font-size="10" fill="#1A2A3A"
-          text-anchor="middle">Manage AWS S3 Tables</text>
-    <circle cx="60" cy="576" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
-    <text x="60" y="582" font-size="16" font-weight="bold" fill="#09A8B8"
+    <rect x="88" y="589" width="728" height="36" fill="#0C3460" rx="8"/>
+    <rect x="88" y="613" width="728" height="12" fill="#0C3460"/>
+    <text x="452" y="613" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Set up AWS workloads protection</text>
+    <text x="452" y="647" font-size="10" fill="#4A6A8A" text-anchor="middle">Create SLA Domains and assign protection policies to EC2, RDS, S3, DynamoDB, AWS Glue Iceberg Tables, and AWS S3 Tables.</text>
+    <circle cx="60" cy="607" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="613" font-size="16" font-weight="bold" fill="#09A8B8"
           text-anchor="middle">5</text>
 
-    <!-- Arrow 5 to 6 (recovery phase — green arrowhead) -->
-    <line x1="60" y1="822" x2="60" y2="831" stroke="#B0C8E0" stroke-width="2"/>
-    <polygon points="53,831 60,839 67,831" fill="#21DDAA"/>
+    <!-- Arrow 5 to 6 -->
+    <line x1="60" y1="667" x2="60" y2="676" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,676 60,684 67,676" fill="#09A8B8"/>
 
     <!-- ============================================================ -->
-    <!-- Phase 6: Recover AWS workloads (y=846, height=78) -->
+    <!-- Phase 6: Manage AWS accounts and workloads (y=691, height=295) -->
     <!-- ============================================================ -->
-    <rect x="88" y="846" width="728" height="78" rx="8"
+    <rect x="88" y="691" width="728" height="295" rx="8"
           fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
-    <rect x="88" y="846" width="728" height="36" fill="#0A4030" rx="8"/>
-    <rect x="88" y="870" width="728" height="12" fill="#0A4030"/>
-    <text x="452" y="870" font-size="13" font-weight="bold" fill="#FFFFFF"
-          text-anchor="middle">Recover AWS workloads</text>
-    <text x="452" y="904" font-size="10" fill="#4A6A8A" text-anchor="middle">Restore EC2, RDS, S3, DynamoDB, AWS Glue Iceberg Tables, and AWS S3 Tables using granular or full recovery options.</text>
-    <circle cx="60" cy="864" r="22" fill="#F4F7FA" stroke="#21DDAA" stroke-width="2.5"/>
-    <text x="60" y="870" font-size="16" font-weight="bold" fill="#21DDAA"
+    <rect x="88" y="691" width="728" height="36" fill="#075F68" rx="8"/>
+    <rect x="88" y="715" width="728" height="12" fill="#075F68"/>
+    <text x="452" y="715" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Manage AWS accounts and workloads</text>
+    <text x="452" y="749" font-size="10" fill="#4A6A8A" text-anchor="middle">Manage accounts, monitor inventory, manage snapshots, and optimize configuration for all AWS workloads.</text>
+    <!-- Sub-box: Manage AWS cloud accounts -->
+    <rect x="108" y="761" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="780" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Manage AWS cloud accounts</text>
+    <!-- Sub-box: Manage Amazon EC2 instances and EBS volumes -->
+    <rect x="108" y="792" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="811" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Manage Amazon EC2 instances and EBS volumes</text>
+    <!-- Sub-box: Manage Amazon RDS and Aurora databases -->
+    <rect x="108" y="823" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="842" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Manage Amazon RDS and Aurora databases</text>
+    <!-- Sub-box: Manage Amazon S3 -->
+    <rect x="108" y="854" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="873" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Manage Amazon S3</text>
+    <!-- Sub-box: Manage Amazon DynamoDB -->
+    <rect x="108" y="885" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="904" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Manage Amazon DynamoDB</text>
+    <!-- Sub-box: Manage AWS Glue Iceberg Tables -->
+    <rect x="108" y="916" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="935" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Manage AWS Glue Iceberg Tables</text>
+    <!-- Sub-box: Manage AWS S3 Iceberg Tables -->
+    <rect x="108" y="947" width="700" height="28" rx="5"
+          fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1"/>
+    <text x="458" y="966" font-size="10" fill="#1A2A3A"
+          text-anchor="middle">Manage AWS S3 Iceberg Tables</text>
+    <circle cx="60" cy="709" r="22" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
+    <text x="60" y="715" font-size="16" font-weight="bold" fill="#09A8B8"
           text-anchor="middle">6</text>
 
+    <!-- Arrow 6 to 7 -->
+    <line x1="60" y1="986" x2="60" y2="995" stroke="#B0C8E0" stroke-width="2"/>
+    <polygon points="53,995 60,1003 67,995" fill="#21DDAA"/>
+
+    <!-- ============================================================ -->
+    <!-- Phase 7: Recover AWS workloads (y=1010, height=78) -->
+    <!-- ============================================================ -->
+    <rect x="88" y="1010" width="728" height="78" rx="8"
+          fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1"/>
+    <rect x="88" y="1010" width="728" height="36" fill="#0A4030" rx="8"/>
+    <rect x="88" y="1034" width="728" height="12" fill="#0A4030"/>
+    <text x="452" y="1034" font-size="13" font-weight="bold" fill="#FFFFFF"
+          text-anchor="middle">Recover AWS workloads</text>
+    <text x="452" y="1068" font-size="10" fill="#4A6A8A" text-anchor="middle">Restore EC2, RDS, S3, DynamoDB, AWS Glue Iceberg Tables, and AWS S3 Tables using granular or full recovery options.</text>
+    <circle cx="60" cy="1028" r="22" fill="#F4F7FA" stroke="#21DDAA" stroke-width="2.5"/>
+    <text x="60" y="1034" font-size="16" font-weight="bold" fill="#21DDAA"
+          text-anchor="middle">7</text>
+
     <!-- Footer -->
-    <rect x="0" y="948" width="840" height="22" fill="#0A2347" rx="0"/>
-    <rect x="0" y="958" width="840" height="12" fill="#0A2347" rx="12"/>
-    <text x="420" y="963" font-size="9" fill="#4A7A9A"
+    <rect x="0" y="1112" width="840" height="22" fill="#0A2347" rx="0"/>
+    <rect x="0" y="1122" width="840" height="12" fill="#0A2347" rx="12"/>
+    <text x="420" y="1127" font-size="9" fill="#4A7A9A"
           text-anchor="middle">Rubrik Security Cloud &#x2014; AWS Workloads</text>
 
 </svg>

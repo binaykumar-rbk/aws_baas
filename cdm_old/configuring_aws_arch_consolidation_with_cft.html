@@ -5,9 +5,9 @@
     <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
     <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
 
-    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261127210755"></script>
     <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
-    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261127210755"></script>
     <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
     <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
 <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
@@ -287,18 +287,18 @@
     
     <div class="- topic/body task/taskbody body taskbody"><p class="- topic/shortdesc shortdesc">Use the archival consolidation CloudFormation template to configure archival
         consolidation for Amazon S3.</p>
-        <section class="- topic/section task/context section context" id="d611672e31"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>
+        <section class="- topic/section task/context section context" id="d611707e31"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>
             <p class="- topic/p p">Answer the questions in the <span class="+ topic/keyword ui-d/wintitle keyword wintitle">Create Stack</span> wizard, and edit the
                 default values and descriptions as necessary.</p>
         </section>
-        <section class="- topic/section task/prereq section prereq" id="d611672e43"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Amazon S3 archival consolidation requires a Virtual Private Cloud (VPC). The VPC can
+        <section class="- topic/section task/prereq section prereq" id="d611707e43"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Amazon S3 archival consolidation requires a Virtual Private Cloud (VPC). The VPC can
             be the default VPC for the AWS region or a custom VPC. Set up a subnet inside the VPC
             where AWS archival consolidation can launch its compute resources.<p class="- topic/p p">The Rubrik cluster
                 uses dedicated ports to access the subnet via VPN, Direct Connect, or public IP
                 address. The required ports are listed in <a class="- topic/xref xref" href="../ports/aws_ports.html" title="The Rubrik cluster requires the following ports to be configured for AWS virtual machines.">AWS ports</a>. Update the
                 firewall to allow outbound traffic from the Rubrik cluster to these
             ports.</p></section>
-        <section class="- topic/ol task/steps ol steps" id="d611672e54"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="- topic/ol task/steps ol steps"><li class="- topic/li task/step li step">
+        <section class="- topic/ol task/steps ol steps" id="d611707e54"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="- topic/ol task/steps ol steps"><li class="- topic/li task/step li step">
                 <span class="- topic/ph task/cmd ph cmd">Log in to the AWS Management Console as a user with cloud administrator
                     privileges.</span>
             </li><li class="- topic/li task/step li step">
@@ -406,11 +406,11 @@
             </li><li class="- topic/li task/step li step">
                 <span class="- topic/ph task/cmd ph cmd">Click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Create stack</span>.</span>
             </li></ol></section>
-        <section class="- topic/section task/result section result" id="d611672e348"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>AWS starts the stack creation process. The CloudFormation Stack details page
+        <section class="- topic/section task/result section result" id="d611707e348"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>AWS starts the stack creation process. The CloudFormation Stack details page
             appears, with a status message about the progress. To see the current status of the
             stack, click the refresh icon next to Stacks. To see an activity log for each event in
             the stack creation process, click the refresh icon next to Events.</section>
-        <section class="- topic/section task/postreq section postreq" id="d611672e354"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>Once the stack is created, click the Outputs tab to obtain the following information:<ul class="- topic/ul ul">
+        <section class="- topic/section task/postreq section postreq" id="d611707e354"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>Once the stack is created, click the Outputs tab to obtain the following information:<ul class="- topic/ul ul">
                 <li class="- topic/li li">AWSBucketName</li>
                 <li class="- topic/li li">IAMUserAccessKey</li>
                 <li class="- topic/li li">IAMUserSecretKey</li>
@@ -440,7 +440,7 @@
         </div> 
         <footer class="navbar navbar-default wh_footer">
   <div class=" footer-container mx-auto ">
-    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-27</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
   </div>
 </footer>
         

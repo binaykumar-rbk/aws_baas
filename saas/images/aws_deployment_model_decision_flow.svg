@@ -6,7 +6,8 @@
        Label column: circles cx=44, labels x=66.
        Left column (RSC-managed): x=216, w=350. Right column (Self-managed): x=578, w=350.
        Decision box: x=422 y=92 w=300 h=40. Column headers: y=164 h=34.
-       Rows: y=212 + 52*i, h=44, i=0..6. Last row bottom=568. Footer top=594. -->
+       Rows: y=212 + 52*i, h=44, i=0..6. Last row bottom=568. Footer top=594.
+       Rows: 1 Plan, 2 Prepare and connect, 3 Compute and storage, 4 Verify (shared), 5 Protect, 6 Manage (shared), 7 Recover (shared). -->
 
   <!-- Background -->
   <rect width="960" height="616" fill="#F4F7FA" rx="12"/>
@@ -32,43 +33,43 @@
 
   <!-- Column headers -->
   <rect x="216" y="164" width="350" height="34" fill="#075F68" rx="6"/>
-  <text x="391" y="186" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">RSC-managed</text>
+  <text x="391" y="186" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">RSC-managed (BaaS license)</text>
   <rect x="578" y="164" width="350" height="34" fill="#0C3460" rx="6"/>
-  <text x="753" y="186" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Self-managed</text>
+  <text x="753" y="186" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Self-managed (UCL)</text>
 
   <!-- Phase 1: Plan and prerequisites -->
   <circle cx="44" cy="234" r="14" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
   <text x="44" y="239" font-size="13" font-weight="bold" fill="#09A8B8" text-anchor="middle">1</text>
-  <text x="66" y="238" font-size="10" font-weight="bold" fill="#1A2A3A">Plan and prerequisites</text>
+  <text x="66" y="238" font-size="10" font-weight="bold" fill="#1A2A3A">Plan for your model</text>
   <rect x="216" y="212" width="350" height="44" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1" rx="6"/>
-  <text x="391" y="238" font-size="10" fill="#1A2A3A" text-anchor="middle">Plan RSC-managed AWS protection</text>
+  <text x="391" y="238" font-size="10" fill="#1A2A3A" text-anchor="middle">Workloads, limits, permissions, storage and keys</text>
   <rect x="578" y="212" width="350" height="44" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1" rx="6"/>
-  <text x="753" y="238" font-size="10" fill="#1A2A3A" text-anchor="middle">Plan self-managed AWS protection</text>
+  <text x="753" y="238" font-size="10" fill="#1A2A3A" text-anchor="middle">Permissions, account setup options, and Exocompute</text>
 
   <!-- Phase 2: Connect the AWS account -->
   <circle cx="44" cy="286" r="14" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
   <text x="44" y="291" font-size="13" font-weight="bold" fill="#09A8B8" text-anchor="middle">2</text>
-  <text x="66" y="290" font-size="10" font-weight="bold" fill="#1A2A3A">Connect the account</text>
+  <text x="66" y="290" font-size="10" font-weight="bold" fill="#1A2A3A">Prepare and connect</text>
   <rect x="216" y="264" width="350" height="44" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1" rx="6"/>
-  <text x="391" y="290" font-size="10" fill="#1A2A3A" text-anchor="middle">Add the account with an IAM role only (CFT)</text>
+  <text x="391" y="290" font-size="10" fill="#1A2A3A" text-anchor="middle">Run the checklist, then add the account (IAM role only)</text>
   <rect x="578" y="264" width="350" height="44" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1" rx="6"/>
-  <text x="753" y="290" font-size="10" fill="#1A2A3A" text-anchor="middle">Add the account; configure IAM roles and permissions</text>
+  <text x="753" y="290" font-size="10" fill="#1A2A3A" text-anchor="middle">Complete prerequisites, then add the account</text>
 
   <!-- Phase 3: Set up compute -->
   <circle cx="44" cy="338" r="14" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
   <text x="44" y="343" font-size="13" font-weight="bold" fill="#09A8B8" text-anchor="middle">3</text>
-  <text x="66" y="342" font-size="10" font-weight="bold" fill="#1A2A3A">Set up compute</text>
+  <text x="66" y="342" font-size="10" font-weight="bold" fill="#1A2A3A">Compute and storage</text>
   <rect x="216" y="316" width="350" height="44" fill="#EEF4FA" stroke="#C8D8E8" stroke-width="1" rx="6"/>
   <text x="391" y="342" font-size="10" fill="#4A6A8A" text-anchor="middle">Not required. RSC provides the compute.</text>
   <rect x="578" y="316" width="350" height="44" fill="#FFFFFF" stroke="#C8D8E8" stroke-width="1" rx="6"/>
-  <text x="753" y="342" font-size="10" fill="#1A2A3A" text-anchor="middle">Set up Exocompute, VPC, subnets, and security groups</text>
+  <text x="753" y="342" font-size="10" fill="#1A2A3A" text-anchor="middle">Set up Exocompute and, if used, storage tiering</text>
 
   <!-- Phase 4: Discover workloads (same for both) -->
   <circle cx="44" cy="390" r="14" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
   <text x="44" y="395" font-size="13" font-weight="bold" fill="#09A8B8" text-anchor="middle">4</text>
-  <text x="66" y="394" font-size="10" font-weight="bold" fill="#1A2A3A">Discover workloads</text>
+  <text x="66" y="394" font-size="10" font-weight="bold" fill="#1A2A3A">Verify setup</text>
   <rect x="216" y="368" width="712" height="44" fill="#EEF4FA" stroke="#09A8B8" stroke-width="1.5" rx="6"/>
-  <text x="572" y="394" font-size="10" fill="#1A2A3A" text-anchor="middle">Same for both: discover workloads</text>
+  <text x="572" y="394" font-size="10" fill="#1A2A3A" text-anchor="middle">Same for both: verify the account setup</text>
 
   <!-- Phase 5: Protect workloads -->
   <circle cx="44" cy="442" r="14" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
@@ -82,9 +83,9 @@
   <!-- Phase 6: Verify and manage accounts (same for both) -->
   <circle cx="44" cy="494" r="14" fill="#F4F7FA" stroke="#09A8B8" stroke-width="2.5"/>
   <text x="44" y="499" font-size="13" font-weight="bold" fill="#09A8B8" text-anchor="middle">6</text>
-  <text x="66" y="498" font-size="10" font-weight="bold" fill="#1A2A3A">Verify and manage</text>
+  <text x="66" y="498" font-size="10" font-weight="bold" fill="#1A2A3A">Manage</text>
   <rect x="216" y="472" width="712" height="44" fill="#EEF4FA" stroke="#09A8B8" stroke-width="1.5" rx="6"/>
-  <text x="572" y="498" font-size="10" fill="#1A2A3A" text-anchor="middle">Same for both: verify and manage accounts</text>
+  <text x="572" y="498" font-size="10" fill="#1A2A3A" text-anchor="middle">Same for both: manage accounts and workloads</text>
 
   <!-- Phase 7: Recover (same for both) -->
   <circle cx="44" cy="546" r="14" fill="#F4F7FA" stroke="#21DDAA" stroke-width="2.5"/>

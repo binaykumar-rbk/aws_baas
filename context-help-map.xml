@@ -1880,6 +1880,8 @@
                path="saas/common/configuring_account_lockout_settings.html"/>
    <appContext helpID="supported_workloads" path="rubrik/supported_workloads.html"/>
    <appContext helpID="aws_workloads" path="saas/aws_workloads.html"/>
+   <appContext helpID="aws_protection_overview"
+               path="saas/aws_protection_overview.html"/>
    <appContext helpID="aws_key_features_protection"
                path="saas/aws_key_features_protection.html"/>
    <appContext helpID="aws_common_protection_terms"
@@ -1899,35 +1901,57 @@
    <appContext helpID="amazon_s3_protection_mechanism"
                path="amazon_S3/amazon_s3_protection_mechanism.html"/>
    <appContext helpID="aws_tags" path="saas/aws_tags.html"/>
-   <appContext helpID="aws_deployment_models_cloud_acc"
-               path="saas/aws_deployment_models_cloud_acc.html"/>
-   <appContext helpID="aws_deployment_model_setup_flow"
-               path="saas/aws_deployment_model_setup_flow.html"/>
-   <appContext helpID="aws_cust_controlled_storage"
-               path="saas/aws_cust_controlled_storage.html"/>
-   <appContext helpID="cces_rsc_managed_iaas_workloads"
-               path="saas/cces_rsc_managed_iaas_workloads.html"/>
    <appContext helpID="aws_protect_implementation"
                path="saas/aws_protect_implementation.html"/>
    <appContext helpID="aws_quick_links" path="saas/aws_quick_links.html"/>
    <appContext helpID="aws_planning_protection"
                path="saas/aws_planning_protection.html"/>
+   <appContext helpID="aws_deployment_models_cloud_acc"
+               path="saas/aws_deployment_models_cloud_acc.html"/>
+   <appContext helpID="aws_cloud_discovery" path="saas/aws_cloud_discovery.html"/>
+   <appContext helpID="aws_ephemeral_vm_exclusion_from_discovery"
+               path="saas/aws_ephemeral_vm_exclusion_from_discovery.html"/>
+   <appContext helpID="aws_hosted_license_usage"
+               path="saas/aws_hosted_license_usage.html"/>
    <appContext helpID="aws_rbac_cnp" path="saas/aws_rbac_cnp.html"/>
    <appContext helpID="aws_creating_custom_rbac_role"
                path="saas/aws_creating_custom_rbac_role.html"/>
    <appContext helpID="table_describing_aws_dba_permissions"
                path="saas/common/table_describing_aws_dba_permissions.html"/>
    <appContext helpID="aws_scp_restrictions" path="saas/aws_scp_restrictions.html"/>
+   <appContext helpID="aws_cse_required_permissions"
+               path="saas/aws_cse_required_permissions.html"/>
+   <appContext helpID="aws_rds_eol_engine_versions"
+               path="saas/aws_rds_eol_engine_versions.html"/>
+   <appContext helpID="aws_deploy_rsc_managed" path="saas/aws_deploy_rsc_managed.html"/>
+   <appContext helpID="aws_deployment_checklist_rsc_managed"
+               path="saas/aws_deployment_checklist_rsc_managed.html"/>
    <appContext helpID="aws_hosted_planning" path="saas/aws_hosted_planning.html"/>
-   <appContext helpID="aws_hosted_license_usage"
-               path="saas/aws_hosted_license_usage.html"/>
    <appContext helpID="aws_hosted_supported_workloads_regions"
                path="saas/aws_hosted_supported_workloads_regions.html"/>
    <appContext helpID="aws_hosted_limitations" path="saas/aws_hosted_limitations.html"/>
    <appContext helpID="aws_hosted_required_permissions"
                path="saas/aws_hosted_required_permissions.html"/>
+   <appContext helpID="cces_aws_required_permissions_iaas"
+               path="saas/cces_aws_required_permissions_iaas.html"/>
    <appContext helpID="aws_hosted_vault_encryption"
                path="saas/aws_hosted_vault_encryption.html"/>
+   <appContext helpID="aws_cust_controlled_storage"
+               path="saas/aws_cust_controlled_storage.html"/>
+   <appContext helpID="cces_rsc_managed_iaas_workloads"
+               path="saas/cces_rsc_managed_iaas_workloads.html"/>
+   <appContext helpID="cces_iaas_workloads_prerequisites"
+               path="saas/cces_iaas_workloads_prerequisites.html"/>
+   <appContext helpID="adding_aws_account_rsc_managed"
+               path="saas/adding_aws_account_rsc_managed.html"/>
+   <appContext helpID="cces_troubleshooting_iaas_workload"
+               path="saas/cces_troubleshooting_iaas_workload.html"/>
+   <appContext helpID="aws_rsc_managed_terraform"
+               path="saas/aws_rsc_managed_terraform.html"/>
+   <appContext helpID="aws_deploy_self_managed"
+               path="saas/aws_deploy_self_managed.html"/>
+   <appContext helpID="aws_deployment_checklist_self_managed"
+               path="saas/aws_deployment_checklist_self_managed.html"/>
    <appContext helpID="aws_customer_hosted_planning"
                path="saas/aws_customer_hosted_planning.html"/>
    <appContext helpID="aws_req_rbk_perms_cloud_acc"
@@ -1960,22 +1984,6 @@
                path="saas/req_perms_outpost_account.html"/>
    <appContext helpID="required_permissions_for_role_chaining"
                path="saas/required_permissions_for_role_chaining.html"/>
-   <appContext helpID="cces_aws_required_permissions_iaas"
-               path="saas/cces_aws_required_permissions_iaas.html"/>
-   <appContext helpID="aws_cse_required_permissions"
-               path="saas/aws_cse_required_permissions.html"/>
-   <appContext helpID="aws_rds_eol_engine_versions"
-               path="saas/aws_rds_eol_engine_versions.html"/>
-   <appContext helpID="aws_setup_protection" path="saas/aws_setup_protection.html"/>
-   <appContext helpID="aws_cloud_discovery" path="saas/aws_cloud_discovery.html"/>
-   <appContext helpID="aws_ephemeral_vm_exclusion_from_discovery"
-               path="saas/aws_ephemeral_vm_exclusion_from_discovery.html"/>
-   <appContext helpID="aws_hosted_setup" path="saas/aws_hosted_setup.html"/>
-   <appContext helpID="adding_aws_account_rsc_managed"
-               path="saas/adding_aws_account_rsc_managed.html"/>
-   <appContext helpID="aws_customer_hosted_setup"
-               path="saas/aws_customer_hosted_setup.html"/>
-   <appContext helpID="aws_cloud_acc_setup" path="saas/aws_cloud_acc_setup.html"/>
    <appContext helpID="aws_recommendations_add_cloud_acc"
                path="saas/aws_recommendations_add_cloud_acc.html"/>
    <appContext helpID="aws_permission_categories"
@@ -1999,6 +2007,8 @@
    <appContext helpID="aws_role_chaining" path="saas/aws_role_chaining.html"/>
    <appContext helpID="aws_multi_role_architecture"
                path="saas/aws_multi_role_architecture.html"/>
+   <appContext helpID="aws_plan_exocompute" path="saas/aws_plan_exocompute.html"/>
+   <appContext helpID="aws_cloud_acc_setup" path="saas/aws_cloud_acc_setup.html"/>
    <appContext helpID="aws_prereq_cld_acc_setup"
                path="saas/aws_prereq_cld_acc_setup.html"/>
    <appContext helpID="aws_stackset_prereq" path="saas/aws_stackset_prereq.html"/>
@@ -2006,14 +2016,8 @@
                path="saas/aws_create_stackset_settings.html"/>
    <appContext helpID="requirements_for_setting_up_amazon_ec2_instance_and_ebs_volume_backup"
                path="saas/requirements_for_setting_up_amazon_ec2_instance_and_ebs_volume_backup.html"/>
-   <appContext helpID="cces_iaas_workloads_prerequisites"
-               path="saas/cces_iaas_workloads_prerequisites.html"/>
    <appContext helpID="aws_configuration_cloud_acc"
                path="saas/aws_configuration_cloud_acc.html"/>
-   <appContext helpID="adding_aws_account_rsc_managed"
-               path="saas/adding_aws_account_rsc_managed.html"/>
-   <appContext helpID="cces_troubleshooting_iaas_workload"
-               path="saas/cces_troubleshooting_iaas_workload.html"/>
    <appContext helpID="add_indv_aws_acc_using_cft_protect"
                path="saas/add_indv_aws_acc_using_cft_protect.html"/>
    <appContext helpID="aws_role_customization_fields"
@@ -2034,8 +2038,6 @@
                path="saas/aws_cloud_acc_addition_terraform.html"/>
    <appContext helpID="add_aws_acc_data_scanning"
                path="saas/add_aws_acc_data_scanning.html"/>
-   <appContext helpID="enable_data_scanning_aws_acc"
-               path="saas/enable_data_scanning_aws_acc.html"/>
    <appContext helpID="adding_aws_role_chaining_acc"
                path="saas/adding_aws_role_chaining_acc.html"/>
    <appContext helpID="adding_aws_role_chaining_acc_manually"
@@ -2164,62 +2166,14 @@
                path="saas/creating_cloud_archival_location_aws_storage_account.html"/>
    <appContext helpID="creating_rcv_loc_cn_workloads_aws"
                path="saas/creating_rcv_loc_cn_workloads_aws.html"/>
-   <appContext helpID="aws_manage_cld_acc" path="saas/aws_manage_cld_acc.html"/>
-   <appContext helpID="viewing_the_aws_accounts_page"
-               path="saas/viewing_the_aws_accounts_page.html"/>
-   <appContext helpID="aws_account_status" path="saas/aws_account_status.html"/>
-   <appContext helpID="aws_updating_indv_acc_perms_template"
-               path="saas/aws_updating_indv_acc_perms_template.html"/>
-   <appContext helpID="aws_updating_perms_org_acc"
-               path="saas/aws_updating_perms_org_acc.html"/>
-   <appContext helpID="updating_aws_acnt_perms_manual"
-               path="saas/updating_aws_acnt_perms_manual.html"/>
-   <appContext helpID="upgrading_an_aws_account"
-               path="saas/upgrading_an_aws_account.html"/>
-   <appContext helpID="edit_aws_account" path="saas/edit_aws_account.html"/>
-   <appContext helpID="aws_migrating_existing_acc_org"
-               path="saas/aws_migrating_existing_acc_org.html"/>
-   <appContext helpID="aws_cloud_account_deletion"
-               path="saas/aws_cloud_account_deletion.html"/>
-   <appContext helpID="deleting_aws_cloud_account"
-               path="saas/deleting_aws_cloud_account.html"/>
-   <appContext helpID="aws_deleting_cloud_account_resources"
-               path="saas/aws_deleting_cloud_account_resources.html"/>
-   <appContext helpID="aws_disabling_cloud_discovery"
-               path="saas/aws_disabling_cloud_discovery.html"/>
-   <appContext helpID="aws_rds_deleting_cloud_account"
-               path="saas/aws_rds_deleting_cloud_account.html"/>
-   <appContext helpID="cloud_workload_dashboard_aws"
-               path="saas/cloud_workload_dashboard_aws.html"/>
-   <appContext helpID="aws_manage_role_chaining_acc"
-               path="saas/aws_manage_role_chaining_acc.html"/>
-   <appContext helpID="aws_revoking_access_role_chaining_acc"
-               path="saas/aws_revoking_access_role_chaining_acc.html"/>
-   <appContext helpID="aws_restoring_access_role_chaining"
-               path="saas/aws_restoring_access_role_chaining.html"/>
-   <appContext helpID="aws_removing_role_chaining_account"
-               path="saas/aws_removing_role_chaining_account.html"/>
-   <appContext helpID="aws_disabling_data_scanning"
-               path="saas/aws_disabling_data_scanning.html"/>
-   <appContext helpID="aws_permission_validation"
-               path="saas/aws_permission_validation.html"/>
-   <appContext helpID="aws_validating_permissions"
-               path="saas/aws_validating_permissions.html"/>
-   <appContext helpID="aws_hosted_troubleshooting"
-               path="saas/aws_hosted_troubleshooting.html"/>
+   <appContext helpID="aws_verify_account_setup"
+               path="saas/aws_verify_account_setup.html"/>
    <appContext helpID="aws_workloads_protection_setup"
                path="saas/aws_workloads_protection_setup.html"/>
    <appContext helpID="aws_hierarchy_sla_assignment"
                path="saas/aws_hierarchy_sla_assignment.html"/>
    <appContext helpID="aws_best_practices_sla_assignment"
                path="saas/aws_best_practices_sla_assignment.html"/>
-   <appContext helpID="aws_hosted_sla_domains" path="saas/aws_hosted_sla_domains.html"/>
-   <appContext helpID="aws_hosted_default_sla_domains"
-               path="saas/aws_hosted_default_sla_domains.html"/>
-   <appContext helpID="aws_rsc_managed_creating_sla"
-               path="saas/aws_rsc_managed_creating_sla.html"/>
-   <appContext helpID="aws_creating_custom_sla"
-               path="saas/aws_creating_custom_sla.html"/>
    <appContext helpID="aws_evaluate_sla_option"
                path="saas/aws_evaluate_sla_option.html"/>
    <appContext helpID="aws_primary_snapshot_retention"
@@ -2252,15 +2206,20 @@
                path="saas/aws_ddb_primary_backup_immutability.html"/>
    <appContext helpID="multiple_key_value_tag_pair"
                path="saas/multiple_key_value_tag_pair.html"/>
+   <appContext helpID="aws_hosted_sla_domains" path="saas/aws_hosted_sla_domains.html"/>
+   <appContext helpID="aws_region_level_sla_domain_assignment"
+               path="saas/aws_region_level_sla_domain_assignment.html"/>
+   <appContext helpID="aws_protection_config" path="saas/aws_protection_config.html"/>
+   <appContext helpID="aws_creating_custom_sla"
+               path="saas/aws_creating_custom_sla.html"/>
+   <appContext helpID="aws_rsc_managed_creating_sla"
+               path="saas/aws_rsc_managed_creating_sla.html"/>
    <appContext helpID="aws_iceberg_creating_sla_domain"
                path="aws/aws_iceberg_creating_sla_domain.html"/>
    <appContext helpID="creating_sla_domains_without_snapshot_schedules"
                path="saas/creating_sla_domains_without_snapshot_schedules.html"/>
    <appContext helpID="aws_sharing_keys_cross_acc_replication"
                path="saas/aws_sharing_keys_cross_acc_replication.html"/>
-   <appContext helpID="aws_region_level_sla_domain_assignment"
-               path="saas/aws_region_level_sla_domain_assignment.html"/>
-   <appContext helpID="aws_protection_config" path="saas/aws_protection_config.html"/>
    <appContext helpID="aws_assigning_protection_ec2_ebs"
                path="saas/aws_assigning_protection_ec2_ebs.html"/>
    <appContext helpID="assigning_protection_amazon_S3_bucket"
@@ -2331,8 +2290,6 @@
    <appContext helpID="deleting_deleted_on_demand_instance_or_volume_snapshots"
                path="saas/removing_deleted_on_demand_instance_or_volume_snapshots.html"/>
    <appContext helpID="aws_acc_management" path="saas/aws_acc_management.html"/>
-   <appContext helpID="viewing_the_aws_accounts_page"
-               path="saas/viewing_the_aws_accounts_page.html"/>
    <appContext helpID="aws_refreshing_account" path="saas/aws_refreshing_account.html"/>
    <appContext helpID="aws_ec2_ebs_details" path="saas/aws_ec2_ebs_details.html"/>
    <appContext helpID="viewing_the_aws_ec2_applications_page"
@@ -2423,6 +2380,49 @@
                path="aws/aws_s3_tables_viewing_details_page.html"/>
    <appContext helpID="aws_s3_tables_snapshot_info_list"
                path="aws/aws_s3_tables_snapshot_info_list.html"/>
+   <appContext helpID="aws_manage_cld_acc" path="saas/aws_manage_cld_acc.html"/>
+   <appContext helpID="viewing_the_aws_accounts_page"
+               path="saas/viewing_the_aws_accounts_page.html"/>
+   <appContext helpID="aws_account_status" path="saas/aws_account_status.html"/>
+   <appContext helpID="aws_updating_indv_acc_perms_template"
+               path="saas/aws_updating_indv_acc_perms_template.html"/>
+   <appContext helpID="aws_updating_perms_org_acc"
+               path="saas/aws_updating_perms_org_acc.html"/>
+   <appContext helpID="updating_aws_acnt_perms_manual"
+               path="saas/updating_aws_acnt_perms_manual.html"/>
+   <appContext helpID="upgrading_an_aws_account"
+               path="saas/upgrading_an_aws_account.html"/>
+   <appContext helpID="edit_aws_account" path="saas/edit_aws_account.html"/>
+   <appContext helpID="aws_migrating_existing_acc_org"
+               path="saas/aws_migrating_existing_acc_org.html"/>
+   <appContext helpID="aws_cloud_account_deletion"
+               path="saas/aws_cloud_account_deletion.html"/>
+   <appContext helpID="deleting_aws_cloud_account"
+               path="saas/deleting_aws_cloud_account.html"/>
+   <appContext helpID="aws_deleting_cloud_account_resources"
+               path="saas/aws_deleting_cloud_account_resources.html"/>
+   <appContext helpID="aws_disabling_cloud_discovery"
+               path="saas/aws_disabling_cloud_discovery.html"/>
+   <appContext helpID="aws_rds_deleting_cloud_account"
+               path="saas/aws_rds_deleting_cloud_account.html"/>
+   <appContext helpID="cloud_workload_dashboard_aws"
+               path="saas/cloud_workload_dashboard_aws.html"/>
+   <appContext helpID="aws_manage_role_chaining_acc"
+               path="saas/aws_manage_role_chaining_acc.html"/>
+   <appContext helpID="aws_revoking_access_role_chaining_acc"
+               path="saas/aws_revoking_access_role_chaining_acc.html"/>
+   <appContext helpID="aws_restoring_access_role_chaining"
+               path="saas/aws_restoring_access_role_chaining.html"/>
+   <appContext helpID="aws_removing_role_chaining_account"
+               path="saas/aws_removing_role_chaining_account.html"/>
+   <appContext helpID="enable_data_scanning_aws_acc"
+               path="saas/enable_data_scanning_aws_acc.html"/>
+   <appContext helpID="aws_disabling_data_scanning"
+               path="saas/aws_disabling_data_scanning.html"/>
+   <appContext helpID="aws_permission_validation"
+               path="saas/aws_permission_validation.html"/>
+   <appContext helpID="aws_validating_permissions"
+               path="saas/aws_validating_permissions.html"/>
    <appContext helpID="aws_workload_recovery" path="saas/aws_workload_recovery.html"/>
    <appContext helpID="aws_recovery_privilege_elevation"
                path="saas/aws_recovery_privilege_elevation.html"/>

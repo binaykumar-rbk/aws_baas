@@ -5,9 +5,9 @@
     <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/commons.css?buildId=2025032023"/>
     <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/app/topic.css?buildId=2025032023"/>
 
-    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/options/properties.js?buildId=20261127210755"></script>
     <script src="../oxygen-webhelp/app/localization/strings.js?buildId=2025032023"></script>
-    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261126233032"></script>
+    <script src="../oxygen-webhelp/app/search/index/keywords.js?buildId=20261127210755"></script>
     <script defer="defer" src="../oxygen-webhelp/app/commons.js?buildId=2025032023"></script>
     <script defer="defer" src="../oxygen-webhelp/app/topic.js?buildId=2025032023"></script>
 <link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/oxygen.css?buildId=2025032023"/><link rel="stylesheet" type="text/css" href="../oxygen-webhelp/template/html-tiles-style-en_min.css?buildId=2025032023"/>
@@ -287,13 +287,13 @@
     
     <div class="- topic/body task/taskbody body taskbody"><p class="- topic/shortdesc shortdesc">Creating a Live Mount of an AHV virtual machine with optional migration involves
         immediate or delayed migration of the data source.</p>
-        <section class="- topic/section task/prereq section prereq" id="d544500e30"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Select a local, archived, or a replicated snapshot to Live Mount the virtual
+        <section class="- topic/section task/prereq section prereq" id="d544575e30"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Select a local, archived, or a replicated snapshot to Live Mount the virtual
             machine, as described in <a class="- topic/xref xref" href="ahv_selecting_a_snapshot.html" title="Use the Rubrik CDM web UI to select a snapshot before applying a recovery action.">Selecting a snapshot or archival snapshot</a> and <a class="- topic/xref xref" href="selecting_replica.html" title="Use the Rubrik CDM web UI of the replication target Rubrik cluster to select a replica before applying a recovery action.">Selecting a replica</a>.</section>
-        <section class="- topic/section task/context section context" id="d544500e42"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>
+        <section class="- topic/section task/context section context" id="d544575e42"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>
             <p class="- topic/p p">The Live Mounted virtual machine uses the Rubrik cluster as its storage initially,
                 but leverages the selected Nutanix container for all subsequent writes.</p>
         </section>
-        <section class="- topic/ol task/steps ol steps" id="d544500e51"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="- topic/ol task/steps ol steps"><li class="- topic/li task/step li step">
+        <section class="- topic/ol task/steps ol steps" id="d544575e51"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="- topic/ol task/steps ol steps"><li class="- topic/li task/step li step">
                 <span class="- topic/ph task/cmd ph cmd">On the Snapshots card, from the ellipsis menu of the selected snapshot, click
                         <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Mount Virtual Machine</span>.</span>
                 <div class="- topic/itemgroup task/stepresult itemgroup stepresult">The Select Cluster page of the Mount Virtual Machine wizard
@@ -339,12 +339,12 @@
             </li><li class="- topic/li task/step li step">
                 <span class="- topic/ph task/cmd ph cmd">Click <span class="+ topic/ph ui-d/uicontrol ph uicontrol">Mount</span>.</span>
             </li></ol></section>
-        <section class="- topic/section task/result section result" id="d544500e180"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The Rubrik cluster initiates a job to create a Live Mount of the AHV virtual
+        <section class="- topic/section task/result section result" id="d544575e180"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The Rubrik cluster initiates a job to create a Live Mount of the AHV virtual
             machine. The Activity Log and the Activities card display the status of all the
                 jobs.<p class="- topic/p p">The AHV Live Mounts page displays an entry for the live mounted virtual
                 machine until the data source migration is done. The virtual machine entry
                 disappears when migration and unmounting are complete.</p></section>
-        <section class="- topic/section task/postreq section postreq" id="d544500e188"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>Verify the Live Mount on the AHV Live Mounts page. Optionally, initiate the
+        <section class="- topic/section task/postreq section postreq" id="d544575e188"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>Verify the Live Mount on the AHV Live Mounts page. Optionally, initiate the
             migration for the mounted virtual machine if it was not migrated immediately, as
             described in <a class="- topic/xref xref" href="ahv_migrating_a_live_mounted_virtual_machine.html" title="Migrate the data source of a live mounted AHV virtual machine from the Rubrik cluster to a Nutanix storage container.">Migrating a live mounted virtual machine</a>.</section>
     </div>
@@ -366,7 +366,7 @@
         </div> 
         <footer class="navbar navbar-default wh_footer">
   <div class=" footer-container mx-auto ">
-    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-26</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
+    <div class="footer-group"><div class="footer"><ul class="footernav"><li><a href="https://support.rubrik.com/" target="_blank">Support</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal" target="_blank">Legal</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-policy" target="_blank">Privacy Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/terms-of-use" target="_blank">Terms of Use</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/cookie-policy" target="_blank">Cookie Policy</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/trust" target="_blank">Trust</a></li></ul></div><div class="footer"><ul class="footernav"><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">CA Residents only: Do not sell or share my personal information</a></li><li class="footer-divider" aria-hidden="true"></li><li><a href="https://www.rubrik.com/legal/privacy-request" target="_blank">Do not share my sensitive information</a></li></ul></div><div class="footer footer-generated">Generated on: 2026-11-27</div><div class="footer footer-copyright">Copyright © Rubrik - Zero Trust Data Security™</div></div>
   </div>
 </footer>
         
